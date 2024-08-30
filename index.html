@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickDrop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- navber -->
+   
+    <nav class="navbar navbar-expand-lg navbar-custom text-white">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">QuickDrop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled text-white" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-light btn-signin" type="submit">Sign in</button>
+                    <button class="btn btn-outline-light btn-signup" type="submit">Sign up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    
+    
+    
+    
+
+
+
+    <!-- banner section -->
+ 
+    
+    <div class="bg">
+        <div class="row">
+            <div class="col-md-7 d-flex flex-column justify-content-center align-items-start text-white">
+                <h1 class="text-adjust">Discover restaurants that deliver food<br>near you</h1>
+                <div class="search-bar mt-4">
+                    <input type="text" class="form-control" placeholder="Search for restaurants" id="restaurant-search">
+                    <button class="btn-category" id="search-button">Search</button>
+                </div>
+            </div>
+            <div class="col-md-5 d-flex justify-content-start align-items-center">
+                <img src="food image/home-vector.png" alt="Delivery Illustration" style="max-width: 100%; margin-left: -10px;">
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- How It Works Section -->
+<section class="how-it-works py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <h2 class="mb-5">How It Works</h2>
+            <div class="col-md-4">
+                <div class="">
+                    <img src="food image/illustration-1.png" alt="Step 1" class="mb-3">
+                    <h4>Step 1: Select restaurant</h4>
+                    <p>Select your favorite restaurant and browse the menu.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="">
+                    <img src="food image/illustration-2.png" alt="Step 2" class="mb-3">
+                    <h4>Step 2: Select menu</h4>
+                    <p>Place your order with a few simple clicks.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="">
+                    <img src="food image/illustration-3.png" alt="Step 3" class="mb-3">
+                    <h4>Step 3: Wait for delivery</h4>
+                    <p>Relax and enjoy your meal as it arrives at your doorstep.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Categories Section -->
+    <section class="categories py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Explore Our Categories</h2>
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <button class="btn-category mb-4">Pizza</button>
+                <button class="btn-category mb-4">Burgers</button>
+                <button class="btn-category mb-4">Sushi</button>
+                <button class="btn-category mb-4">Pasta</button>
+                <button class="btn-category mb-4">Salads</button>
+                <button class="btn-category mb-4">Desserts</button>
+                <button class="btn-category mb-4">Desserts</button>
+                
+               
+            </div>
+        </div>
+    </section>
+    
+    <!-- food items -->
+
+    <section class="food-menu py-3">
+        <div class="container">
+            <h2 class="mb-4">Our Menu</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card food-card mb-4">
+                        <img src="food image/Layer256-1.png" class="card-img-top" alt="Pizza">
+                        <div class="card-body">
+                            <h5 class="card-title">Pizza</h5>
+                            <p class="card-text">Delicious and cheesy pizzas made with fresh ingredients.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$12.99</span>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card mb-4">
+                        <img src="food image/pngwing (1).png" class="card-img-top" alt="Burger">
+                        <div class="card-body">
+                            <h5 class="card-title">Burgers</h5>
+                            <p class="card-text">Juicy and flavorful burgers with a variety of toppings.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$8.99</span>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card mb-4">
+                        <img src="food image/qawLayer-1.png" class="card-img-top" alt="Sushi">
+                        <div class="card-body">
+                            <h5 class="card-title">Sushi</h5>
+                            <p class="card-text">Fresh and tasty sushi rolls prepared by expert chefs.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$14.99</span>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card mb-4">
+                        <img src="food image/qawLayer-1.png" class="card-img-top" alt="Sushi">
+                        <div class="card-body">
+                            <h5 class="card-title">Sushi</h5>
+                            <p class="card-text">Fresh and tasty sushi rolls prepared by expert chefs.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$14.99</span>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card mb-4">
+                        <img src="food image/qawLayer-1.png" class="card-img-top" alt="Sushi">
+                        <div class="card-body">
+                            <h5 class="card-title">Sushi</h5>
+                            <p class="card-text">Fresh and tasty sushi rolls prepared by expert chefs.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$14.99</span>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card mb-4">
+                        <img src="food image/qawLayer-1.png" class="card-img-top" alt="Sushi">
+                        <div class="card-body">
+                            <h5 class="card-title">Sushi</h5>
+                            <p class="card-text">Fresh and tasty sushi rolls prepared by expert chefs.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$14.99</span>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar structure for other menu items -->
+            </div>
+        </div>
+    </section>
+    
+<!-- special features section -->
+
+<section class="featured-dishes py-5">
+    <div class="container">
+        <h2 class="mb-4">Popular Dishes</h2>
+        <div class="row">
+            <!-- Dish 1 -->
+            <div class="col-md-4">
+                <div class="card dish-card mb-4">
+                    <img src="food image/sssssa1.png" class="card-img-top" alt="Pizza">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Pizza Margherita</h5>
+                        <p class="card-text">A classic delight with fresh tomatoes, mozzarella cheese, and basil.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$12.99</span>
+                            <div class="ratings">
+                                <span>★★★★☆</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dish 2 -->
+            <div class="col-md-4">
+                <div class="card dish-card mb-4">
+                    <img src="food image/1qLayer-1.png" class="card-img-top" alt="Burger">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Classic Cheeseburger</h5>
+                        <p class="card-text">Juicy beef patty with cheddar cheese, lettuce, and tomato.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$9.99</span>
+                            <div class="ratings">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dish 3 -->
+            <div class="col-md-4">
+                <div class="card dish-card mb-4">
+                    <img src="food image/sa1.png" class="card-img-top" alt="Sushi">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Salmon Sushi</h5>
+                        <p class="card-text">Fresh salmon served over perfectly seasoned rice.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$14.99</span>
+                            <div class="ratings">
+                                <span>★★★★☆</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more dishes similarly -->
+        </div>
+    </div>
+</section>
+
+<!-- super delicious section -->
+
+<section class="delicous-dishes py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Super delicious deal</h2>
+        <div class="row">
+            <!-- Dish 1 -->
+            <div class="col-md-4">
+                <div class="card delicous-card mb-4">
+                    <img src="food image/sup1.png" class="card-img-top2" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="delicious-title">Crispy Fry Burger</h5>
+                        <p class="card-text">Howdy Special, A well-seasoned, crispy fried chicken fillet slathered with a.</p>
+                        <div class="d-flex gap-2">
+                            <del aria-hidden="true"><span class="price">$12.99</span></del>
+                            <span class="price">$10.99</span>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dish 2 -->
+            <div class="col-md-4">
+                <div class="card delicous-card mb-4">
+                    <img src="food image/sup2.png" class="card-img-top2" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="delicious-title">Fandango Burger</h5>
+                        <p class="card-text">Potato skins, chicken strips, toasted ravioli and mozzarella sticks served with.</p>
+                        <div class="d-flex gap-2">
+                            <del aria-hidden="true"><span class="price">$12.99</span></del>
+                            <span class="price">$10.99</span>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dish 3 -->
+            <div class="col-md-4">
+                <div class="card delicous-card mb-4">
+                    <img src="food image/sup3.png" class="card-img-top2" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="delicious-title">Wrangler Burger</h5>
+                        <p class="card-text">Blackened chicken, sauteed onions and peppers smothered with pepper jack and.</p>
+                        <div class="d-flex gap-2">
+                            <del aria-hidden="true"><span class="price">$12.99</span></del>
+                            <span class="price">$10.99</span>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card delicous-card mb-4">
+                    <img src="food image/sup4.png" class="card-img-top2" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="delicious-title">Double Cheese Burger</h5>
+                        <p class="card-text">Special Burger, deep-fried beef ravioli served with marinara sauce and topped.</p>
+                        <div class="d-flex gap-2">
+                            <del aria-hidden="true"><span class="price">$12.99</span></del>
+                            <span class="price">$10.99</span>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card delicous-card mb-4">
+                    <img src="food image/sup5.png" class="card-img-top2" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="delicious-title">Cheddar Cheese Burger</h5>
+                        <p class="card-text">Hot & Grilled nachos smothered in cheddar cheese, beef, black olives, onions,.</p>
+                        <div class="d-flex gap-2">
+                            <del aria-hidden="true"><span class="price">$12.99</span></del>
+                            <span class="price">$10.99</span>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card delicous-card mb-4">
+                    <img src="food image/sup6.png" class="card-img-top2" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="delicious-title">Howdy Hamburger</h5>
+                        <p class="card-text">Double Breast Of A Chicken Burger With Spicy Red Sauce Try this new arrival to.</p>
+                        <div class="d-flex gap-2">
+                            <del aria-hidden="true"><span class="price">$12.99</span></del>
+                            <span class="price">$10.99</span>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
+
+
+<!-- special offer section -->
+
+<section class="special-offers py-5">
+    <div class="container">
+        <h2 class="mb-4">Special Offers & Deals</h2>
+        <div class="row">
+            <!-- Offer 1 -->
+            <div class="col-md-6">
+                <div class="offer-card mb-4">
+                    <img src="food image/1qLayer-1.png" class="offer-img" alt="50% Off Pizza">
+                    <div class="offer-details">
+                        <h4>50% Off on All Pizzas</h4>
+                        <p>Enjoy half off on all pizzas this weekend only! Don’t miss out on this delicious deal.</p>
+                        <a href="#" class="btn btn-info">Order Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offer 2 -->
+            <div class="col-md-6">
+                <div class="offer-card mb-4">
+                    <img src="food image/pngwing.png" class="offer-img" alt="Combo Deal">
+                    <div class="offer-details">
+                        <h4>Combo Deal: Burger + Fries</h4>
+                        <p>Get a juicy cheeseburger and crispy fries at a special combo price. Available this week!</p>
+                        <a href="#" class="btn btn-info">Claim Offer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Offer 3 -->
+            <div class="col-md-6">
+                <div class="offer-card mb-4">
+                    <img src="food image/sa1.png" class="offer-img" alt="Free Dessert">
+                    <div class="offer-details">
+                        <h4>Free Dessert with Any Meal</h4>
+                        <p>Order any main course and get a free dessert of your choice. Sweeten up your meal!</p>
+                        <a href="#" class="btn btn-info">Claim Offer</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offer 4 -->
+            <div class="col-md-6">
+                <div class="offer-card mb-4">
+                    <img src="food image/sssssa1.png" class="offer-img" alt="Sushi Special">
+                    <div class="offer-details">
+                        <h4>Sushi Special: Buy 1 Get 1 Free</h4>
+                        <p>Buy any sushi roll and get another one free. Perfect for sushi lovers!</p>
+                        <a href="#" class="btn btn-info">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+    
+    
+
+<!-- Testimonials Section -->
+<section class="testimonials py-5">
+    <div class="container">
+        <div class="row text-center">
+            <h2>What Our Customers Say</h2>
+            <div class="col-md-4">
+                <div class="testimonial-box">
+                    <p>"QuickDrop is my go-to for food delivery. Always on time and with great service!"</p>
+                    <h5>- Sarah J.</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-box">
+                    <p>"The variety of restaurants available is amazing, and the app is easy to use."</p>
+                    <h5>- Michael R.</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-box">
+                    <p>"Love the fast delivery and the customer support is top-notch."</p>
+                    <h5>- Emily T.</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- faq sec -->
+
+<section class="faq py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+        <div id="faqAccordion">
+            <!-- FAQ Item 1 -->
+            <div class="card mb-3">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What is the delivery time?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Our standard delivery time is between 30 to 60 minutes, depending on your location and the time of day.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="card mb-3">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Can I change my order after placing it?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Once an order is placed, changes can be made within the first 10 minutes. After this period, modifications cannot be guaranteed.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="card mb-3">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            What payment methods do you accept?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        We accept various payment methods including credit/debit cards, PayPal, and cash on delivery.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="card mb-3">
+                <div class="card-header" id="headingFour">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Do you offer discounts for bulk orders?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Yes, we offer discounts for bulk orders. Please contact our support team for more details and customized offers.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- news letter sec -->
+
+<section class="newsletter-signup py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Subscribe to Our Newsletter</h2>
+        <p class="mb-4">Stay updated with the latest offers, news, and delicious updates from us. Subscribe now and never miss out!</p>
+        <form class="newsletter-form">
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </div>
+</section>
+
+
+<!-- contact sec -->
+
+<section class="contact-us py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Contact Us</h2>
+        <div class="row">
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h4 class="mb-3">Get in Touch</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Your message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="col-md-6">
+                <div class="contact-details">
+                    <h4 class="mb-3">Our Location</h4>
+                    <p><strong>Address:</strong> 123 Delicious St, Flavor Town, FT 45678</p>
+                    <p><strong>Phone:</strong> (123) 456-7890</p>
+                    <p><strong>Email:</strong> contact@restaurant.com</p>
+                    <h4 class="mt-4 mb-3">Find Us On:</h4>
+                    <div class="social-icons">
+                        <a href="#" class="btn btn-social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-social"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-social"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Maps Embed -->
+        <div class="row mt-4">
+            <div class="col-6">
+                <h4 class="text-center mb-3">Our Location on Google Maps</h4>
+                <div class="map-responsive">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.265115834074!2d-122.41941848468122!3d37.77492977975968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808b1c4a64db%3A0x5f3c1c3e11b4cf07!2sRestaurant!5e0!3m2!1sen!2sus!4v1638961162722!5m2!1sen!2sus" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer Section -->
+<footer class="footer py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Navigation Links -->
+            <div class="col-md-4 mb-3">
+                <h5>Navigation</h5>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="col-md-4 mb-3 text-center">
+                <h5>Follow Us</h5>
+                <div class="social-icons">
+                    <a href="#" class="btn btn-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-social"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-social"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn btn-social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="col-md-4 mb-3">
+                <h5>Contact Details</h5>
+                <p><strong>Address:</strong> 123 Delicious St, Flavor Town, FT 45678</p>
+                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>Email:</strong> contact@quickdrop.com</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <p class="mb-0">&copy; 2024 QuickDrop. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+    
+</body>
+</html>

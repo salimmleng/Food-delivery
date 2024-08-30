@@ -1,0 +1,607 @@
+
+/* style.css */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.bg {
+    background-color: #212529; /* Dark background for the banner */
+    padding: 100px 0;
+    background-image: url(food\ image/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.nav-link {
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+button {
+    font-size: 12px;
+}
+
+
+/* General Styles */
+h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.feature-box, .step-box, .testimonial-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.cta {
+    padding: 60px 0;
+}
+
+.footer ul {
+    margin-top: 15px;
+}
+
+.footer ul li {
+    margin: 0 10px;
+}
+
+
+/* Categories Section */
+
+.btn-category {
+    background-color: #ff8a00; /* Adjust the button color as needed */
+    color: white;
+    border-radius: 50px; /* Rounded corners */
+    padding: 10px; /* Padding */
+    font-size: 1.25rem; /* Font size */
+    border: none;
+    width: 150px; /* Fixed width for all buttons */
+    text-align: center; /* Center the text */
+    transition: background-color 0.3s ease;
+}
+
+.btn-category:hover {
+    background-color: #c26e0e; /* Darker shade on hover */
+}
+
+@media (max-width: 992px) {
+    .d-flex {
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    }
+}
+
+/* food item section */
+
+.food-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    border-radius: 10px; /* Rounded corners for the card */
+    overflow: hidden; /* Ensures the image and content fit within the card */
+    transition: transform 0.2s ease-in-out; /* Smooth transform effect on hover */
+}
+
+.food-card:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+/* .card-img-top {
+    height: 100px; 
+    object-fit: cover; 
+    
+    
+   
+} */
+
+.card-body {
+    padding: 15px;
+    text-align: left;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ff5722; /* Matches the button color */
+}
+
+.btn-primary {
+    background-color: #ff5722;
+    border: none;
+    border-radius: 50px; /* Rounded button */
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e64a19; /* Darker shade on hover */
+}
+
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 150px; /* Adjust height for smaller screens */
+        width: 150px; /* Adjust width for smaller screens */
+    }
+}
+
+
+
+/* special features section */
+
+
+.featured-dishes {
+    background-color: #f9f9f9; /* Light background for the section */
+}
+
+.dish-card {
+    border: none; /* Removes default card border */
+    border-radius: 10px; /* Slightly rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    transition: transform 0.2s ease-in-out;
+}
+
+.dish-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.card-img-top {
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Ensures the image covers the space */
+    padding: 10px;
+   
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ff5722; /* Pricing color to match the overall theme */
+}
+
+.ratings span {
+    color: #ffcc00; /* Star color */
+    font-size: 1rem;
+}
+
+
+/* sup delicous section */
+
+.delicous-dishes {
+    background-color: #f9f9f9; /* Light background for the section */
+}
+
+.delicous-card {
+    border: 1px solid gray; /* Removes default card border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    transition: transform 0.2s ease-in-out;
+}
+
+.delicous-card:hover {
+    transform: translateY(-4px); /* Lift effect on hover */
+}
+
+.card-img-top2 {
+    height: 300px; /* Fixed height for images */
+    object-fit: cover; /* Ensures the image covers the space */
+    padding: 10px;
+   
+}
+
+.delicious-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ff5722; /* Pricing color to match the overall theme */
+}
+
+.ratings span {
+    color: #ffcc00; /* Star color */
+    font-size: 1rem;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 150px; /* Smaller image size on mobile */
+    }
+}
+
+
+/* special offer section */
+
+
+.special-offers {
+    background-color: #f2f2f2; /* Light background to make the section stand out */
+    padding: 50px 0;
+}
+
+.offer-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a professional look */
+    transition: transform 0.2s ease-in-out;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.offer-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Ensures the image covers the space */
+}
+
+.offer-details {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.offer-details h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.offer-details p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #ff5722; /* Button color matching the overall theme */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px; /* Rounded button */
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e64a19; /* Darker shade on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .offer-img {
+        height: 200px; /* Adjust image height for smaller screens */
+    }
+
+    .offer-details h4 {
+        font-size: 1.25rem; /* Adjust font size for smaller screens */
+    }
+}
+
+/* newletter sec */
+
+
+.newsletter-signup {
+    background-color: #f5f5f5; /* Light background color for the section */
+    padding: 50px 0;
+}
+
+.newsletter-signup h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333; /* Darker color for the heading */
+}
+
+.newsletter-signup p {
+    font-size: 1rem;
+    color: #666; /* Lighter color for the description */
+    margin-bottom: 30px;
+}
+
+.newsletter-form {
+    max-width: 600px; /* Max width for the form */
+    margin: 0 auto; /* Center the form */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    height: 50px; /* Increased height for better usability */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light border color */
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: #ff5722; /* Button color matching the overall theme */
+    border: none;
+    border-radius: 50px; /* Rounded button */
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e64a19; /* Darker shade on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .newsletter-signup h2 {
+        font-size: 1.5rem; /* Adjust heading size for smaller screens */
+    }
+
+    .newsletter-signup p {
+        font-size: 0.875rem; /* Adjust paragraph size for smaller screens */
+    }
+}
+
+
+
+/* faq sec */
+
+.faq {
+    background-color: #f9f9f9; /* Light background color for the section */
+    padding: 50px 0;
+}
+
+.faq h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333; /* Darker color for the heading */
+}
+
+.card {
+    border: none; /* Removes default card border */
+    border-radius: 10px; /* Rounded corners for the card */
+}
+
+.card-header {
+    background-color: #fff; /* Background color for the header */
+    border-bottom: 1px solid #ddd; /* Light border for separation */
+}
+
+.btn-link {
+    color: #007bff; /* Color for the question links */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.btn-link:hover {
+    color: #0056b3; /* Darker color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+.card-body {
+    background-color: #fff; /* White background for the answer */
+    padding: 20px;
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .faq h2 {
+        font-size: 1.5rem; /* Adjust heading size for smaller screens */
+    }
+}
+
+
+
+/* Adjust the text to move it slightly to the right */
+.text-adjust {
+    padding-left: 25px; /* Adjust this value to move the text more or less */
+}
+
+/* Styling for the search bar */
+.search-bar {
+    display: flex;
+    gap: 10px; /* Space between the input and the button */
+    width: 100%;
+    max-width: 500px; /* Adjust the maximum width */
+    padding-left: 25px;
+}
+
+.search-bar .form-control {
+    flex: 1; /* Make the input take the remaining space */
+}
+
+.search-bar .btn {
+    padding: 10px 20px; /* Add padding to the button for better appearance */
+}
+
+
+/* Custom Navbar Styling */
+.navbar-custom {
+    background: linear-gradient(90deg, #ff8a00, #de5688);
+    padding: 15px 0;
+}
+
+.navbar-custom .navbar-brand {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover,
+.navbar-custom .navbar-nav .nav-link.active {
+    color: #ff8a00;
+}
+
+.navbar-custom .btn-signin,
+.navbar-custom .btn-signup {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-custom .btn-signin:hover {
+    background-color: #ff8a00;
+    color: #fff;
+}
+
+.navbar-custom .btn-signup:hover {
+    background-color: #e52e71;
+    color: #fff;
+}
+
+/* Mobile Toggle Icon Color */
+.navbar-toggler-icon {
+    color: #fff;
+}
+
+/* contact section */
+
+.contact-us {
+    background-color: #f8f9fa; /* Light background color for the section */
+    padding: 50px 0;
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a clean look */
+}
+
+.contact-form h4 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333; /* Darker color for the heading */
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a clean look */
+}
+
+.contact-details h4 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333; /* Darker color for the heading */
+}
+
+.contact-details p {
+    font-size: 1rem;
+    color: #666; /* Lighter color for the text */
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.btn-social {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-social:hover {
+    background-color: #007bff; /* Change background on hover */
+    color: #fff; /* Change icon color on hover */
+}
+
+.map-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    border-radius: 10px; /* Rounded corners for the map */
+}
+
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .contact-form, .contact-details {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* footer sec */
