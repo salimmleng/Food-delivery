@@ -14,7 +14,7 @@
    
     <nav class="navbar navbar-expand-lg navbar-custom text-white">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="#">QuickDrop</a>
+            <a class="navbar-brand text-white px-3" href="index.html">QuickDrop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,10 +41,7 @@
                         <a class="nav-link disabled text-white" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
-                <div class="d-flex gap-2">
-                    <button class="btn btn-outline-light btn-signin" type="submit">Sign in</button>
-                    <button class="btn btn-outline-light btn-signup" type="submit">Sign up</button>
-                </div>
+                <a href="register.html" class="btn btn-outline-light mx-2" type="submit">Sign in</a>
             </div>
         </div>
     </nav>
@@ -62,11 +59,9 @@
     <div class="bg">
         <div class="row">
             <div class="col-md-7 d-flex flex-column justify-content-center align-items-start text-white">
-                <h1 class="text-adjust">Discover restaurants that deliver food<br>near you</h1>
-                <div class="search-bar mt-4">
-                    <input type="text" class="form-control" placeholder="Search for restaurants" id="restaurant-search">
-                    <button class="btn-category" id="search-button">Search</button>
-                </div>
+                <h1 class="text-adjust">Discover Delicious Meals at Your Doorstep</h1>
+                <a class="btn-signin" href="">Explore more</a>
+               
             </div>
             <div class="col-md-5 d-flex justify-content-start align-items-center">
                 <img src="food image/home-vector.png" alt="Delivery Illustration" style="max-width: 100%; margin-left: -10px;">
@@ -107,7 +102,7 @@
 
 
     <!-- Categories Section -->
-    <section class="categories py-5">
+    <!-- <section class="categories py-5">
         <div class="container">
             <h2 class="text-center mb-5">Explore Our Categories</h2>
             <div class="d-flex justify-content-between align-items-center flex-wrap">
@@ -122,7 +117,7 @@
                
             </div>
         </div>
-    </section>
+    </section> -->
     
     <!-- food items -->
 
@@ -467,158 +462,10 @@
     </div>
 </section>
 
-<!-- faq sec -->
-
-<section class="faq py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Frequently Asked Questions</h2>
-        <div id="faqAccordion">
-            <!-- FAQ Item 1 -->
-            <div class="card mb-3">
-                <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What is the delivery time?
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-                    <div class="card-body">
-                        Our standard delivery time is between 30 to 60 minutes, depending on your location and the time of day.
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 2 -->
-            <div class="card mb-3">
-                <div class="card-header" id="headingTwo">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Can I change my order after placing it?
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-                    <div class="card-body">
-                        Once an order is placed, changes can be made within the first 10 minutes. After this period, modifications cannot be guaranteed.
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 3 -->
-            <div class="card mb-3">
-                <div class="card-header" id="headingThree">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            What payment methods do you accept?
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
-                    <div class="card-body">
-                        We accept various payment methods including credit/debit cards, PayPal, and cash on delivery.
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 4 -->
-            <div class="card mb-3">
-                <div class="card-header" id="headingFour">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            Do you offer discounts for bulk orders?
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
-                    <div class="card-body">
-                        Yes, we offer discounts for bulk orders. Please contact our support team for more details and customized offers.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- news letter sec -->
-
-<section class="newsletter-signup py-5">
-    <div class="container text-center">
-        <h2 class="mb-4">Subscribe to Our Newsletter</h2>
-        <p class="mb-4">Stay updated with the latest offers, news, and delicious updates from us. Subscribe now and never miss out!</p>
-        <form class="newsletter-form">
-            <div class="form-group">
-                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-    </div>
-</section>
-
-
-<!-- contact sec -->
-
-<section class="contact-us py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Contact Us</h2>
-        <div class="row">
-            <!-- Contact Form -->
-            <div class="col-md-6">
-                <div class="contact-form">
-                    <h4 class="mb-3">Get in Touch</h4>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Your message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Contact Details -->
-            <div class="col-md-6">
-                <div class="contact-details">
-                    <h4 class="mb-3">Our Location</h4>
-                    <p><strong>Address:</strong> 123 Delicious St, Flavor Town, FT 45678</p>
-                    <p><strong>Phone:</strong> (123) 456-7890</p>
-                    <p><strong>Email:</strong> contact@restaurant.com</p>
-                    <h4 class="mt-4 mb-3">Find Us On:</h4>
-                    <div class="social-icons">
-                        <a href="#" class="btn btn-social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="btn btn-social"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="btn btn-social"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="btn btn-social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Google Maps Embed -->
-        <div class="row mt-4">
-            <div class="col-6">
-                <h4 class="text-center mb-3">Our Location on Google Maps</h4>
-                <div class="map-responsive">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.265115834074!2d-122.41941848468122!3d37.77492977975968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808b1c4a64db%3A0x5f3c1c3e11b4cf07!2sRestaurant!5e0!3m2!1sen!2sus!4v1638961162722!5m2!1sen!2sus" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 
 <!-- Footer Section -->
-<footer class="footer py-4">
+<footer class="footer py-4 bg-light">
     <div class="container">
         <div class="row">
             <!-- Navigation Links -->
@@ -637,10 +484,10 @@
             <div class="col-md-4 mb-3 text-center">
                 <h5>Follow Us</h5>
                 <div class="social-icons">
-                    <a href="#" class="btn btn-social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-social"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="btn btn-social"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="btn btn-social"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="btn-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn-social mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn-social mx-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn-social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
 
