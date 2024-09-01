@@ -12,7 +12,7 @@
 </head>
 <body>
 
-     <nav class="navbar navbar-expand-lg navbar-custom text-white">
+     <!-- <nav class="navbar navbar-expand-lg navbar-custom text-white">
         <div class="container-fluid">
             <a class="navbar-brand text-white px-3" href="index.html">QuickDrop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,22 +44,22 @@
                 <a href="register.html" class="btn btn-outline-light btn-signin" type="submit">Sign in</a>
             </div>
         </div>
-    </nav>
+    </nav> -->
     
     <div class="container reg-container">
         <div class="forms-container">
           <div class="signin-signup">
-            <form action="#" class="sign-in-form">
+            <form id="sign-in-form" action="#" class="sign-in-form">
               <h2 class="title">Sign in</h2>
-              <div class="input-field">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Username" />
-              </div>
-              <div class="input-field">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
-              </div>
-              <a href="">Login</a>
+                <div class="input-field">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="signin-username" placeholder="Username" required />
+                </div>
+                <div class="input-field">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" id="signin-password" placeholder="Password" required />
+                </div>
+                <button type="submit" class="btn">Sign in</button>
               <!-- <input type="submit" value="Login" class="btn solid" /> -->
               <p class="social-text">Or Sign in with social platforms</p>
               <div class="social-media">
@@ -77,22 +77,22 @@
                 </a>
               </div>
             </form>
-            <form action="#" class="sign-up-form">
+            <form id="sign-up-form" action="#" class="sign-up-form">
               <h2 class="title">Sign up</h2>
               <div class="input-field">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Username" />
+                <input type="text" id="signup-username" placeholder="Username" required />
               </div>
               <div class="input-field">
                 <i class="fas fa-envelope"></i>
-                <input type="email" placeholder="Email" />
+                <input type="email" id="signup-email" placeholder="Email" required />
               </div>
               <div class="input-field">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
+                <input type="password" id="signup-password" placeholder="Password" required />
               </div>
-              <!-- <input type="submit" class="btn" value="Sign up" /> -->
-               <a href="">Sign up</a>
+              <button type="submit" class="btn">Sign up</button>
+
               <p class="social-text">Or Sign up with social platforms</p>
               <div class="social-media">
                 <a href="#" class="social-icon">
