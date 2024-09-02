@@ -6,6 +6,9 @@
     <title>QuickDrop</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -26,22 +29,32 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="menu.html">Menu</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="menu.html">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="contact.html" class="nav-link text-white" >Contact us</a>
+                        <a class="nav-link text-white" href="contact.html">Contact us</a>
                     </li>
+                   
                 </ul>
-                <a href="register.html" class="btn btn-outline-light mx-2" type="submit">Sign in</a>
+                <div class="d-flex gap-3 align-items-center">
+                    <div class="dropdown me-3">
+                        <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user icon-style"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="register.html">Sign in</a></li>
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                        </ul>
+                    </div>
+                    
+                    <i class="fa-solid fa-cart-shopping icon-style me-3"></i>
+                    <i class="fa-solid fa-magnifying-glass icon-style me-5"></i>
+                </div>
+                
+                
+
+                <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
             </div>
         </div>
     </nav>
@@ -59,8 +72,10 @@
     <div class="bg">
         <div class="row">
             <div class="col-md-6 d-flex flex-column justify-content-center align-items-start text-white">
-                <h1 class="text-adjust text-dark">Discover Delicious Meals at Your Doorstep</h1>
-                <a class="btn-signin" href="">Explore more</a>
+                <div class="container">
+                <h1 class="text-adjust text-dark mb-4">Delightful <span class="door">delivery </span>at<br>your doorstep</h1>
+                <a class="font-weight-bold banner-btn" href="menu.html">Order Now</a>
+               </div>
                
             </div>
             <div class="col-md-6 d-flex justify-content-start align-items-center">
@@ -76,24 +91,24 @@
         <div class="row text-center">
             <h2 class="mb-5">How It Works</h2>
             <div class="col-md-4">
-                <div class="">
-                    <img src="food image/illustration-1.png" alt="Step 1" class="mb-3">
-                    <h4>Step 1: Select restaurant</h4>
-                    <p>Select your favorite restaurant and browse the menu.</p>
+                <div class="step-box">
+                    <img class="step-img mb-3" src="food image/illustration-1.png" alt="Step 1" class="mb-3">
+                    <h4>Choose your meals</h4>
+                   
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="">
-                    <img src="food image/illustration-2.png" alt="Step 2" class="mb-3">
-                    <h4>Step 2: Select menu</h4>
-                    <p>Place your order with a few simple clicks.</p>
+                <div class="step-box">
+                    <img class="step-img mb-3" src="food image/illustration-3.png" alt="Step 2" class="mb-3">
+                    <h4>We deliver to you</h4>
+                   
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="">
-                    <img src="food image/illustration-3.png" alt="Step 3" class="mb-3">
-                    <h4>Step 3: Wait for delivery</h4>
-                    <p>Relax and enjoy your meal as it arrives at your doorstep.</p>
+                <div class="step-box">
+                    <img class="step-img mb-3" src="food image/1qLayer-1.png" alt="Step 3" class="mb-3">
+                    <h4>Enjoy your meal</h4>
+                   
                 </div>
             </div>
         </div>
@@ -101,23 +116,7 @@
 </section>
 
 
-    <!-- Categories Section -->
-    <!-- <section class="categories py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Explore Our Categories</h2>
-            <div class="d-flex justify-content-between align-items-center flex-wrap">
-                <button class="btn-category mb-4">Pizza</button>
-                <button class="btn-category mb-4">Burgers</button>
-                <button class="btn-category mb-4">Sushi</button>
-                <button class="btn-category mb-4">Pasta</button>
-                <button class="btn-category mb-4">Salads</button>
-                <button class="btn-category mb-4">Desserts</button>
-                <button class="btn-category mb-4">Desserts</button>
-                
-               
-            </div>
-        </div>
-    </section> -->
+   
     
     <!-- food items -->
 

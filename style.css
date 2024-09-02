@@ -32,9 +32,41 @@ h1 {
     margin-right: 15px;
 }
 
-button {
-    font-size: 12px;
+
+
+.banner-btn {
+  background-color: #ff8a00;
+  color: white; /* Ensure the text is readable against the background */
+  border: none; /* Remove any default border */
+  padding: 15px 30px; /* Add padding for better appearance */
+  border-radius: 10px; /* Slightly rounded corners */
+  text-decoration: none; /* Remove underline from the link */
+  font-weight: bold; /* Make the text bold */
+  margin-left: 25px;
+  transition: background-color 0.3s ease; /* Smooth transition effect */
 }
+.door{
+  color: #ff8a00;
+}
+.text-adjust {
+  font-family: "Roboto", sans-serif;
+  padding-left: 25px; 
+  font-weight: 1000;
+  font-style: normal;
+  font-size: 54px;
+}
+
+.icon-style {
+  color: black;
+  margin-left: -10px; /* Move the icons to the left */
+  font-size: 18px;
+}
+
+
+.banner-btn:hover {
+  background-color: #e07b00; /* Slightly darker shade for hover effect */
+}
+
 
 
 /* General Styles */
@@ -43,12 +75,24 @@ h2 {
     margin-bottom: 30px;
 }
 
-.feature-box, .step-box, .testimonial-box {
+.feature-box,.testimonial-box {
     background-color: #fff;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+}
+.step-box{
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+.step-img{
+  height: 200px;
+  width: 320px;
+  object-fit: cover;
 }
 
 .cta {
@@ -69,7 +113,7 @@ h2 {
 .btn-category {
     background-color: #ff8a00; /* Adjust the button color as needed */
     color: white;
-    border-radius: 50px; /* Rounded corners */
+    border-radius: 20px; /* Rounded corners */
     padding: 10px; /* Padding */
     font-size: 1.25rem; /* Font size */
     border: none;
@@ -91,8 +135,8 @@ h2 {
 /* food item section */
 
 .food-card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-    border-radius: 10px; /* Rounded corners for the card */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  */
+    border-radius: 20px; /* Rounded corners for the card */
     overflow: hidden; /* Ensures the image and content fit within the card */
     transition: transform 0.2s ease-in-out; /* Smooth transform effect on hover */
 }
@@ -101,13 +145,6 @@ h2 {
     transform: translateY(-5px); /* Slight lift effect on hover */
 }
 
-/* .card-img-top {
-    height: 100px; 
-    object-fit: cover; 
-    
-    
-   
-} */
 
 .card-body {
     padding: 15px;
@@ -330,9 +367,7 @@ h2 {
 
 
 /* Adjust the text to move it slightly to the right */
-.text-adjust {
-    padding-left: 25px; /* Adjust this value to move the text more or less */
-}
+
 
 /* Styling for the search bar */
 .search-bar {
@@ -670,16 +705,6 @@ h2 {
   /* background-color: #e49a46; */
   background-color: rgb(236, 65, 236);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
