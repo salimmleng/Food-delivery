@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #fff;
         }
     
@@ -62,28 +62,40 @@
         .category-item a:hover {
             color: #ff8a00;
         }
+        .banner {
+            background-color: #dd8726;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            font-size: 20px;
+            font-weight: bold;
+            height: 48vh;
+        }
+        .font-menu{
+            font-size: 50px;
+        }
 
     </style>
 </head>
-<nav class="navbar navbar-expand-lg navbar-custom text-white">
+   <nav class="navbar navbar-expand-lg navbar-custom my-2">
     <div class="container-fluid">
-        <a class="navbar-brand text-white px-3" href="index.html">QuickDrop</a>
+        <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link active text-dark" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="menu.html">Menu</a>
+                    <a class="nav-link text-dark" href="menu.html">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="menu.html">About us</a>
+                    <a class="nav-link text-dark" href="about.html">About us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="contact.html">Contact us</a>
+                    <a class="nav-link text-dark" href="contact.html">Contact us</a>
                 </li>
                
             </ul>
@@ -94,7 +106,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="register.html">Sign in</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                     </ul>
                 </div>
                 
@@ -107,9 +119,18 @@
             <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
         </div>
     </div>
-</nav>
-
+   </nav>
 <body>
+
+
+
+    <div class="banner">
+        <h1 class="font-menu">Menu</h1>
+        <a href="index.html">Home</a>
+        
+    </div>
+
+
 
     <section class="categories py-3">
         <div class="container">

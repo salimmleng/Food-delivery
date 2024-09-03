@@ -22,9 +22,10 @@ h1 {
     line-height: 1.2;
 }
 
-.navbar-brand {
+.quick{
     font-weight: 700;
-    font-size: 24px;
+    font-size: 27px;
+    color: rgb(236, 65, 236);
 }
 
 .nav-link {
@@ -51,13 +52,13 @@ h1 {
 .text-adjust {
   font-family: "Roboto", sans-serif;
   padding-left: 25px; 
-  font-weight: 1000;
+  font-weight: 700;
   font-style: normal;
   font-size: 54px;
 }
 
 .icon-style {
-  color: black;
+  color: #1a1919;
   margin-left: -10px; /* Move the icons to the left */
   font-size: 18px;
 }
@@ -389,7 +390,8 @@ h2 {
 
 /* Custom Navbar Styling */
 .navbar-custom {
-    background: rgb(236, 65, 236);
+    /* background: rgb(236, 65, 236); */
+    /* background: #e2dddd; */
     padding: 15px 0;
 }
 
