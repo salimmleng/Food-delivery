@@ -1,18 +1,3 @@
-// function showCategory(category) {
-//     // Hide all categories
-//     var categories = document.getElementsByClassName('category-section');
-//     for (var i = 0; i < categories.length; i++) {
-//         categories[i].style.display = 'none';
-//     }
-
-//     // Show the selected category or all categories
-//     if (category === 'all') {
-//         document.getElementById('all').style.display = 'block';
-//     } else {
-//         document.getElementById(category).style.display = 'block';
-//     }
-// }
-
 
 document.addEventListener("DOMContentLoaded", function() {
     showCategory('all');
@@ -44,21 +29,32 @@ function showCategory(categoryName) {
                 container.innerHTML = '<p>No items found.</p>';
             } else {
                 data.forEach(item => {
-                    console.log(item.image); // Check if the image URL is correct
+                    console.log(); // Check if the image URL is correct
                     const foodCard = `
-                        <div class="col-md-4 mb-4">
-                            <div class="card food-card">
-                                <img src="${item.image}" class="card-img-top" alt="${item.name}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${item.name}</h5>
-                                    <p class="card-text">${item.description}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="price">$${item.price}</span>
-                                        <button class="btn btn-primary">Add to Cart</button>
-                                    </div>
+                         <div class="col-md-4">
+                    <div class="card food-card mb-4">
+                        <div class="img-wrapper">
+                            <img src="http://127.0.0.1:8000/${item.image}" class="card-img-top" alt="Pizza">
+                            <div class="icons-wrapper">
+                                <div class="icon-container">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <span class="icon-text">Add to Cart</span>
+                                </div>
+                                <div class="icon-container">
+                                    <i class="fa-solid fa-eye" onclick="openModal(${item.id})"></i>
+                                    <span class="icon-text">Quick View</span>
+                                </div>
+                                <div class="icon-container">
+                                    <i class="fa-solid fa-heart"></i>
                                 </div>
                             </div>
-                        </div>`;
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${item.name}</h5>
+                            <span class="price">$${item.price}</span><br>
+                        </div>
+                    </div>
+                </div>`
                     container.innerHTML += foodCard;
                 });
             }
@@ -66,6 +62,25 @@ function showCategory(categoryName) {
         .catch(error => console.error('Error fetching data:', error));
 }
 
+
+// modal task
+
+
+function openModal(itemId) {
+    fetch(`http://127.0.0.1:8000/food/food-item/${itemId}/`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('modalFoodImage').src = `http://127.0.0.1:8000/${data.image}`;
+            document.getElementById('modalFoodName').textContent = data.name;
+            document.getElementById('modalFoodDescription').textContent = data.description;
+            document.getElementById('modalFoodPrice').textContent = `$${data.price}`;
+            
+            // Show the modal
+            var foodItemModal = new bootstrap.Modal(document.getElementById('foodItemModal'));
+            foodItemModal.show();
+        })
+        .catch(error => console.error('Error fetching item data:', error));
+}
 
 
 

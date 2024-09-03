@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
@@ -13,6 +14,10 @@
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #fff;
+        }
+        .modal-font{
+            font-size: 40px;
+            text-transform: uppercase;
         }
     
         .food-menu-card {
@@ -63,7 +68,7 @@
             color: #ff8a00;
         }
         .banner {
-            background-color: #dd8726;
+            
             color: white;
             text-align: center;
             padding: 50px 0;
@@ -71,9 +76,50 @@
             font-weight: bold;
             height: 48vh;
         }
+        .bg-img {
+            background-image: url('food image/bg2.jpg');
+            background-size: cover; /* Try contain or auto if cover makes it blurry */
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 53vh;
+        }
+
         .font-menu{
             font-size: 50px;
         }
+        .btn-add-to-cart {
+            background-color: #ff8a00;
+            color: white;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #e07a00;
+            transform: translateY(-2px);
+        }
+
+        .btn-add-to-cart:active {
+            background-color: #d06a00;
+            transform: translateY(1px);
+        }
+        .modal-content {
+            background-color: #fff; /* Light grey background color */
+            color: #333; /* Darker text color for contrast */
+            border-radius: 100px;
+        }
+
+        .modal-header, .modal-footer {
+            background-color: #e07a00; /* Optional: Different color for the header and footer */
+            color: white;
+        }
+
+
 
     </style>
 </head>
@@ -109,9 +155,12 @@
                         <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                     </ul>
                 </div>
-                
-                <i class="fa-solid fa-cart-shopping icon-style me-3"></i>
-                <i class="fa-solid fa-magnifying-glass icon-style me-5"></i>
+                <div class="icon-cart">
+                <img class="cart-img" src="food image/icon.png">
+                <div class="totalQuantity">0</div>
+             </div>
+                <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
+                <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
             </div>
             
             
@@ -123,18 +172,20 @@
 <body>
 
 
-
+    <div class="bg-img">
     <div class="banner">
-        <h1 class="font-menu">Menu</h1>
+        <h1 class="font-menu">Menu items</h1>
         <a href="index.html">Home</a>
         
     </div>
+</div>
 
 
 
     <section class="categories py-3">
         <div class="container">
-            <h2 class="text-center mb-4">Favorite Meals</h2>
+            <h6 class="text-center text-danger mt-3 mb-3">Our item's</h6>
+            <h2 class="text-center mb-4">Popular foods</h2>
             <div class="d-flex justify-content-between align-items-center flex-wrap">
                 <button class="btn-category mb-4" onclick="showCategory('all')">All</button>
                 <button class="btn-category mb-4" onclick="showCategory('pizza')">Pizza</button>
@@ -145,6 +196,40 @@
             </div>
         </div>
     </section>
+
+    <!-- modal -->
+
+    
+  <!-- Modal Structure -->
+<div class="modal fade" id="foodItemModal" tabindex="-1" aria-labelledby="foodItemModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg custom-modal">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <h5 class="modal-title" id="foodItemModalLabel">Food Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-start">
+              <img id="modalFoodImage" src="" alt="Food Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+              <h5 class="modal-font"  id="modalFoodName"></h5>
+              <span class="price" id="modalFoodPrice"></span>
+              <hr>
+              <p id="modalFoodDescription"></p>
+              <hr>
+              <button class="btn btn-add-to-cart">Add to Cart</button>
+              <button class="btn btn-add-to-cart">Checkout</button>
+
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
     
     <!-- Food Items for Each Category -->
     <section class="food-menu py-3">
@@ -240,3 +325,5 @@
     <script src="food_item.js"></script>
 </body>
 </html>
+
+
