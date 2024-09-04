@@ -29,31 +29,69 @@
 }
 
 
-/* icon cart */
 
-.iconCart{
-    position: relative;
-    z-index: 1;
-}
 
-.cart-img {
-    width: 30px;
-    position: relative; /* Ensure the image itself is the reference point for the badge */
-}
-
-.totalQuantity {
-    position: absolute;
-    top: 15px; /* Adjust as needed to perfectly position the badge */
-    right: 90px; /* Adjust as needed to perfectly position the badge */
-    font-size: 0.75rem; /* Smaller font size for a clean look */
-    background-color: #b31010;
-    width: 20px; /* Ensure the badge is not too large */
-    height: 20px; /* Keep it circular by setting equal width and height */
-    color: #fff;
-    font-weight: bold;
+/* Cart Sidebar Styles */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially hidden */
+    width: 300px;
+    height: 100%;
+    background-color: #e0cdcd;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    z-index: 1050; /* Ensure it appears above other elements */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%; /* Make the badge circular */
-    z-index: 10; /* Ensure the badge appears above other elements */
+    flex-direction: column;
 }
+
+.cart-sidebar.active {
+    right: 0; /* Show the sidebar */
+}
+
+.cart-sidebar .cart-header {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: bold;
+}
+
+.cart-sidebar .cart-items {
+    flex-grow: 1; /* Takes up the remaining space between header and footer */
+    padding: 1rem;
+    overflow-y: auto; /* Scroll if content overflows */
+}
+
+.cart-sidebar .cart-footer {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+.cart-sidebar .btn-checkout {
+    background-color: #ff8a00;
+    /* color: white; */
+    width: 100%;
+}
+
+.subtotal-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem; /* Add some space between subtotal and checkout button */
+    font-weight: bold;
+}
+
+.subtotal-label {
+    font-size: 1rem;
+}
+
+.subtotal-value {
+    font-size: 1rem;
+    color: #ff8a00; /* Matches the checkout button color */
+}
+
+

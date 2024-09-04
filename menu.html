@@ -123,53 +123,75 @@
 
     </style>
 </head>
-   <nav class="navbar navbar-expand-lg navbar-custom my-2">
-    <div class="container-fluid">
-        <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active text-dark" aria-current="page" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="menu.html">Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="about.html">About us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="contact.html">Contact us</a>
-                </li>
-               
-            </ul>
-            <div class="d-flex gap-3 align-items-center">
-                <div class="dropdown me-3">
-                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-regular fa-user icon-style"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="register.html">Sign in</a></li>
-                        <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                    </ul>
-                </div>
-                <div class="icon-cart">
-                <img class="cart-img" src="food image/icon.png">
-                <div class="totalQuantity">0</div>
-             </div>
-                <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
-                <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
-            </div>
-            
-            
+   
+<body>
 
-            <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
+    <nav class="navbar navbar-expand-lg navbar-custom my-2">
+        <div class="container-fluid">
+            <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-dark" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="about.html">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="contact.html">Contact us</a>
+                    </li>
+                   
+                </ul>
+                <div class="d-flex gap-3 align-items-center">
+                    <div class="dropdown me-3">
+                        <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user icon-style"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="register.html">Sign in</a></li>
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                        </ul>
+                    </div>
+                <div class="icon-cart">
+                    <img class="cart-img" src="food image/icon.png">
+                    <div class="totalQuantity">0</div>
+                 </div>
+                    <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
+                    <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
+                </div>
+                
+                
+    
+                <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
+            </div>
+        </div>
+       </nav>
+    
+       
+       <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header d-flex justify-content-between">
+            <h4>My Cart</h4>
+            <button type="button" class="btn-close" aria-label="Close" onclick="toggleCartSidebar()"></button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="subtotal-container">
+                <span class="subtotal-label">Subtotal:</span>
+                <span class="subtotal-value">$0.00</span>
+            </div>
+            <button class="btn btn-checkout">Checkout</button>
         </div>
     </div>
-   </nav>
-<body>
+    
 
 
     <div class="bg-img">
