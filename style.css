@@ -800,6 +800,11 @@ h2 {
   height: 40px;
 }
 
+.reg-social-icons a:hover {
+  background-color: rgb(236, 65, 236);
+  color: #fff;
+  border-color: rgb(236, 65, 236);
+}
 
 .toggle-container{
   position: absolute;
@@ -867,6 +872,65 @@ h2 {
 .reg-container.active .toggle-right{
   transform: translateX(200%);
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .reg-container {
+    width: 90%;
+    min-height: auto;
+  }
+
+  .toggle-container, .toggle {
+    display: none;
+  }
+
+  .form-container, .sign-in, .sign-up {
+    width: 100%;
+    position: relative;
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 1;
+    animation: none;
+  }
+
+  .sign-up {
+    opacity: 0;
+    display: none;
+  }
+
+  .reg-container.active .sign-up {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .reg-container {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .reg-container form {
+    padding: 0 20px;
+  }
+
+  .reg-container input {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .reg-container button {
+    padding: 8px 35px;
+    font-size: 11px;
+  }
+
+  .reg-social-icons a {
+    width: 35px;
+    height: 35px;
+  }
+}
+
 
 
 

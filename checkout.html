@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       
+        .checkout-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            /* background-color: #ffffff; */
+            background-color: antiquewhite;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .checkout-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .form-label {
+            font-weight: 600;
+        }
+        .btn-primary {
+            background-color: #ff8a00;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #e07b00;
+        }
+        .cart-summary {
+            background-color: #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .subtotal {
+            font-weight: 700;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-dark" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="about.html">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="contact.html">Contact us</a>
+                    </li>
+                   
+                </ul>
+                <div class="d-flex gap-3 align-items-center">
+                    <div class="dropdown me-3">
+                        <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user icon-style"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="register.html">Sign in</a></li>
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                        </ul>
+                    </div>
+                <div class="icon-cart">
+                    <img class="cart-img" src="food image/icon.png">
+                    <div class="totalQuantity">0</div>
+                 </div>
+                    <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
+                    <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
+                </div>
+                
+                <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
+            </div>
+        </div>
+       </nav>
+
+    <div class="checkout-container container my-5">
+        <div class="row">
+            <!-- Left side: Checkout Form -->
+            <div class="col-md-6">
+                <h3 class="checkout-title mb-4">Shipping & Payment</h3>
+                <form id="checkoutForm">
+                    <!-- Full Name -->
+                    <div class="mb-4">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
+                    </div>
+    
+                    <!-- Email Address -->
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="example@example.com" required>
+                    </div>
+    
+                    <!-- Shipping Address -->
+                    <div class="mb-4">
+                        <label for="address" class="form-label">Shipping Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="123 Main St" required>
+                    </div>
+    
+                    <!-- City and ZIP Code (side by side) -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city" placeholder="New York" required>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label for="zip" class="form-label">ZIP Code</label>
+                            <input type="text" class="form-control" id="zip" placeholder="10001" required>
+                        </div>
+                    </div>
+    
+                    <!-- Payment Information -->
+                    <h4 class="checkout-title mt-5 mb-4">Payment Information</h4>
+                    <div class="mb-4">
+                        <label for="cardNumber" class="form-label">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+                    </div>
+    
+                    <!-- Expiry Date and CVV (side by side) -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label for="expiryDate" class="form-label">Expiry Date</label>
+                            <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+            <!-- Right side: Cart Summary -->
+            <div class="col-md-6">
+                <h3 class="checkout-title mb-4">My Order</h3>
+                <div class="cart-summary border p-3 rounded">
+                    <div id="cartItems">
+                        <!-- Cart items will be dynamically generated here -->
+                    </div>
+                    <hr>
+                    <div class="subtotal d-flex justify-content-between">
+                        <strong>Subtotal:</strong>
+                        <span class="subtotal-value">$0.00</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-4" onclick="submitOrder()">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<script>
+// Assuming `cart` is an array containing items added by the user.
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to render cart items in the summary
+function renderCartItems() {
+    const cartItemsContainer = document.getElementById('cartItems');
+    cartItemsContainer.innerHTML = ''; // Clear existing items
+
+    cart.forEach(item => {
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+            <div class="d-flex justify-content-between">
+                <span>${item.name} - $${item.price}</span>
+                <span>Qty: 1</span>
+            </div>
+        `;
+        cartItemsContainer.appendChild(cartItem);
+    });
+}
+
+// Function to update the subtotal value
+function updateSubtotal() {
+    let subtotal = 0;
+    cart.forEach(item => {
+        subtotal += parseFloat(item.price);
+    });
+    document.querySelector('.subtotal-value').textContent = `$${subtotal.toFixed(2)}`;
+}
+
+// Function to handle order submission
+function submitOrder() {
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
+    const zip = document.getElementById('zip').value;
+    const cardNumber = document.getElementById('cardNumber').value;
+    const expiryDate = document.getElementById('expiryDate').value;
+    const cvv = document.getElementById('cvv').value;
+
+    // Send order data to the backend
+    fetch('http://127.0.0.1:8000/api/checkout/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`, // Assuming token is stored in localStorage
+        },
+        body: JSON.stringify({
+            full_name: fullName,
+            email: email,
+            address: address,
+            city: city,
+            zip: zip,
+            card_number: cardNumber,
+            expiry_date: expiryDate,
+            cvv: cvv,
+            cart_items: cart
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Order placed successfully!');
+            localStorage.removeItem('cart'); // Clear cart
+            window.location.href = 'thank_you.html';
+        } else {
+            alert('Error placing order: ' + data.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+// Initial rendering of the cart items and subtotal
+renderCartItems();
+updateSubtotal();
+</script>
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="food_item.js"></script>
+</body>
+</html>

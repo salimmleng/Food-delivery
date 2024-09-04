@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -44,9 +45,9 @@
     
     <!--nabver  -->
 
-    <nav class="navbar navbar-expand-lg navbar-custom my-2">
+    <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
-            <a class=" quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
+            <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -76,17 +77,20 @@
                             <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                         </ul>
                     </div>
-                    
-                    <i class="fa-solid fa-cart-shopping icon-style me-3"></i>
-                    <i class="fa-solid fa-magnifying-glass icon-style me-5"></i>
+                <div class="icon-cart">
+                    <img class="cart-img" src="food image/icon.png">
+                    <div class="totalQuantity">0</div>
+                 </div>
+                    <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
+                    <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
                 </div>
                 
                 
-
+    
                 <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
             </div>
         </div>
-    </nav>
+       </nav>
 
     <div class="bg-img">
     <div class="banner">
@@ -157,6 +161,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="contact.js"></script>
+    <script src="food_item.js"></script>
 
     
     

@@ -28,6 +28,15 @@
     width: 100%;
 }
 
+.fa-trash-can{
+    color: rgb(211, 64, 64);
+    font-size: large;
+    cursor: pointer;    
+
+}
+
+
+
 
 
 
@@ -77,6 +86,11 @@
     /* color: white; */
     width: 100%;
 }
+.cart-sidebar .btn-checkout:hover {
+    background-color: #ff8a00;
+   
+}
+
 
 .subtotal-container {
     display: flex;
@@ -84,10 +98,22 @@
     margin-bottom: 1rem; /* Add some space between subtotal and checkout button */
     font-weight: bold;
 }
-
 .subtotal-label {
     font-size: 1rem;
 }
+.delivery-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem; /* Add some space between subtotal and checkout button */
+    font-weight: bold;
+
+}
+.delivery-label{
+    font-size: 1rem;
+
+}
+
+
 
 .subtotal-value {
     font-size: 1rem;
