@@ -22,8 +22,9 @@
 
         .checkout-title {
             font-size: 24px;
-            font-weight: 700;
+            font-weight: 650;
             margin-bottom: 20px;
+            color: #3e3d3a;
         }
 
         .form-label {
@@ -47,7 +48,7 @@
 
         .subtotal {
             font-weight: 700;
-            font-size: 20px;
+            font-size: 15px;
             margin-top: 20px;
         }
 
@@ -179,12 +180,13 @@
                     <div id="cartItems">
                         <!-- Cart items will be dynamically generated here -->
                     </div>
+                    <hr>
 
                     <div class="subtotal d-flex justify-content-between">
-                        <strong>Subtotal:</strong>
+                        <strong>Total to pay</strong>
                         <span class="subtotal-value">$0.00</span>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 mt-4" onclick="submitOrder()">Place
+                    <button type="submit" class="btn btn-primary w-100 mt-4" onclick="submitOrder()">Confirm
                         Order</button>
                 </div>
             </div>
