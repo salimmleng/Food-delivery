@@ -34,6 +34,7 @@
         .btn-primary {
             background-color: #ff8a00;
             border: none;
+            font-weight: bold;
         }
 
         .btn-primary:hover {
@@ -41,9 +42,12 @@
         }
 
         .cart-summary {
-            background-color: lightcyan;
+            background-color: rgb(13, 239, 239);
+            /* background-color: #e1a3a3; */
+            /* background-color: rgb(239, 234, 211); */
             padding: 20px;
-            border-radius: 10px;
+            /* border-radius: 10px; */
+            /* border: none; */
         }
 
         .subtotal {
@@ -59,11 +63,14 @@
 
         .title-font {
             font-size: 15px;
-            text-transform: uppercase;
+            text-transform: capitalize;
         }
 
         .order-part {
-            background-color: lightcyan;
+            /* background-color: lightcyan; */
+            /* background-color: #e1a3a3; */
+            background-color: rgb(13, 239, 239);
+            
         }
     </style>
 </head>
@@ -176,15 +183,15 @@
             <!-- Right side: Cart Summary -->
             <div class="col-md-4 order-part">
                 <h3 class="checkout-title my-3">My Order</h3>
-                <div class="cart-summary border p-3 rounded">
-                    <div id="cartItems">
+                <div class="cart-summary p-3 rounded">
+                    <div id="checkoutcartItems">
                         <!-- Cart items will be dynamically generated here -->
                     </div>
                     <hr>
 
                     <div class="subtotal d-flex justify-content-between">
                         <strong>Total to pay</strong>
-                        <span class="subtotal-value">$0.00</span>
+                        <span class="checkoutSubtotal-value">$0.00</span>
                     </div>
                     <button type="submit" class="btn btn-primary w-100 mt-4" onclick="submitOrder()">Confirm
                         Order</button>
@@ -200,7 +207,7 @@
 
         // Function to render cart items in the summary
         function renderCartItems() {
-            const cartItemsContainer = document.getElementById('cartItems');
+            const cartItemsContainer = document.getElementById('checkoutcartItems');
             cartItemsContainer.innerHTML = ''; // Clear existing items
 
             cart.forEach(item => {
@@ -223,7 +230,7 @@
             cart.forEach(item => {
                 subtotal += parseFloat(item.price);
             });
-            document.querySelector('.subtotal-value').textContent = `$${subtotal.toFixed(2)}`;
+            document.querySelector('.checkoutSubtotal-value').textContent = `$${subtotal.toFixed(2)}`;
         }
 
         // Function to handle order submission
@@ -232,7 +239,6 @@
             const email = document.getElementById('email').value;
             const address = document.getElementById('address').value;
             const city = document.getElementById('city').value;
-            const zip = document.getElementById('zip').value;
             const cardNumber = document.getElementById('cardNumber').value;
             const expiryDate = document.getElementById('expiryDate').value;
             const cvv = document.getElementById('cvv').value;
@@ -249,7 +255,6 @@
                     email: email,
                     address: address,
                     city: city,
-                    zip: zip,
                     card_number: cardNumber,
                     expiry_date: expiryDate,
                     cvv: cvv,

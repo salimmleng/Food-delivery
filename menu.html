@@ -21,7 +21,7 @@
         }
         .cart-font{
             /* font-size: 40px; */
-            text-transform: uppercase;
+            text-transform: capitalize;
             
         }
     
@@ -185,19 +185,26 @@
         <div class="cart-header d-flex justify-content-between">
             <h4>My Cart</h4>
             <button type="button" class="btn-close" aria-label="Close" onclick="toggleCartSidebar()"></button>
+           
         </div>
+        
         <div id="cartItems" class="cart-items">
+           
             <!-- Cart items will be dynamically added here -->
         </div>
+       
+       
         <div class="cart-footer">
-            <div class="delivery-container">
+            <!-- <div class="delivery-container">
                 <span class="delivery-label">Delivery charge:</span>
                 <span class="">Free</span>
-            </div>
+            </div> -->
+            <hr>
             <div class="subtotal-container">
                 <span class="subtotal-label">Subtotal:</span>
                 <span class="subtotal-value">$0.00</span>
             </div>
+            <hr>
            
             <button class="btn btn-checkout text-white"><a class="text-white text-decoration-none" href="checkout.html">Checkout</a></button>
         </div>
@@ -253,7 +260,7 @@
               <p id="modalFoodDescription"></p>
               <hr>
               <button class="btn btn-add-to-cart">Add to Cart</button>
-              <button class="btn btn-add-to-cart">Checkout</button>
+              
 
              
             </div>

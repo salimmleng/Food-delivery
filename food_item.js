@@ -31,18 +31,18 @@ function showCategory(categoryName) {
                 data.forEach(item => {
                     console.log(); // Check if the image URL is correct
                     const foodCard = `
-                         <div class="col-md-4">
+                         <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                     <div class="card food-card mb-4">
                         <div class="img-wrapper">
                             <img src="http://127.0.0.1:8000/${item.image}" class="card-img-top" alt="Pizza">
                             <div class="icons-wrapper">
                                 <div class="icon-container">
-                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <i class="fa-solid fa-cart-shopping" onclick="openModal(${item.id})"></i>
                                     <span class="icon-text">Add to Cart</span>
                                 </div>
                                 <div class="icon-container">
                                     <i class="fa-solid fa-eye" onclick="openModal(${item.id})"></i>
-                                    <span class="icon-text">Quick View</span>
+                                    <span class="icon-text">View details</span>
                                 </div>
                                 <div class="icon-container">
                                     <i class="fa-solid fa-heart"></i>

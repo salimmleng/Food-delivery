@@ -47,7 +47,7 @@
     right: -100%; /* Initially hidden */
     width: 300px;
     height: 100%;
-    background-color: #e0cdcd;
+    background-color: #fff8f8;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     transition: right 0.3s ease;
     z-index: 1050; /* Ensure it appears above other elements */
@@ -61,8 +61,9 @@
 
 .cart-sidebar .cart-header {
     padding: 1rem;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
+    background-color: #fff8f8;
+    /* background-color: rgb(61, 233, 215); */
+    /* border-bottom: 1px solid #dee2e6; */
     font-weight: bold;
 }
 
@@ -74,8 +75,8 @@
 
 .cart-sidebar .cart-footer {
     padding: 1rem;
-    background-color: #f8f9fa;
-    border-top: 1px solid #dee2e6;
+    background-color: #fff8f8;
+    /* border-top: 1px solid #dee2e6; */
     position: sticky;
     bottom: 0;
     width: 100%;
@@ -85,6 +86,7 @@
     background-color: #ff8a00;
     /* color: white; */
     width: 100%;
+    font-weight: bold;
 }
 .cart-sidebar .btn-checkout:hover {
     background-color: #ff8a00;

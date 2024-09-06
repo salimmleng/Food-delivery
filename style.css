@@ -244,6 +244,17 @@ h2 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
 }
+.chef-box{
+  background-color: rgb(239, 234, 211);
+  padding: 15px;
+  margin-bottom: 20px;
+  /* width: 270px; */
+  /* border-radius: 50px; */
+}
+.chef{
+  background-color: rgb(239, 234, 211);
+}
+
 .step-box{
   background-color: #fff;
   padding: 30px;
