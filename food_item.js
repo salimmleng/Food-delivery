@@ -119,11 +119,12 @@ function renderCartItems() {
             <div class="d-flex justify-content-between">
                 <span class="cart-font">${item.name}</span>
                 <div>
-                    <span class="item-price">$${item.price}</span>
+                    <span class="item-price text-white">$${item.price}</span>
                     <input type="number" class="item-quantity" value="1" min="1" style="width: 45px; height: 25px; margin-left: 10px;" onchange="updateSubtotal()">
                     <i onclick="removeFromCart(${index})" class="fa-regular fa-trash-can mx-2"></i>
                 </div>
             </div>
+            <hr class="text-white">
         `;
         cartItemsContainer.appendChild(cartItem);
     });
