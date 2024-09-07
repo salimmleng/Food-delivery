@@ -36,7 +36,9 @@ signUpForm.addEventListener('submit', function(event) {
   .then(response => response.json())
   .then(data => {
     if (data.username) {
-      alert('Registration successful! Please log in.');
+      const alertModal = new bootstrap.Modal(document.getElementById("customAlertModal"));
+      alertModal.show();
+
     } else {
       console.log(data); // Handle errors
     }
@@ -64,9 +66,9 @@ signInForm.addEventListener('submit', function(event) {
   .then(data => {
     if (data.token) {
       alert('Login successful! Token: ' + data.token);
-      // Store token locally (e.g., in localStorage) for authenticated requests
       localStorage.setItem('token', data.token);
-      window.location.href = 'profile.html';
+      localStorage.setItem('user_id', data.user_id);
+      window.location.href = 'index.html';
     } else {
       console.log(data); // Handle errors
     }
@@ -74,4 +76,10 @@ signInForm.addEventListener('submit', function(event) {
   })
   .catch(error => console.error('Error:', error));
 });
+
+
+
+
+
+
 

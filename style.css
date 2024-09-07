@@ -1107,3 +1107,91 @@ textarea.conn-input {
 .btn-outline-secondary:hover {
   color: #343a40;
 }
+
+/* dropdown style */
+
+/* Dropdown Menu */
+.dropdown-menu {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown Items */
+.dropdown-item {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #333333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-item i {
+  color: #ff8a00;
+  transition: color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #ff8a00;
+  color: #ffffff;
+}
+
+.dropdown-item:hover i {
+  color: #ffffff;
+}
+
+/* Dropdown Toggle Icon */
+.icon-style {
+  font-size: 22px;
+  color: #333333;
+  transition: color 0.3s ease;
+}
+
+.icon-style:hover {
+  color: #ff8a00;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  /* Adjust icon size for smaller screens */
+  .icon-style {
+      font-size: 20px;
+  }
+
+  /* Smaller padding and font size for dropdown items on mobile */
+  .dropdown-item {
+      padding: 10px 15px;
+      font-size: 14px;
+  }
+
+  /* Dropdown items icon adjustment for mobile */
+  .dropdown-item i {
+      font-size: 16px;
+      margin-right: 10px;
+  }
+
+  /* Min-width of dropdown for smaller screens */
+  .dropdown-menu {
+      min-width: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Even smaller adjustments for very small screens (e.g., mobile devices) */
+  .icon-style {
+      font-size: 18px;
+  }
+
+  .dropdown-item {
+      padding: 8px 12px;
+      font-size: 13px;
+  }
+
+  .dropdown-menu {
+      min-width: 130px;
+  }
+}

@@ -179,13 +179,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Event listener for the Add to Cart button
 document.querySelector('.btn-add-to-cart').addEventListener('click', function() {
-    const item = {
-        name: document.getElementById('modalFoodName').textContent,
-        price: document.getElementById('modalFoodPrice').textContent.slice(1), // Remove the '$' sign
-        image: document.getElementById('modalFoodImage').src
-    };
+    const token = localStorage.getItem("token");
+    if (token){
+        const item = {
+            name: document.getElementById('modalFoodName').textContent,
+            price: document.getElementById('modalFoodPrice').textContent.slice(1), // Remove the '$' sign
+            image: document.getElementById('modalFoodImage').src
+        };
 
-    addToCart(item);
+        addToCart(item);
+    }   
+    else{
+        window.location.href = 'register.html';
+
+    }
+
+   
 });
 
 // Event listener for the cart icon to open the cart sidebar
