@@ -1,106 +1,87 @@
-// cart side
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-let cart = [];
-
-// Function to toggle the cart sidebar
-function toggleCartSidebar() {
-    document.getElementById('cartSidebar').classList.toggle('active');
-}
-
-// Function to update cart quantity display
-function updateCartQuantity() {
-    document.querySelector('.totalQuantity').textContent = cart.length;
-}
-
-// Function to add item to cart
-function addToCart(item) {
-    cart.push(item);
-    updateCartQuantity();
-    renderCartItems();
-    updateSubtotal();
-    saveCartToLocalStorage(); // Save cart to localStorage
-}
-
-// Function to render cart items in the sidebar
+// Function to render cart items in the summary
 function renderCartItems() {
-    const cartItemsContainer = document.getElementById('checkoutItems');
+    const cartItemsContainer = document.getElementById('checkoutcartItems');
     cartItemsContainer.innerHTML = ''; // Clear existing items
 
-    cart.forEach((item, index) => {
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>No items in the cart.</p>';
+        document.querySelector('.checkoutSubtotal-value').textContent = '$0.00';
+        return;
+    }
+
+    cart.forEach(item => {
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
         cartItem.innerHTML = `
             <div class="d-flex justify-content-between">
-                <span class="cart-font">${item.name}</span>
-                <div>
-                    <span class="item-price">$${item.price}</span>
-                    <input type="number" class="item-quantity" value="1" min="1" style="width: 45px; height: 25px; margin-left: 10px;" onchange="updateSubtotal()">
-                    <i onclick="removeFromCart(${index})" class="fa-regular fa-trash-can mx-2"></i>
-                </div>
+                <span class="title-font">${item.name}</span>
+                <span>$${item.price.toFixed(2)}</span>
             </div>
         `;
         cartItemsContainer.appendChild(cartItem);
     });
-
-    updateSubtotal(); // Update subtotal after rendering items
 }
 
-// Function to remove an item from the cart
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCartQuantity();
-    renderCartItems();
-    updateSubtotal();
-    saveCartToLocalStorage(); // Save cart to localStorage
-}
-
-// Function to update the subtotal
+// Function to update the subtotal value
 function updateSubtotal() {
     let subtotal = 0;
-    const cartItems = document.querySelectorAll('.cart-item');
-
-    cartItems.forEach(item => {
-        const price = parseFloat(item.querySelector('.item-price').textContent.replace('$', ''));
-        const quantity = parseInt(item.querySelector('.item-quantity').value);
-        subtotal += price * quantity;
+    cart.forEach(item => {
+        subtotal += parseFloat(item.price);
     });
-
-    document.querySelector('.subtotal-value').textContent = `$${subtotal.toFixed(2)}`;
+    document.querySelector('.checkoutSubtotal-value').textContent = `$${subtotal.toFixed(2)}`;
 }
 
-// Function to save cart to localStorage
-function saveCartToLocalStorage() {
-    localStorage.setItem('cart', JSON.stringify(cart));
-}
+// Function to handle order submission
+function submitOrder() {
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
+    const cardNumber = document.getElementById('cardNumber').value;
+    const expiryDate = document.getElementById('expiryDate').value;
+    const cvv = document.getElementById('cvv').value;
 
-// Function to load cart from localStorage
-function loadCartFromLocalStorage() {
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-        cart = JSON.parse(storedCart);
-        updateCartQuantity();
-        renderCartItems();
-        updateSubtotal();
+    // Validate cart before proceeding
+    if (cart.length === 0) {
+        alert("Your cart is empty. Add items to proceed.");
+        return;
     }
+
+    // Send order data to the backend
+    fetch('http://127.0.0.1:8000/food/checkout/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`, // Assuming token is stored in localStorage
+        },
+        body: JSON.stringify({
+            full_name: fullName,
+            email: email,
+            address: address,
+            city: city,
+            card_number: cardNumber,
+            expiry_date: expiryDate,
+            cvv: cvv,
+            cart_items: cart
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Order placed successfully!');
+            localStorage.removeItem('cart'); // Clear cart
+            // Redirect to a success page, for example:
+            // window.location.href = 'thank_you.html';
+        } else {
+            console.error('Error placing order:', data.message);
+            alert('Error placing order: ' + data.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
 }
 
-// Initial setup on page load
-document.addEventListener('DOMContentLoaded', function() {
-    loadCartFromLocalStorage();
-    updateCartQuantity();
-});
-
-// Event listener for the Add to Cart button
-document.querySelector('.btn-add-to-cart').addEventListener('click', function() {
-    const item = {
-        name: document.getElementById('modalFoodName').textContent,
-        price: document.getElementById('modalFoodPrice').textContent.slice(1), // Remove the '$' sign
-        image: document.getElementById('modalFoodImage').src
-    };
-
-    addToCart(item);
-});
-
-// Event listener for the cart icon to open the cart sidebar
-document.querySelector('.icon-cart').addEventListener('click', toggleCartSidebar);
-
+// Initial rendering of the cart items and subtotal
+renderCartItems();
+updateSubtotal();

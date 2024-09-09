@@ -100,7 +100,18 @@ function updateCartQuantity() {
 
 // Function to add item to cart
 function addToCart(item) {
-    cart.push(item);
+    // Check if the item is already in the cart
+    const existingItemIndex = cart.findIndex(cartItem => cartItem.name === item.name);
+    
+    if (existingItemIndex !== -1) {
+        // If the item already exists in the cart, increase the quantity
+        cart[existingItemIndex].quantity += 1;
+    } else {
+        // If the item is new, set quantity to 1
+        item.quantity = 1;
+        cart.push(item);
+    }
+    
     updateCartQuantity();
     renderCartItems();
     updateSubtotal();
@@ -120,7 +131,7 @@ function renderCartItems() {
                 <span class="cart-font">${item.name}</span>
                 <div>
                     <span class="item-price text-white">$${item.price}</span>
-                    <input type="number" class="item-quantity" value="1" min="1" style="width: 45px; height: 25px; margin-left: 10px;" onchange="updateSubtotal()">
+                    <input type="number" class="item-quantity" value="${item.quantity}" min="1" style="width: 45px; height: 25px; margin-left: 10px;" onchange="updateItemQuantity(${index}, this.value)">
                     <i onclick="removeFromCart(${index})" class="fa-regular fa-trash-can mx-2"></i>
                 </div>
             </div>
@@ -130,6 +141,13 @@ function renderCartItems() {
     });
 
     updateSubtotal(); // Update subtotal after rendering items
+}
+
+// Function to update item quantity
+function updateItemQuantity(index, newQuantity) {
+    cart[index].quantity = parseInt(newQuantity);
+    updateSubtotal();
+    saveCartToLocalStorage(); // Save cart to localStorage after updating quantity
 }
 
 // Function to remove an item from the cart
@@ -144,12 +162,8 @@ function removeFromCart(index) {
 // Function to update the subtotal
 function updateSubtotal() {
     let subtotal = 0;
-    const cartItems = document.querySelectorAll('.cart-item');
-
-    cartItems.forEach(item => {
-        const price = parseFloat(item.querySelector('.item-price').textContent.replace('$', ''));
-        const quantity = parseInt(item.querySelector('.item-quantity').value);
-        subtotal += price * quantity;
+    cart.forEach(item => {
+        subtotal += item.price * item.quantity;
     });
 
     document.querySelector('.subtotal-value').textContent = `$${subtotal.toFixed(2)}`;
@@ -180,24 +194,19 @@ document.addEventListener('DOMContentLoaded', function() {
 // Event listener for the Add to Cart button
 document.querySelector('.btn-add-to-cart').addEventListener('click', function() {
     const token = localStorage.getItem("token");
-    if (token){
+    if (token) {
         const item = {
             name: document.getElementById('modalFoodName').textContent,
-            price: document.getElementById('modalFoodPrice').textContent.slice(1), // Remove the '$' sign
+            price: parseFloat(document.getElementById('modalFoodPrice').textContent.slice(1)), // Remove the '$' sign
             image: document.getElementById('modalFoodImage').src
         };
 
         addToCart(item);
-    }   
-    else{
+    } else {
         window.location.href = 'register.html';
-
     }
-
-   
 });
 
 // Event listener for the cart icon to open the cart sidebar
 document.querySelector('.icon-cart').addEventListener('click', toggleCartSidebar);
-
 
