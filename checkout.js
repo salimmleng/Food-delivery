@@ -16,22 +16,24 @@ function renderCartItems() {
         cartItem.className = 'cart-item';
         cartItem.innerHTML = `
             <div class="d-flex justify-content-between">
-                <span class="title-font">${item.name}</span>
-                <span>$${item.price.toFixed(2)}</span>
+                <span class="title-font">${item.name} (x${item.quantity})</span>
+                <span>$${(item.price * item.quantity).toFixed(2)}</span> <!-- Show total price for the item -->
             </div>
         `;
         cartItemsContainer.appendChild(cartItem);
     });
 }
 
+
 // Function to update the subtotal value
 function updateSubtotal() {
     let subtotal = 0;
     cart.forEach(item => {
-        subtotal += parseFloat(item.price);
+        subtotal += parseFloat(item.price) * item.quantity; // Multiply by quantity
     });
     document.querySelector('.checkoutSubtotal-value').textContent = `$${subtotal.toFixed(2)}`;
 }
+
 
 // Function to handle order submission
 function submitOrder() {
