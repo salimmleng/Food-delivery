@@ -125,61 +125,58 @@
 
     <div class="checkout-container container my-5">
         <div class="row">
-            <!-- Left side: Checkout Form -->
-            <div class="col-md-8">
+            <!-- Checkout Form -->
+            <form id="checkoutForm" class="col-md-8">
+                <!-- Left side: Shipping & Payment Information -->
                 <h3 class="checkout-title my-3">Shipping & Payment</h3>
-                <form id="checkoutForm">
-
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <label for="fullName" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
-                        </div>
-
-                        <!-- Email Address -->
-                        <div class="col-md-6 mb-4">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="example@example.com"
-                                required>
-                        </div>
+    
+                <div class="row">
+                    <!-- Full Name -->
+                    <div class="col-md-6 mb-4">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
                     </div>
-
-                    <!-- City and shipping address (side by side) -->
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <label for="address" class="form-label">Shipping Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="123 Main St" required>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="city" class="form-label">City</label>
-                            <input type="text" class="form-control" id="city" placeholder="New York" required>
-                        </div>
-                       
+    
+                    <!-- Email Address -->
+                    <div class="col-md-6 mb-4">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="example@example.com" required>
                     </div>
-
-                    <!-- Payment Information -->
-                    <h4 class="checkout-title mt-2 mb-3">Payment Information</h4>
-                    <div class="mb-4">
-                        <label for="cardNumber" class="form-label">Card Number</label>
-                        <i class="fa-brands fa-cc-visa"></i>
-                        <input type="text" class="form-control" id="cardNumber" placeholder="xxxx-xxxx-xxxx-xxxx"
-                            required>
+                </div>
+    
+                <!-- City and Shipping Address -->
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <label for="address" class="form-label">Shipping Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="123 Main St" required>
                     </div>
-
-                    <!-- Expiry Date and CVV (side by side) -->
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <label for="expiryDate" class="form-label">Expiry Date</label>
-                            <input type="date" class="form-control" id="expiryDate" placeholder="MM/YY" required>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="cvv" class="form-label">CVV</label>
-                            <input type="text" class="form-control" id="cvv" placeholder="123" required>
-                        </div>
+                    <div class="col-md-6 mb-4">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" placeholder="New York" required>
                     </div>
-                </form>
-            </div>
-
+                </div>
+    
+                <!-- Payment Information -->
+                <h4 class="checkout-title mt-2 mb-3">Payment Information</h4>
+                <div class="mb-4">
+                    <label for="cardNumber" class="form-label">Card Number</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="19" required>
+                </div>
+    
+                <div class="row">
+                    <!-- Expiry Date -->
+                    <div class="col-md-6 mb-4">
+                        <label for="expiryDate" class="form-label">Expiry Date</label>
+                        <input type="date" class="form-control" id="expiryDate" required>
+                    </div>
+                    <!-- CVV -->
+                    <div class="col-md-6 mb-4">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cvv" placeholder="123" maxlength="4" required>
+                    </div>
+                </div>
+            </form>
+    
             <!-- Right side: Cart Summary -->
             <div class="col-md-4 order-part">
                 <h3 class="checkout-title my-3">My Order</h3>
@@ -188,13 +185,11 @@
                         <!-- Cart items will be dynamically generated here -->
                     </div>
                     <hr>
-
                     <div class="subtotal d-flex justify-content-between">
                         <strong>Total to pay</strong>
-                        <span class="checkoutSubtotal-value">$0.00</span>
+                        <span>$<span id="tprice" class="checkoutSubtotal-value">0.00</span></span>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 mt-4" onclick="submitOrder()">Confirm
-                        Order</button>
+                    <button type="submit" class="btn btn-primary w-100 mt-4" onclick="submitOrder(event)">Confirm Order</button>
                 </div>
             </div>
         </div>

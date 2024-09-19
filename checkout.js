@@ -17,25 +17,22 @@ function renderCartItems() {
         cartItem.innerHTML = `
             <div class="d-flex justify-content-between">
                 <span class="title-font">${item.name} (x${item.quantity})</span>
-                <span>$${(item.price * item.quantity).toFixed(2)}</span> <!-- Show total price for the item -->
+                <span>$${(item.price * item.quantity).toFixed(2)}</span>
             </div>
         `;
         cartItemsContainer.appendChild(cartItem);
     });
 }
-
-
-// Function to update the subtotal value
 function updateSubtotal() {
     let subtotal = 0;
     cart.forEach(item => {
         subtotal += parseFloat(item.price) * item.quantity; // Multiply by quantity
     });
-    document.querySelector('.checkoutSubtotal-value').textContent = `$${subtotal.toFixed(2)}`;
+    document.querySelector('.checkoutSubtotal-value').textContent = `${subtotal.toFixed(2)}`;
 }
 
 
-// Function to handle order submission
+// Function to update the subtotal value
 function submitOrder() {
     const fullName = document.getElementById('fullName').value;
     const email = document.getElementById('email').value;
@@ -44,13 +41,26 @@ function submitOrder() {
     const cardNumber = document.getElementById('cardNumber').value;
     const expiryDate = document.getElementById('expiryDate').value;
     const cvv = document.getElementById('cvv').value;
+    const tprice = parseInt(document.getElementById('tprice').innerText);
 
     // Validate cart before proceeding
     if (cart.length === 0) {
         alert("Your cart is empty. Add items to proceed.");
         return;
     }
+    console.log({
+        full_name: fullName,
+        email: email,
+        address: address,
+        city: city,
+        card_number: cardNumber,
+        expiry_date: expiryDate,
+        cvv: cvv,
+        items: cart,
+        total_price: tprice,
 
+
+    })
     // Send order data to the backend
     fetch('http://127.0.0.1:8000/food/checkout/', {
         method: 'POST',
@@ -66,24 +76,36 @@ function submitOrder() {
             card_number: cardNumber,
             expiry_date: expiryDate,
             cvv: cvv,
-            cart_items: cart
+            items: cart,
+            total_price: tprice,
         })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Order placed successfully!');
-            localStorage.removeItem('cart'); // Clear cart
-            // Redirect to a success page, for example:
-            // window.location.href = 'thank_you.html';
-        } else {
-            console.error('Error placing order:', data.message);
-            alert('Error placing order: ' + data.message);
-        }
-    })
-    .catch(error => console.error('Error:', error));
-}
 
+        .then(response => {
+            // Check if the response is JSON
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+                return response.json(); // Parse JSON if response is JSON
+            } else {
+                throw new Error("Response is not JSON. HTML might have been returned.");
+            }
+        })
+        .then(data => {
+            if (data.success) {
+                // alert('Order placed successfully!');
+                localStorage.removeItem('cart'); // Clear cart
+                // Redirect to a success page
+                // window.location.href = 'thank_you.html';
+            } else {
+                console.error('Error placing order:', data);
+                // alert('Error placing order: ' + JSON.stringify(data));
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // alert('Error: ' + error.message);  // Display the error message
+        });
+}
 // Initial rendering of the cart items and subtotal
 renderCartItems();
 updateSubtotal();
