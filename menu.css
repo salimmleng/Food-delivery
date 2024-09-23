@@ -126,5 +126,9 @@
     font-size: 1rem;
     color: #ff8a00; /* Matches the checkout button color */
 }
+.btn-close {
+    filter: invert(5);
+    /* Invert colors to make it white */
+}
 
 

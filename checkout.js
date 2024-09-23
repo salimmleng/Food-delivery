@@ -56,11 +56,20 @@ function submitOrder() {
         card_number: cardNumber,
         expiry_date: expiryDate,
         cvv: cvv,
-        items: cart,
+        order_items: cart,
         total_price: tprice,
 
 
     })
+
+    const orderItems = cart.map(item => ({
+        name: item.name,  // Assuming each cart item has productId
+        quantity: item.quantity,
+        price: item.price
+    }));
+    console.log(orderItems)
+    console.log(cart)
+
     // Send order data to the backend
     fetch('http://127.0.0.1:8000/food/checkout/', {
         method: 'POST',
@@ -76,10 +85,10 @@ function submitOrder() {
             card_number: cardNumber,
             expiry_date: expiryDate,
             cvv: cvv,
-            items: cart,
+            order_items: orderItems,
             total_price: tprice,
         })
-    })
+    })  
 
         .then(response => {
             // Check if the response is JSON
@@ -92,10 +101,11 @@ function submitOrder() {
         })
         .then(data => {
             if (data.success) {
-                // alert('Order placed successfully!');
-                localStorage.removeItem('cart'); // Clear cart
+                alert('Order placed successfully!');
+                localStorage.setItem('order_id', data.order_id);
+                localStorage.removeItem('cart');
                 // Redirect to a success page
-                // window.location.href = 'thank_you.html';
+                // window.location.href = 'checkout.html';
             } else {
                 console.error('Error placing order:', data);
                 // alert('Error placing order: ' + JSON.stringify(data));

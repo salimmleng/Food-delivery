@@ -11,22 +11,24 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body{
+        body {
             font-family: 'Roboto', sans-serif;
             background-color: #fff;
         }
-        .modal-font{
+
+        .modal-font {
             font-size: 40px;
             text-transform: uppercase;
         }
-        .cart-font{
+
+        .cart-font {
             /* font-size: 40px; */
             text-transform: capitalize;
             color: white;
             font-weight: bold;
-          
+
         }
-    
+
         .food-menu-card {
             background-color: #ffffff;
             border-radius: 5px;
@@ -34,17 +36,19 @@
             padding: 15px;
             margin-bottom: 20px;
         }
-        .food-img{
+
+        .food-img {
             height: 200px;
             object-fit: cover;
-           
+
         }
+
         .category-list {
-        padding: 15px;
-        background-color: #f8f9fa;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-       }
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
         .category-items {
             list-style: none;
@@ -74,8 +78,9 @@
         .category-item a:hover {
             color: #ff8a00;
         }
+
         .banner {
-            
+
             color: white;
             text-align: center;
             padding: 50px 0;
@@ -83,17 +88,20 @@
             font-weight: bold;
             height: 48vh;
         }
+
         .bg-img {
             background-image: url('food image/bg2.jpg');
-            background-size: cover; /* Try contain or auto if cover makes it blurry */
+            background-size: cover;
+            /* Try contain or auto if cover makes it blurry */
             background-position: center;
             background-repeat: no-repeat;
             height: 53vh;
         }
 
-        .font-menu{
+        .font-menu {
             font-size: 50px;
         }
+
         .btn-add-to-cart {
             background-color: #ff8a00;
             color: white;
@@ -115,29 +123,33 @@
             background-color: #d06a00;
             transform: translateY(1px);
         }
+
         .modal-content {
-            background-color: #fff; /* Light grey background color */
-            color: #333; /* Darker text color for contrast */
+            background-color: #fff;
+            /* Light grey background color */
+            color: #333;
+            /* Darker text color for contrast */
             border-radius: 100px;
         }
 
-        .modal-header, .modal-footer {
-            background-color: #e07a00; /* Optional: Different color for the header and footer */
+        .modal-header,
+        .modal-footer {
+            background-color: #e07a00;
+            /* Optional: Different color for the header and footer */
             color: white;
-        }
-        .btn-close {
-            filter: invert(5); /* Invert colors to make it white */
         }
 
     </style>
 </head>
-   
+
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-custom my-2">
         <div class="container-fluid">
             <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
@@ -154,7 +166,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="contact.html">Contact us</a>
                     </li>
-                   
+
                 </ul>
                 <div class="d-flex gap-3 align-items-center">
                     <div class="dropdown me-3">
@@ -166,59 +178,34 @@
                             <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                         </ul>
                     </div>
-                <div class="icon-cart">
-                    <img class="cart-img" src="food image/icon.png">
-                    <div class="totalQuantity">0</div>
-                 </div>
+                    <div class="icon-cart">
+                        <img class="cart-img" src="food image/icon.png">
+                        <div class="totalQuantity">0</div>
+                    </div>
                     <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
                     <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
                 </div>
-                
-                
-    
+
+
+
                 <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
             </div>
         </div>
-       </nav>
-    
-       
-       <!-- Cart Sidebar -->
+    </nav>
 
-    <div id="cartSidebar" class="cart-sidebar">
-        <div class="cart-header d-flex justify-content-between">
-            <h4 class="text-white">My Cart</h4>
-            <button type="button" class="btn-close" aria-label="Close" onclick="toggleCartSidebar()"></button>
-           
-        </div>
-       
-        
-        <div id="cartItems" class="cart-items">
-           
-            <!-- Cart items will be dynamically added here -->
-        </div>
-       
-       
-        <div class="cart-footer">
-            <hr class="text-white">
-            <div class="subtotal-container">
-                <span class="subtotal-label">Subtotal:</span>
-                <span class="subtotal-value">$0.00</span>
-            </div>
-            <hr class="text-white">
-           
-            <button class="btn btn-checkout text-white"><a class="text-white text-decoration-none" href="checkout.html">Checkout</a></button>
-        </div>
-    </div>
-    
+
+    <!-- Cart Sidebar -->
+
+    <div id="cartSidebarContainer"></div>
 
 
     <div class="bg-img">
-    <div class="banner">
-        <h1 class="font-menu">Menu items</h1>
-        <a href="index.html">Home</a>
-        
+        <div class="banner">
+            <h1 class="font-menu">Menu items</h1>
+            <a href="index.html">Home</a>
+
+        </div>
     </div>
-</div>
 
 
 
@@ -239,38 +226,38 @@
 
     <!-- modal -->
 
-    
-  <!-- Modal Structure -->
-<div class="modal fade" id="foodItemModal" tabindex="-1" aria-labelledby="foodItemModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg custom-modal">
-      <div class="modal-content">
-        <div class="modal-header justify-content-center">
-          <h5 class="modal-title" id="foodItemModalLabel">Food Details</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6 d-flex flex-column justify-content-center align-items-start">
-              <img id="modalFoodImage" src="" alt="Food Image" class="img-fluid">
-            </div>
-            <div class="col-md-6">
-              <h5 class="modal-font"  id="modalFoodName"></h5>
-              <span class="price" id="modalFoodPrice"></span>
-              <hr>
-              <p id="modalFoodDescription"></p>
-              <hr>
-              <button class="btn btn-add-to-cart">Add to Cart</button>
-              
 
-             
+    <!-- Modal Structure -->
+    <div class="modal fade" id="foodItemModal" tabindex="-1" aria-labelledby="foodItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg custom-modal">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <h5 class="modal-title" id="foodItemModalLabel">Food Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 d-flex flex-column justify-content-center align-items-start">
+                            <img id="modalFoodImage" src="" alt="Food Image" class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="modal-font" id="modalFoodName"></h5>
+                            <span class="price" id="modalFoodPrice"></span>
+                            <hr>
+                            <p id="modalFoodDescription"></p>
+                            <hr>
+                            <button class="btn btn-add-to-cart">Add to Cart</button>
+
+
+
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  
-    
+
+
     <!-- Food Items for Each Category -->
     <section class="food-menu py-3">
         <div class="container">
@@ -280,7 +267,7 @@
                     <!-- Items will be dynamically inserted here -->
                 </div>
             </div>
-    
+
             <!-- Placeholder for other categories -->
             <div id="pizza" class="category-section" style="display:none;">
                 <h3 class="mb-3">Pizza</h3>
@@ -314,56 +301,57 @@
             </div>
         </div>
     </section>
-    
 
 
-<!-- Footer Section -->
-<footer class="footer py-4 bg-light">
-    <div class="container">
-        <div class="row">
-            <!-- Navigation Links -->
-            <div class="col-md-4 mb-3">
-                <h5>Navigation</h5>
-                <ul class="footer-links list-unstyled">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
 
-            <!-- Social Media Icons -->
-            <div class="col-md-4 mb-3 text-center">
-                <h5>Follow Us</h5>
-                <div class="social-icons">
-                    <a href="#" class="btn-social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn-social mx-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="btn-social mx-2"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="btn-social"><i class="fab fa-linkedin-in"></i></a>
+    <!-- Footer Section -->
+    <footer class="footer py-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <!-- Navigation Links -->
+                <div class="col-md-4 mb-3">
+                    <h5>Navigation</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="col-md-4 mb-3 text-center">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="btn-social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn-social mx-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn-social mx-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn-social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Details</h5>
+                    <p><strong>Address:</strong> 123 Delicious St, Flavor Town, FT 45678</p>
+                    <p><strong>Phone:</strong> (123) 456-7890</p>
+                    <p><strong>Email:</strong> contact@quickdrop.com</p>
                 </div>
             </div>
-
-            <!-- Contact Details -->
-            <div class="col-md-4 mb-3">
-                <h5>Contact Details</h5>
-                <p><strong>Address:</strong> 123 Delicious St, Flavor Town, FT 45678</p>
-                <p><strong>Phone:</strong> (123) 456-7890</p>
-                <p><strong>Email:</strong> contact@quickdrop.com</p>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2024 QuickDrop. All rights reserved.</p>
+                </div>
             </div>
         </div>
-        <div class="row mt-4">
-            <div class="col-12 text-center">
-                <p class="mb-0">&copy; 2024 QuickDrop. All rights reserved.</p>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cart_sideber.js"></script>
+    <script src="cart.js"></script>
     <script src="food_item.js"></script>
+    
 </body>
 </html>
-
-

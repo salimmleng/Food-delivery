@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="menu.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
@@ -18,7 +19,7 @@
     <!-- navber -->
 
 
-    <nav class="navbar navbar-expand-lg navbar-custom bg-light my-2">
+    <nav class="navbar navbar-expand-lg navbar-custom my-2">
         <div class="container-fluid">
             <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -42,91 +43,34 @@
                     </li>
 
                 </ul>
-                <i class="fa-solid fa-magnifying-glass icon-style me-4" id="search-icon" style="cursor: pointer;"></i>
                 <div class="d-flex gap-3 align-items-center">
-                    
+                    <div class="dropdown me-3">
+                        <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user icon-style"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="register.html">Sign in</a></li>
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                        </ul>
+                    </div>
                     <div class="icon-cart">
                         <img class="cart-img" src="food image/icon.png">
                         <div class="totalQuantity">0</div>
-
                     </div>
-
-                    <div class="dropdown mx-4">
-                        <a href="#" role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-regular fa-user icon-style"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" id="userDropdownMenu">
-                            <!-- Menu options will be dynamically inserted here by JS -->
-                        </ul>
-                    </div>
-                    
+                    <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
+                    <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
                 </div>
 
+
+
+                <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
             </div>
         </div>
     </nav>
 
-    <!-- cart side ber -->
+    <!-- Cart Sidebar -->
 
-    <div id="cartSidebar" class="cart-sidebar">
-        <div class="cart-header d-flex justify-content-between">
-            <h4>My Cart</h4>
-            <button type="button" class="btn-close" aria-label="Close" onclick="toggleCartSidebar()"></button>
-
-        </div>
-
-        <div id="cartItems" class="cart-items">
-
-            <!-- Cart items will be dynamically added here -->
-        </div>
-
-
-        <div class="cart-footer">
-            <hr>
-            <div class="subtotal-container">
-                <span class="subtotal-label">Subtotal:</span>
-                <span class="subtotal-value">$0.00</span>
-            </div>
-            <hr>
-
-            <button class="btn btn-checkout text-white"><a class="text-white text-decoration-none"
-                    href="checkout.html">Checkout</a></button>
-        </div>
-    </div>
-
-
-    <!-- Add JavaScript to toggle the search bar -->
-    <script>
-        document.getElementById('search-icon').addEventListener('click', function () {
-            const searchBar = document.getElementById('search-bar');
-            searchBar.classList.toggle('d-none');
-        });
-    </script>
-
-    <!-- Custom Styles -->
-    <style>
-        .search-bar {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .search-bar input {
-            width: 50%;
-            padding: 0.5rem 1rem;
-            border: 2px solid #ff8a00;
-            border-radius: 25px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-bar input:focus {
-            border-color: #16f3e8;
-            box-shadow: 0 0 8px rgba(22, 243, 232, 0.6);
-        }
-    </style>
-
+    <div id="cartSidebarContainer"></div>
 
     <!-- banner section -->
 
@@ -148,6 +92,7 @@
         </div>
     </div>
 
+     
 
     <!-- How It Works Section -->
     <section class="how-it-works py-5 bg-light">
@@ -542,9 +487,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+    <script src="cart_sideber.js"></script>
+    <script src="cart.js"></script>
     <script src="food_item.js"></script>
+
     <!-- <script src="logout.js"></script> -->
-    <script src="navber.js"></script>
+    <!-- <script src="navber.js"></script> -->
+   
 
 
 
