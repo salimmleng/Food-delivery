@@ -12,23 +12,24 @@ const loaditem = () => {
     .then((data) => {
         console.log(data.orders);
         data.orders.forEach((order) => {
-            console.log(order)
             const parent = document.getElementById("table-body");
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
-                <td>${order.id}</td>
-                <td>${order.email}</td>
-                <td>${order.address}</td>
-                <td>${order.order_items[0].name}</td>
-                <td>${order.order_items[0].quantity}</td>
-                <td>${order.order_items[0].price}</td>
-                <td>${order.total_price}</td>
-                <td>Pending...</td>
-           
-            `;
-            parent.appendChild(tr);
-            // localStorage.removeItem('order_id');
-        })
+            order.order_items.forEach((item) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${order.id}</td>
+                    <td>${order.email}</td>
+                    <td>${order.address}</td>
+                    <td>${item.name}</td>
+                    <td>${item.price}</td>
+                    <td>${item.quantity}</td>
+                    <td>${order.total_price}</td>
+                    <td>Pending...</td>
+                `;
+                parent.appendChild(tr);
+                localStorage.removeItem('order_id');
+            });
+              
+        });
 
     })
     .catch((error) => console.error('Error fetching doses:', error));

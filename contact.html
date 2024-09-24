@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"> -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <style>
         .banner {
@@ -26,7 +26,7 @@
             font-weight: bold;
             height: 48vh;
         }
-
+    
         .con-font {
             font-size: 50px;
         }
@@ -47,67 +47,54 @@
 
     <!--nabver  -->
 
-    <nav class="navbar navbar-expand-lg navbar-custom bg-gradient my-2 shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-custom my-2">
         <div class="container-fluid">
-            <!-- Brand/Logo -->
-            <a class="quick px-3 text-decoration-none fw-bold fs-4 text-white" href="index.html">
-                QuickDrop
-            </a>
-
-            <!-- Toggler for Mobile View -->
+            <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!-- Navbar Items -->
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item mx-2">
-                        <a class="nav-link active text-white" aria-current="page" href="index.html">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link active text-dark" aria-current="page" href="index.html">Home</a>
                     </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-white" href="menu.html">Menu</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="menu.html">Menu</a>
                     </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-white" href="about.html">About Us</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="about.html">About us</a>
                     </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-white" href="contact.html">Contact Us</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="contact.html">Contact us</a>
                     </li>
+
                 </ul>
-
-                <!-- Search and Cart Icons -->
                 <div class="d-flex gap-3 align-items-center">
-                    <!-- Search Icon -->
-                    <i class="fa-solid fa-magnifying-glass icon-style me-4 text-white fs-5" id="search-icon"
-                        style="cursor: pointer;"></i>
-
-                    <!-- Cart Icon -->
-                    <div class="icon-cart position-relative">
-                        <img class="cart-img" src="food image/icon.png" alt="Cart">
-                        <span
-                            class="totalQuantity badge bg-danger position-absolute top-0 start-100 translate-middle p-2">
-                            0
-                        </span>
-                    </div>
-
-                    <!-- User Dropdown -->
-                    <div class="dropdown ms-4">
-                        <a href="#" role="button" class="dropdown-toggle text-white" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="fa-regular fa-user fs-4"></i>
+                    <div class="dropdown me-3">
+                        <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user icon-style"></i>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
-                            <!-- Dynamic content will be injected here -->
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="register.html">Sign in</a></li>
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                         </ul>
                     </div>
+                    <div class="icon-cart">
+                        <img class="cart-img" src="food image/icon.png">
+                        <div class="totalQuantity">0</div>
+                    </div>
+                    <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
+                    <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
                 </div>
+
+
+
+                <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
             </div>
         </div>
     </nav>
-
 
 
 
