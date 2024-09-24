@@ -691,7 +691,7 @@ h2 {
 }
 
 .social-links {
-  text-align: left; /* Align the entire social section to the left */
+  /* text-align: left; Align the entire social section to the left */
 }
 
 .con-social-media {
