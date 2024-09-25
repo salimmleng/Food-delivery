@@ -12,7 +12,7 @@ function addContact(event) {
         message: message
     };
 
-    fetch('http://127.0.0.1:8000/contact/', {
+    fetch('https://foodapi-flame.vercel.app/contact/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

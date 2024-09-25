@@ -8,7 +8,7 @@ const handleLogout = () => {
       return;
     }
   
-    fetch("http://127.0.0.1:8000/account/logout/", {
+    fetch("https://foodapi-flame.vercel.app/account/logout/", {
       method: "POST",
       headers: {
         Authorization: `Token ${token}`,

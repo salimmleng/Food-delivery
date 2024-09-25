@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const email = document.getElementById('signup-email').value;
       const password = document.getElementById('signup-password').value;
   
-      fetch('http://127.0.0.1:8000/account/register/', {
+      fetch('https://foodapi-flame.vercel.app/account/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
   
-      fetch('http://127.0.0.1:8000/account/login/', {
+      fetch('https://foodapi-flame.vercel.app/account/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

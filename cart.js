@@ -52,7 +52,7 @@ function renderCartItems() {
         cartItemsContainer.appendChild(cartItem);
     });
 
-    updateSubtotal(); // Update subtotal after rendering items
+    updateSubtotal(); 
 }
 
 // Function to update item quantity
@@ -68,10 +68,10 @@ function removeFromCart(index) {
     updateCartQuantity();
     renderCartItems();
     updateSubtotal();
-    saveCartToLocalStorage(); // Save cart to localStorage
+    saveCartToLocalStorage(); 
 }
 
-// Function to update the subtotal
+
 function updateSubtotal() {
     let subtotal = 0;
     cart.forEach(item => {
@@ -81,7 +81,7 @@ function updateSubtotal() {
     document.querySelector('.subtotal-value').textContent = `$${subtotal.toFixed(2)}`;
 }
 
-// Function to save cart to localStorage
+
 function saveCartToLocalStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
@@ -119,6 +119,6 @@ document.querySelector('.btn-add-to-cart').addEventListener('click', function() 
     }
 });
 
-// Event listener for the cart icon to open the cart sidebar
+
 document.querySelector('.icon-cart').addEventListener('click', toggleCartSidebar);
 

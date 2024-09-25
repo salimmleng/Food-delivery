@@ -15,7 +15,7 @@ function showCategory(categoryName) {
     }
 
     // Fetch and display food items for the selected category
-    fetch(`http://127.0.0.1:8000/food/food-items/${categoryName}/`)
+    fetch(`https://foodapi-flame.vercel.app/food/food-items/${categoryName}/`)
         .then(response => response.json())
         .then(data => {
             const container = document.getElementById(`${categoryName}-items-container`);
@@ -29,12 +29,12 @@ function showCategory(categoryName) {
                 container.innerHTML = '<p>No items found.</p>';
             } else {
                 data.forEach(item => {
-                    console.log(); // Check if the image URL is correct
+                    console.log(); 
                     const foodCard = `
                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                     <div class="card food-card mb-4">
                         <div class="img-wrapper">
-                            <img src="http://127.0.0.1:8000/${item.image}" class="card-img-top" alt="Pizza">
+    
                             <div class="icons-wrapper">
                                 <div class="icon-container">
                                     <i class="fa-solid fa-cart-shopping" onclick="openModal(${item.id})"></i>
@@ -67,10 +67,10 @@ function showCategory(categoryName) {
 
 
 function openModal(itemId) {
-    fetch(`http://127.0.0.1:8000/food/food-item/${itemId}/`)
+    fetch(`https://foodapi-flame.vercel.app/food/food-item/${itemId}/`)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('modalFoodImage').src = `http://127.0.0.1:8000/${data.image}`;
+           
             document.getElementById('modalFoodName').textContent = data.name;
             document.getElementById('modalFoodDescription').textContent = data.description;
             document.getElementById('modalFoodPrice').textContent = `$${data.price}`;
@@ -84,5 +84,5 @@ function openModal(itemId) {
 
 
 
-// cart side
+
 

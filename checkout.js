@@ -63,7 +63,7 @@ function submitOrder() {
     })
 
     const orderItems = cart.map(item => ({
-        name: item.name,  // Assuming each cart item has productId
+        name: item.name,
         quantity: item.quantity,
         price: item.price
     }));
@@ -71,7 +71,7 @@ function submitOrder() {
     console.log(cart)
 
     // Send order data to the backend
-    fetch('http://127.0.0.1:8000/food/checkout/', {
+    fetch('https://foodapi-flame.vercel.app/food/checkout/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
