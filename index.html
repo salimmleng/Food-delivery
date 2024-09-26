@@ -41,34 +41,28 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="contact.html">Contact us</a>
                     </li>
-
                 </ul>
                 <div class="d-flex gap-3 align-items-center">
                     <div class="dropdown me-3">
                         <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-user icon-style"></i>
                         </a>
-                        <ul class="dropdown-menu">
-                            
-                            <li><a class="dropdown-item" href="register.html">Sign in</a></li>
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                        <ul id="userDropdownMenu" class="dropdown-menu">
+                            <!-- Dynamic dropdown items will be inserted here -->
                         </ul>
+                        <div id="register"></div>
                     </div>
                     <div class="icon-cart">
                         <img class="cart-img" src="food image/icon.png">
                         <div class="totalQuantity">0</div>
                     </div>
-                    <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
                     <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
                 </div>
-
-
-
-                <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
             </div>
         </div>
     </nav>
-
+    
+     
     <!-- Cart Sidebar -->
 
     <div id="cartSidebarContainer"></div>
@@ -563,7 +557,7 @@
     <script src="food_item.js"></script>
 
     <!-- <script src="logout.js"></script> -->
-    <!-- <script src="navber.js"></script> -->
+    <script src="navber.js"></script>
    
 
 

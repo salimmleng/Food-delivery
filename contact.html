@@ -26,6 +26,10 @@
             font-weight: bold;
             height: 48vh;
         }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fff;
+        }
     
         .con-font {
             font-size: 50px;
@@ -43,11 +47,11 @@
 
 </head>
 
-<body class="contact-body">
+<body>
 
     <!--nabver  -->
 
-    <nav class="navbar navbar-expand-lg navbar-custom my-2">
+    <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
             <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -69,33 +73,25 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="contact.html">Contact us</a>
                     </li>
-
                 </ul>
                 <div class="d-flex gap-3 align-items-center">
                     <div class="dropdown me-3">
                         <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-user icon-style"></i>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="register.html">Sign in</a></li>
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                        <ul id="userDropdownMenu" class="dropdown-menu">
+                            <!-- Dynamic dropdown items will be inserted here -->
                         </ul>
                     </div>
                     <div class="icon-cart">
                         <img class="cart-img" src="food image/icon.png">
                         <div class="totalQuantity">0</div>
                     </div>
-                    <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
                     <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
                 </div>
-
-
-
-                <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
             </div>
         </div>
     </nav>
-
 
 
     <div class="bg-img">
@@ -176,6 +172,7 @@
         crossorigin="anonymous"></script>
     <script src="contact.js"></script>
     <script src="food_item.js"></script>
+    <script src="navber.js"></script>
 
 
 

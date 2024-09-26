@@ -42,7 +42,9 @@
     <nav class="navbar navbar-expand-lg navbar-custom my-2">
         <div class="container-fluid">
             <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
@@ -59,32 +61,25 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="contact.html">Contact us</a>
                     </li>
-                   
                 </ul>
                 <div class="d-flex gap-3 align-items-center">
                     <div class="dropdown me-3">
                         <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-user icon-style"></i>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="register.html">Sign in</a></li>
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                        <ul id="userDropdownMenu" class="dropdown-menu">
+                            <!-- Dynamic dropdown items will be inserted here -->
                         </ul>
                     </div>
-                <div class="icon-cart">
-                    <img class="cart-img" src="food image/icon.png">
-                    <div class="totalQuantity">0</div>
-                 </div>
-                    <!-- <i class="fa-solid fa-cart-shopping icon-style me-3"></i> -->
+                    <div class="icon-cart">
+                        <img class="cart-img" src="food image/icon.png">
+                        <div class="totalQuantity">0</div>
+                    </div>
                     <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
                 </div>
-                
-                
-    
-                <!-- <a class="font-weight-bold banner-btn" href="register.html">Sign in</a> -->
             </div>
         </div>
-       </nav>
+    </nav>
 
 
     <div class="bg-img">
@@ -258,7 +253,8 @@
 </footer>
       
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="food_item.js"></script>r
+    <script src="food_item.js"></script>
+    <script src="navber.js"></script>
 
 </body>
 </html>
