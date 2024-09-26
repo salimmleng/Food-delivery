@@ -19,7 +19,7 @@ function updateDropdownMenu() {
       dropdownMenu.innerHTML = `
           <li><a class="dropdown-item" href="register.html"><i class="fa-solid fa-sign-in-alt me-2"></i>Sign in</a></li>
       `;
-      // reg.innerHTML = `
+      // reg.innerHTML = `salim almina mariyaam abdullah
       // <a id="register" href="">Register</a>
       // `
   }
