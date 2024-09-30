@@ -6,25 +6,33 @@ document.addEventListener('DOMContentLoaded', function() {
     signUpForm.addEventListener('submit', function(event) {
       event.preventDefault();
   
+      const user_role = document.getElementById('signup_user_role').value;
       const username = document.getElementById('signup-username').value;
+      const first_name = document.getElementById('signup-first_name').value;
+      const last_name = document.getElementById('signup-last_name').value;
       const email = document.getElementById('signup-email').value;
       const password = document.getElementById('signup-password').value;
   
-      fetch('https://foodapi-flame.vercel.app/account/register/', {
+      fetch('http://127.0.0.1:8000/account/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+          user_role: user_role,
           username: username,
+          first_name: first_name,
+          last_name: last_name,
           email: email,
           password: password
         })
       })
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         if (data.username) {
           // Assuming there's a Bootstrap modal with this ID to display alerts
+         
           const alertModal = new bootstrap.Modal(document.getElementById("customAlertModal"));
           alertModal.show();
         } else {
@@ -50,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
   
-      fetch('https://foodapi-flame.vercel.app/account/login/', {
+      fetch('http://127.0.0.1:8000/account/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -71,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
           alert('Login successful! Token: ' + data.token);
           localStorage.setItem('token', data.token);
           localStorage.setItem('user_id', data.user_id);
+          localStorage.setItem('user_role', data.user_role);
           window.location.href = 'index.html';
         } else {
           alert('Login failed. Invalid credentials.');
@@ -84,5 +93,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+const handleLogout = () => {
+  const token = localStorage.getItem("token");
+  console.log(token)
+
+  fetch("http://127.0.0.1:8000/account/logout/", {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      localStorage.removeItem("token");
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("user_role");
+      window.location.href = "index.html";
+    });
+};
 
 

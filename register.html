@@ -14,26 +14,32 @@
 
 <body>
 
-  <div class="container-fluid vh-100">
+  <!-- <div class="container-fluid vh-100">
     <div class="row h-100 justify-content-center align-items-center">
       <div class="col-lg-4 col-md-6 col-sm-8">
         <div class="form-container sign-up shadow p-5 rounded bg-light" style="min-height: 500px;">
           <form id="sign-up-form" action="#" class="sign-up-form">
             <h1 class="text-center mb-4">Sign Up Form</h1>
-  
-            <div class="reg-social-icons d-flex justify-content-center mb-3">
-              <a href="#" class="icon mx-2"><i class="fa-brands fa-google-plus-g"></i></a>
-              <a href="#" class="icon mx-2"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="icon mx-2"><i class="fa-brands fa-github"></i></a>
-              <a href="#" class="icon mx-2"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
-  
-            <div class="mb-3">
+            <div>
+              Register as Admin/Customer
+             <select name="user_role" class="select form-select mb-2" id="signup_user_role">
+               <option value="admin">Admin</option>
+               <option value="customer">Customer</option>
+             </select>
+           </div>
+            <div class="mb-2">
               <input type="text" class="form-control" id="signup-username" placeholder="Username" required>
             </div>
-            <div class="mb-3">
+            <div class="mb-2">
+              <input type="text" class="form-control" id="signup-first_name" placeholder="First name" required>
+            </div>
+            <div class="mb-2">
+              <input type="text" class="form-control" id="signup-last_name" placeholder="Last name" required>
+            </div>
+            <div class="mb-2">
               <input type="email" id="signup-email" placeholder="Email" required class="form-control">
             </div>
+           
             <div class="mb-3">
               <input type="password" class="form-control" id="signup-password" placeholder="Password" required>
             </div>
@@ -49,7 +55,70 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  
+  <div class="container-fluid vh-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-lg-5 col-md-7 col-sm-10">
+            <div class="form-container sign-up shadow p-4 rounded bg-light">
+                <form id="sign-up-form" action="#" class="sign-up-form">
+                    <h2 class="text-center mb-4" style="font-weight: bold;">Sign Up</h2>
+                    
+                    <!-- User Role Selection -->
+                    <div class="form-group mb-3">
+                        <label for="signup_user_role" class="form-label">Register as:</label>
+                        <select name="user_role" class="form-select" id="signup_user_role" required>
+                            <option value="customer">Customer</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Username -->
+                    <div class="form-group mb-3">
+                        <label for="signup-username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="signup-username" placeholder="Enter your username" required>
+                    </div>
+                    
+                    <!-- Side-by-side: First Name and Last Name -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="signup-first_name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="signup-first_name" placeholder="Enter your first name" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="signup-last_name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="signup-last_name" placeholder="Enter your last name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                          <label for="signup-email" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="signup-email" placeholder="Enter your email" required>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                          <label for="signup-password" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="signup-password" placeholder="Create a password" required>
+                      </div>
+                  </div>
+                    
+                    <!-- Sign Up Button -->
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-primary w-100" style="border: none;">Sign Up</button>
+                    </div>
+                    
+                    <!-- Sign In Link -->
+                    <div class="text-center">
+                        <p class="small mb-0">Already have an account? 
+                            <a href="login.html" class="text-decoration-none" style="font-weight: 600;">Sign In</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
   
 
     <!-- register alert modal -->
