@@ -71,7 +71,7 @@ function submitOrder() {
     console.log(cart)
 
     // Send order data to the backend
-    fetch('https://foodapi-flame.vercel.app/food/checkout/', {
+    fetch('http://127.0.0.1:8000/food/checkout/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

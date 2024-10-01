@@ -1,7 +1,6 @@
 const loaditem = () => {
     const token = localStorage.getItem("token");
-    const userId = localStorage.getItem("user_id");
-    fetch(`http://127.0.0.1:8000/food/checkout/user/${userId}/`, {
+    fetch(`http://127.0.0.1:8000/food/checkout/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -18,7 +17,6 @@ const loaditem = () => {
                 tr.id = `order-row-${order.id}`;
                 tr.innerHTML = `
                     <td >${order.id}</td>
-                    <td>${order.email}</td>
                     <td>${order.address}</td>
                     <td>${item.name}</td>
                     <td>${item.price}</td>
@@ -26,9 +24,9 @@ const loaditem = () => {
                     <td>${order.total_price}</td>
                     <td>${order.order_status}</td>
                     ${
-                        order.order_status == "Pending"
-                        ? `<td><a class="text-danger text-decoration-none" style="cursor: pointer;" onclick="deleteOrder(${order.id})">Cancel</a></td>`
-                        : ``
+                     order.order_status == "Pending"
+                     ? `<td class="text-danger "><a style="cursor: pointer;" onclick="completeOrder(${order.id})">Deliver</a></td>`
+                     : `<td>Completed</td>`
                     }
                     
                 `;
@@ -45,26 +43,26 @@ const loaditem = () => {
 loaditem();
 
 
-const deleteOrder = (orderId) => {
+const completeOrder = (orderId) => {
     const token = localStorage.getItem("token");
-
+    console.log(orderId)
     fetch(`http://127.0.0.1:8000/food/checkout/order/${orderId}/`, {
-        method: "DELETE",
-        headers: {
-            Authorization: `Token ${token}`,
-        },
+      method: "PATCH",
+      headers: {
+        Authorization: `Token ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ order_status : "Delivered" }),
     })
-    .then((response) => {
-        if (response.ok) {
-            const row = document.getElementById(`order-row-${orderId}`);
-            if (row) {
-                row.remove();
-            }
-        } else {
-            console.error("Failed to delete order:", response.statusText);
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.order_status === "Delivered") {
+          const row = document.getElementById(`order-row-${orderId}`);
+          row.querySelector("td:nth-child(7)").innerText = "Delivered";
+          
         }
-    })
-    .catch((error) => {
-        console.error("Error:", error);
-    });
-};
+      })
+      .catch((error) => {
+        console.error("Error updating order status:", error);
+      });
+  };
