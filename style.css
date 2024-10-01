@@ -237,7 +237,7 @@ h2 {
     margin-bottom: 30px;
 }
 
-.feature-box,.testimonial-box {
+.feature-box {
     background-color: #fff;
     padding: 30px;
     border-radius: 8px;
@@ -690,9 +690,7 @@ h2 {
     
 }
 
-.social-links {
-  /* text-align: left; Align the entire social section to the left */
-}
+
 
 .con-social-media {
   padding-left: 0; 
@@ -923,4 +921,30 @@ textarea.conn-input {
   .dropdown-menu {
       min-width: 130px;
   }
+}
+
+
+/* testminoal section */
+
+
+.testimonial-box {
+    background-color: #f9f9f9; /* Light background for better readability */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.testimonial-box .stars {
+    font-size: 20px; /* Larger stars for visibility */
+    color: #ffc107; /* Gold color for stars */
+}
+
+.testimonial-box .review-text {
+    font-style: italic; /* Italic text for the review */
+    color: #6c757d; /* Muted text color */
+}
+
+.testimonial-box .username {
+    font-weight: bold; /* Bold for the username */
+    color: #333; /* Darker color for better contrast */
 }

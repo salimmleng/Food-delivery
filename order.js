@@ -30,6 +30,11 @@ const loaditem = () => {
                         ? `<td><a class="text-danger text-decoration-none" style="cursor: pointer;" onclick="deleteOrder(${order.id})">Cancel</a></td>`
                         : ``
                     }
+                    ${
+                        order.order_status == "Delivered"
+                        ? `<td><button class="btn btn-review" onclick="openReviewModal(${order.id})">Leave a Review</button></td>`
+                        : ``
+                    }
                     
                 `;
                 parent.appendChild(tr);
@@ -43,6 +48,64 @@ const loaditem = () => {
   };
   
 loaditem();
+
+
+let currentOrderId;
+let currentUser = localStorage.getItem("username"); // Assuming you have stored the username
+
+function openReviewModal(orderId) {
+    currentOrderId = orderId;
+    document.getElementById("modalOrderId").innerText = orderId;
+    document.getElementById("modalUserName").innerText = currentUser;
+
+    // Bootstrap 5 syntax to show modal
+    const modal = new bootstrap.Modal(document.getElementById('reviewModal'));
+    modal.show();
+}
+
+function submitReview() {
+    const rating = document.getElementById("reviewRating").value;
+    const reviewText = document.getElementById("reviewText").value;
+
+    console.log(`Submitting review for order ${currentOrderId} with rating ${rating} and review: ${reviewText}`);
+    
+    // Send the review data to your backend API
+    const token = localStorage.getItem("token");
+    fetch('http://127.0.0.1:8000/food/reviews/create/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}`,
+        },
+        body: JSON.stringify({
+            order: currentOrderId,
+            rating: rating,
+            review_text: reviewText
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Review submitted:', data);
+        // Optionally close modal and show success message
+    })
+    .catch((error) => console.error('Error submitting review:', error));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const deleteOrder = (orderId) => {

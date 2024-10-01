@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
           localStorage.setItem('token', data.token);
           localStorage.setItem('user_id', data.user_id);
           localStorage.setItem('user_role', data.user_role);
+          localStorage.setItem('username', data.username);
           window.location.href = 'index.html';
         } else {
           alert('Login failed. Invalid credentials.');
@@ -111,6 +112,7 @@ const handleLogout = () => {
       localStorage.removeItem("token");
       localStorage.removeItem("user_id");
       localStorage.removeItem("user_role");
+      localStorage.removeItem("username");
       localStorage.removeItem("cart");
       window.location.href = "index.html";
     });
