@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online delivery</title>
+    <link rel="stylesheet" href="style.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
@@ -12,39 +13,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="menu.css">
-
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"> -->
+   
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <style>
-        .banner {
-            color: white;
-            text-align: center;
-            padding: 50px 0;
-            font-size: 20px;
-            font-weight: bold;
-            height: 48vh;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #fff;
-        }
-    
-        .con-font {
-            font-size: 50px;
-        }
-
-        .bg-img {
-            background-image: url('food image/bg2.jpg');
-            background-size: cover;
-            /* Try contain or auto if cover makes it blurry */
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 53vh;
-        }
-    </style>
-
+   
 </head>
 
 <body>
@@ -62,16 +33,16 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active text-dark" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="menu.html">Menu</a>
+                        <a class="nav-link" href="menu.html">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="about.html">About us</a>
+                        <a class="nav-link" href="about.html">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="contact.html">Contact us</a>
+                        <a class="nav-link" href="contact.html">Contact us</a>
                     </li>
                 </ul>
                 <div class="d-flex gap-3 align-items-center">
@@ -93,20 +64,11 @@
         </div>
     </nav>
 
+    
 
-    <div class="bg-img">
-        <div class="banner">
-            <h1 class="con-font">Contact Us</h1>
-            <a href="index.html">Home</a>
-
-        </div>
-    </div>
-
-
-
-    <div class="container contact-container py-5">
+    <div class="container my-5">
         <div class="row item shadow-lg rounded">
-            <!-- Left Side: Image and Social Media -->
+           
             <div class="col-lg-6 text-center text-lg-start p-4">
                 <h2 class="first-text mb-5">Contact with us as<br>more details</h2>
                 <div class="mb-5">
@@ -142,7 +104,7 @@
 
             </div>
 
-            <!-- Right Side: Contact Form -->
+           
             <div class="col-lg-6 submit-form text-white p-4">
                 <h4 class="third-text">Contact us</h4>
                 <form class="contact-form" id="contact-form" onsubmit="addContact(event)">
@@ -162,7 +124,71 @@
             </div>
         </div>
     </div>
-
+   
+     <!-- Footer Section -->
+     <footer class="footer py-4 bg-light mt-5">
+        <div class="container">
+           
+            <div class="row">
+                <!-- Company Description -->
+                <div class="col-md-3 mb-3">
+                    <h5 class="fw-bold text-uppercase">QuickDrop</h5>
+                    <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
+                    <p class="text-muted" style="line-height: 1.8; font-size: 14px;">
+                        QuickDrop is your trusted solution for fast, reliable food delivery. Whether you're craving a favorite meal or something new, we deliver dishes from local kitchens to your door. Enjoy convenience, speed, and quality with every order.
+                    </p>
+                </div>
+            
+                <!-- Useful Links -->
+                <div class="col-md-3 mb-3">
+                    <h5 class="fw-bold text-uppercase">Useful Links</h5>
+                    <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
+                    <ul class="footer-links list-unstyled mt-2">
+                        <li><a href="index.html" class="text-dark">Home</a></li>
+                        <li><a href="menu.html" class="text-dark">Menu</a></li>
+                        <li><a href="about.html" class="text-dark">About Us</a></li>
+                        <li><a href="contact.html" class="text-dark">Contact Us</a></li>
+                        <li><a href="http://127.0.0.1:5500/about.html#faq" class="text-dark">FAQ</a></li>
+                    </ul>
+                </div>
+            
+                <!-- Contact Details -->
+                <div class="col-md-3 mb-3">
+                    <h5 class="fw-bold text-uppercase">Contact Details</h5>
+                    <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
+                    <p class="text-muted mt-2" style="font-size: 14px;">
+                        <strong>Address:</strong> 123 Delicious St, Flavor Town,<br> FT 45678
+                    </p>
+                    <p class="text-muted" style="font-size: 14px;">
+                        <strong>Phone:</strong> (123) 456-7890
+                    </p>
+                    <p class="text-muted" style="font-size: 14px;">
+                        <strong>Email:</strong> contact@quickdrop.com
+                    </p>
+                </div>
+                  <!-- Social Media Icons -->
+                  <div class="col-md-3 mb-3">
+                    <h5 class="fw-bold text-uppercase">Stay Connected</h5>
+                    <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
+                    <div class="social-icons mt-2">
+                        <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="mb-0 text-muted" style="font-size: 14px;">
+                        &copy; 2024 <strong>QuickDrop</strong>. All rights reserved.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
 
 
 
@@ -171,11 +197,8 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="contact.js"></script>
-    <script src="food_item.js"></script>
     <script src="navber.js"></script>
-
-
-
+    
 </body>
 
 </html>

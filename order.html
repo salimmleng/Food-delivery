@@ -84,18 +84,13 @@
             height: 40vh;
         }
         .btn-review {
-            background-color: #ff8a00;
-            color: white;
-            font-weight: bold;
             border: none;
-            padding: 8px 16px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
             cursor: pointer;
         }
 
       .btn-review:hover {
-          background-color: #ff6f00;
+          background-color: #f1d5bf;
       }
 
       .btn-review:focus {
@@ -107,53 +102,47 @@
 
     <!-- navber -->
 
-    <nav class="navbar navbar-expand-lg navbar-custom ">
-        <div class="container-fluid">
-            <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active text-dark" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="menu.html">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="about.html">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="contact.html">Contact us</a>
-                    </li>
-
-                </ul>
-                <i class="fa-solid fa-magnifying-glass icon-style me-4" id="search-icon" style="cursor: pointer;"></i>
-                <div class="d-flex gap-3 align-items-center">
-                    
-                    <div class="icon-cart">
-                        <img class="cart-img" src="food image/icon.png">
-                        <div class="totalQuantity">0</div>
-
-                    </div>
-
-                    <div class="dropdown mx-4">
-                        <a href="#" role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-regular fa-user icon-style"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" id="userDropdownMenu">
-                            <!-- Menu options will be dynamically inserted here by JS -->
-                        </ul>
-                    </div>
-                    
-                </div>
-
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container-fluid">
+          <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="menu.html">Menu</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="about.html">About us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="contact.html">Contact us</a>
+                  </li>
+              </ul>
+              <div class="d-flex gap-3 align-items-center">
+                  <div class="dropdown me-3">
+                      <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-regular fa-user icon-style"></i>
+                      </a>
+                      <ul id="userDropdownMenu" class="dropdown-menu">
+                          <!-- Dynamic dropdown items will be inserted here -->
+                      </ul>
+                  </div>
+                  <div class="icon-cart">
+                      <img class="cart-img" src="food image/icon.png">
+                      <div class="totalQuantity">0</div>
+                  </div>
+                  <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
+              </div>
+          </div>
+      </div>
+  </nav>
 
    
 
@@ -205,14 +194,15 @@
         <table class="table table-bordered  table-striped">
             <thead>
               <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Email</th>
-                <th scope="col">Address</th>
-                <th scope="col">Item</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Total price</th>
-                <th scope="col">Order Status</th>
+                <th class="text-center" scope="col">Id</th>
+                <th class="text-center" scope="col">Email</th>
+                <th class="text-center" scope="col">Address</th>
+                <th class="text-center" scope="col">Item</th>
+                <th class="text-center" scope="col">Price</th>
+                <th class="text-center" scope="col">Quantity</th>
+                <th class="text-center" scope="col">Total price</th>
+                <th class="text-center" scope="col">Order Status</th>
+                <th class="text-center" scope="col">Action</th>
                 
               </tr>
             </thead>
@@ -230,56 +220,21 @@
   
    
   <!-- Review Modal -->
-<!-- <div id="reviewModal" class="modal fade" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="reviewModalLabel">Leave a Review for Order #<span id="modalOrderId"></span> by <span id="modalUserName"></span></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              <form id="reviewForm">
-                  <div class="form-group">
-                      <label for="reviewRating">Rating</label>
-                      <select id="reviewRating" class="form-control">
-                          <option value="5">5 - Excellent</option>
-                          <option value="4">4 - Very Good</option>
-                          <option value="3">3 - Good</option>
-                          <option value="2">2 - Fair</option>
-                          <option value="1">1 - Poor</option>
-                      </select>
-                  </div>
-                  <div class="form-group">
-                      <label for="reviewText">Your Review</label>
-                      <textarea id="reviewText" class="form-control" rows="3" placeholder="Write your review..."></textarea>
-                  </div>
-              </form>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="submitReview()">Submit Review</button>
-          </div>
-      </div>
-  </div>
-</div> -->
 
 <div id="reviewModal" class="modal fade" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <!-- Modal Header -->
-      <div class="modal-header bg-primary text-white">
+      <div class="modal-header bg-info text-white">
         <h5 class="modal-title" id="reviewModalLabel">
-          Leave a Review for Order #<span id="modalOrderId"></span> <br>
-          <small class="text-light">by <span id="modalUserName"></span></small>
+          Leave a Review for Order <span id="modalOrderId"></span> <br>
+         
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       
       <!-- Modal Body -->
       <div class="modal-body">
-        <!-- Error message display -->
-        <div id="reviewError" class="alert alert-danger d-none" role="alert"></div>
-
         <form id="reviewForm">
           <!-- Rating Section -->
           <div class="form-group mb-4">
@@ -306,8 +261,9 @@
 
       <!-- Modal Footer -->
       <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-primary px-4" onclick="submitReview()">Submit</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-lg px-5" onclick="submitReview()">Submit Review</button>
+        
       </div>
     </div>
   </div>

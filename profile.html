@@ -10,37 +10,35 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body {
-      background-color: white;
-    }
-    .profile-sidebar {
-  background: linear-gradient(180deg, #e6b276, #dc693f);
-  border-radius: 10px;
-  color: white;
-}
-.profile-sidebar img {
-  width: 80px;
-  height: 80px;
-}
-.profile-sidebar h4 {
-  font-size: 18px;
-  font-weight: bold;
-}
-.profile-sidebar p {
-  font-size: 14px;
-}
-.list-group-item {
-  background: transparent;
-  font-size: 16px;
-  padding: 10px 15px;
-}
-.list-group-item a {
-  color: #333;
-  text-decoration: none;
-}
-.list-group-item a:hover {
-  color: #ff8a00;
-}
+    
+      .profile-sidebar {
+        background: linear-gradient(180deg, #e6b276, #dc693f);
+        border-radius: 10px;
+        color: white;
+      }
+      .profile-sidebar img {
+        width: 80px;
+        height: 80px;
+      }
+      .profile-sidebar h4 {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .profile-sidebar p {
+        font-size: 14px;
+      }
+      .list-group-item {
+        background: transparent;
+        font-size: 16px;
+        padding: 10px 15px;
+      }
+      .list-group-item a {
+        color: #333;
+        text-decoration: none;
+      }
+      .list-group-item a:hover {
+        color: #ff8a00;
+      }
 
     .profile-main {
       /* background-color: white;
@@ -89,53 +87,47 @@
 
     <!-- navber -->
 
-    <nav class="navbar navbar-expand-lg navbar-custom ">
-        <div class="container-fluid">
-            <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active text-dark" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="menu.html">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="about.html">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="contact.html">Contact us</a>
-                    </li>
-
-                </ul>
-                <i class="fa-solid fa-magnifying-glass icon-style me-4" id="search-icon" style="cursor: pointer;"></i>
-                <div class="d-flex gap-3 align-items-center">
-                    
-                    <div class="icon-cart">
-                        <img class="cart-img" src="food image/icon.png">
-                        <div class="totalQuantity">0</div>
-
-                    </div>
-
-                    <div class="dropdown mx-4">
-                        <a href="#" role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-regular fa-user icon-style"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" id="userDropdownMenu">
-                            <!-- Menu options will be dynamically inserted here by JS -->
-                        </ul>
-                    </div>
-                    
-                </div>
-
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container-fluid">
+          <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="menu.html">Menu</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="about.html">About us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="contact.html">Contact us</a>
+                  </li>
+              </ul>
+              <div class="d-flex gap-3 align-items-center">
+                  <div class="dropdown me-3">
+                      <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-regular fa-user icon-style"></i>
+                      </a>
+                      <ul id="userDropdownMenu" class="dropdown-menu">
+                          <!-- Dynamic dropdown items will be inserted here -->
+                      </ul>
+                  </div>
+                  <div class="icon-cart">
+                      <img class="cart-img" src="food image/icon.png">
+                      <div class="totalQuantity">0</div>
+                  </div>
+                  <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
+              </div>
+          </div>
+      </div>
+  </nav>
 
    
   <div class="container mt-5">
@@ -185,16 +177,15 @@
         <div class="profile-main bg-light p-4">
           <h4 class="mb-4">Change Profile</h4>
           
+          
           <!-- Name Section -->
           <div class="row align-items-center mb-3 bg-white p-3 rounded">
             <div class="col-md-1 text-center">
               <i class="bi bi-person-circle"></i>
             </div>
-            <label class="col-md-3">Name :</label>
+            <label class="col-md-3">Full name :</label>
             <div class="col-md-6" id="profile-name">Loading...</div>
-            <!-- <div class="col-md-2 text-end">
-              <button class="btn change-btn">Edit</button>
-            </div> -->
+           
           </div>
           
           <!-- Email Section -->

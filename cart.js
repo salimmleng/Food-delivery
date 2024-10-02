@@ -122,3 +122,4 @@ document.querySelector('.btn-add-to-cart').addEventListener('click', function() 
 
 document.querySelector('.icon-cart').addEventListener('click', toggleCartSidebar);
 
+

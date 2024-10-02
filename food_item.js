@@ -45,7 +45,8 @@ function showCategory(categoryName) {
                                     <span class="icon-text">View details</span>
                                 </div>
                                 <div class="icon-container">
-                                    <i class="fa-solid fa-heart"></i>
+                                    <i class="fa-solid fa-heart" onclick="this.style.color = this.style.color === 'red' ? '' : 'red'"></i>
+
                                 </div>
                             </div>
                         </div>
@@ -62,6 +63,9 @@ function showCategory(categoryName) {
         .catch(error => console.error('Error fetching data:', error));
 }
 
+function toggleLove(icon) {
+    icon.classList.toggle('red-heart');
+}
 
 // modal task
 
@@ -76,7 +80,7 @@ function openModal(itemId) {
             document.getElementById('modalFoodPrice').textContent = `$${data.price}`;
             
             // Show the modal
-            var foodItemModal = new bootstrap.Modal(document.getElementById('foodItemModal'));
+            const foodItemModal = new bootstrap.Modal(document.getElementById('foodItemModal'));
             foodItemModal.show();
         })
         .catch(error => console.error('Error fetching item data:', error));

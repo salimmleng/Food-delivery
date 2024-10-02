@@ -3,6 +3,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f8f9fa; /* Light gray background */
+    margin: 0;
 }
 
 .bg {
@@ -309,21 +310,15 @@ h2 {
 
 .food-card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    border-radius: 40px; /* Rounded corners for the card */
-    overflow: hidden; /* Ensures the image and content fit within the card */
-    transition: transform 0.2s ease-in-out;
+    border-radius: 40px; 
+    overflow: hidden; 
     border: none; 
 }
-
-.food-card:hover {
-    transform: translateY(-5px); /* Slight lift effect on hover */
-}
-
-
 .card-body {
     padding: 15px;
     text-align: left;
     border: none;
+    /* background-color: rgb(254, 254, 195); */
    
 
 }
@@ -600,7 +595,7 @@ h2 {
 }
 
 
-/* Adjust the text to move it slightly to the right */
+
 
 
 /* Styling for the search bar */
@@ -622,29 +617,25 @@ h2 {
 
 
 /* Custom Navbar Styling */
+
+
 .navbar-custom {
-    /* background: rgb(236, 65, 236); */
-    /* background: #e2dddd; */
-
-    /* padding: 15px 0; */
-
-    /* background-color: #ffffff;  */
-    padding: 1rem;
-    
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* font-weight: 600; */
+    z-index: 1000;
+    background-color: #fff;
+    padding: 10px 24px;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  */
+    font-family: 'Open Sans', sans-serif; /* Apply your preferred font */
+    font-size: 21px; /* Consistent font size */
 }
 
-.navbar-custom .navbar-brand {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    padding: 16px 24px;
-}
-
-.navbar-custom .navbar-nav .nav-link {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    padding: 8px 12px;
+.nav-link {
+    font-size: 21px; /* Consistent size across pages */
+    color: #333; /* Consistent color */
+    text-transform: capitalize;
     transition: color 0.3s ease;
 }
 
@@ -671,6 +662,14 @@ h2 {
     color: #fff;
 }
 
+
+
+
+
+
+
+
+
 /* register sec */
 
 
@@ -678,19 +677,6 @@ h2 {
 
 
 /* contact section */
-
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-.contact-body{
-    margin: 0;
-    padding: 0;
-    font-family: "poppins";
-    /* background-color: #0ecfc6; */
-    
-}
-
-
 
 .con-social-media {
   padding-left: 0; 
@@ -789,12 +775,6 @@ textarea.conn-input {
   cursor: pointer;
 }
 
-.con-btn:hover {
-  background-color: #f18407;
-}
-
-
-
 
 .con-btn:hover {
     background-color: rgb(191, 22, 191);
@@ -862,14 +842,7 @@ textarea.conn-input {
   transition: color 0.3s ease;
 }
 
-.dropdown-item:hover {
-  background-color: #ff8a00;
-  color: #ffffff;
-}
 
-.dropdown-item:hover i {
-  color: #ffffff;
-}
 
 /* Dropdown Toggle Icon */
 .icon-style {

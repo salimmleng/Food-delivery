@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (data) {
         // Update the profile name and email dynamically
-        document.getElementById('profile-name').textContent = data.username;
+        const fullName = `${data.first_name} ${data.last_name}`;
+        document.getElementById('profile-name').textContent = fullName;
         document.getElementById('profile-email').textContent = data.email;
         document.getElementById('nm').innerHTML = data.username;
         document.getElementById('em').innerHTML = data.email;

@@ -27,12 +27,12 @@ const loaditem = () => {
                     <td>${order.order_status}</td>
                     ${
                         order.order_status == "Pending"
-                        ? `<td><a class="text-danger text-decoration-none" style="cursor: pointer;" onclick="deleteOrder(${order.id})">Cancel</a></td>`
+                        ? `<td class="text-center"><a class="text-danger text-decoration-none" style="cursor: pointer;" onclick="deleteOrder(${order.id})">Cancel</a></td>`
                         : ``
                     }
                     ${
                         order.order_status == "Delivered"
-                        ? `<td><button class="btn btn-review" onclick="openReviewModal(${order.id})">Leave a Review</button></td>`
+                        ? `<td><button class=" btn-review" onclick="openReviewModal(${order.id})">Leave a Review</button></td>`
                         : ``
                     }
                     
@@ -51,14 +51,13 @@ loaditem();
 
 
 let currentOrderId;
-let currentUser = localStorage.getItem("username"); // Assuming you have stored the username
+let currentUser = localStorage.getItem("username");
 
 function openReviewModal(orderId) {
     currentOrderId = orderId;
     document.getElementById("modalOrderId").innerText = orderId;
-    document.getElementById("modalUserName").innerText = currentUser;
+    // document.getElementById("modalUserName").innerText = currentUser;
 
-    // Bootstrap 5 syntax to show modal
     const modal = new bootstrap.Modal(document.getElementById('reviewModal'));
     modal.show();
 }
@@ -69,7 +68,7 @@ function submitReview() {
 
     console.log(`Submitting review for order ${currentOrderId} with rating ${rating} and review: ${reviewText}`);
     
-    // Send the review data to your backend API
+    
     const token = localStorage.getItem("token");
     fetch('http://127.0.0.1:8000/food/reviews/create/', {
         method: 'POST',
@@ -86,7 +85,7 @@ function submitReview() {
     .then(response => response.json())
     .then(data => {
         console.log('Review submitted:', data);
-        // Optionally close modal and show success message
+        
     })
     .catch((error) => console.error('Error submitting review:', error));
 }

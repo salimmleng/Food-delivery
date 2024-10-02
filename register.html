@@ -8,55 +8,62 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      body{
+        background-image: url('food image/sign5.png');
+      }
+    </style>
 
 </head>
 
 
 <body>
 
-  <!-- <div class="container-fluid vh-100">
-    <div class="row h-100 justify-content-center align-items-center">
-      <div class="col-lg-4 col-md-6 col-sm-8">
-        <div class="form-container sign-up shadow p-5 rounded bg-light" style="min-height: 500px;">
-          <form id="sign-up-form" action="#" class="sign-up-form">
-            <h1 class="text-center mb-4">Sign Up Form</h1>
-            <div>
-              Register as Admin/Customer
-             <select name="user_role" class="select form-select mb-2" id="signup_user_role">
-               <option value="admin">Admin</option>
-               <option value="customer">Customer</option>
-             </select>
-           </div>
-            <div class="mb-2">
-              <input type="text" class="form-control" id="signup-username" placeholder="Username" required>
+   <!-- navber -->
+   <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact us</a>
+                </li>
+            </ul>
+            <div class="d-flex gap-3 align-items-center">
+                <div class="dropdown me-3">
+                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-regular fa-user icon-style"></i>
+                    </a>
+                    <ul id="userDropdownMenu" class="dropdown-menu">
+                        <!-- Dynamic dropdown items will be inserted here -->
+                    </ul>
+                </div>
+                <div class="icon-cart">
+                    <img class="cart-img" src="food image/icon.png">
+                    <div class="totalQuantity">0</div>
+                </div>
+                <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
             </div>
-            <div class="mb-2">
-              <input type="text" class="form-control" id="signup-first_name" placeholder="First name" required>
-            </div>
-            <div class="mb-2">
-              <input type="text" class="form-control" id="signup-last_name" placeholder="Last name" required>
-            </div>
-            <div class="mb-2">
-              <input type="email" id="signup-email" placeholder="Email" required class="form-control">
-            </div>
-           
-            <div class="mb-3">
-              <input type="password" class="form-control" id="signup-password" placeholder="Password" required>
-            </div>
-           
-            <button type="submit" class="btn btn-primary w-100 mb-3">Sign Up</button>
-            
-            <div class="text-center">
-              <p class="small mb-0">Already have an account? 
-                <a href="login.html" class="text-decoration-none" style="font-weight: 600;">Sign In</a>
-              </p>
-            </div>
-          </form>
         </div>
-      </div>
     </div>
-  </div> -->
+</nav>
   
+<!-- register form -->
+ 
   <div class="container-fluid vh-100">
     <div class="row h-100 justify-content-center align-items-center">
         <div class="col-lg-5 col-md-7 col-sm-10">
@@ -140,7 +147,70 @@
 
 
     
-
+     <!-- Footer Section -->
+     <footer class="footer py-4 bg-light mt-5">
+      <div class="container">
+         
+          <div class="row">
+              <!-- Company Description -->
+              <div class="col-md-3 mb-3">
+                  <h5 class="fw-bold text-uppercase">QuickDrop</h5>
+                  <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
+                  <p class="text-muted" style="line-height: 1.8; font-size: 14px;">
+                      QuickDrop is your trusted solution for fast, reliable food delivery. Whether you're craving a favorite meal or something new, we deliver dishes from local kitchens to your door. Enjoy convenience, speed, and quality with every order.
+                  </p>
+              </div>
+          
+              <!-- Useful Links -->
+              <div class="col-md-3 mb-3">
+                  <h5 class="fw-bold text-uppercase">Useful Links</h5>
+                  <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
+                  <ul class="footer-links list-unstyled mt-2">
+                      <li><a href="index.html" class="text-dark">Home</a></li>
+                      <li><a href="menu.html" class="text-dark">Menu</a></li>
+                      <li><a href="about.html" class="text-dark">About Us</a></li>
+                      <li><a href="contact.html" class="text-dark">Contact Us</a></li>
+                      <li><a href="http://127.0.0.1:5500/about.html#faq" class="text-dark">FAQ</a></li>
+                  </ul>
+              </div>
+          
+              <!-- Contact Details -->
+              <div class="col-md-3 mb-3">
+                  <h5 class="fw-bold text-uppercase">Contact Details</h5>
+                  <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
+                  <p class="text-muted mt-2" style="font-size: 14px;">
+                      <strong>Address:</strong> 123 Delicious St, Flavor Town,<br> FT 45678
+                  </p>
+                  <p class="text-muted" style="font-size: 14px;">
+                      <strong>Phone:</strong> (123) 456-7890
+                  </p>
+                  <p class="text-muted" style="font-size: 14px;">
+                      <strong>Email:</strong> contact@quickdrop.com
+                  </p>
+              </div>
+                <!-- Social Media Icons -->
+                <div class="col-md-3 mb-3">
+                  <h5 class="fw-bold text-uppercase">Stay Connected</h5>
+                  <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
+                  <div class="social-icons mt-2">
+                      <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-twitter"></i></a>
+                      <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-instagram"></i></a>
+                      <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="row mt-4">
+              <div class="col-12 text-center">
+                  <p class="mb-0 text-muted" style="font-size: 14px;">
+                      &copy; 2024 <strong>QuickDrop</strong>. All rights reserved.
+                  </p>
+              </div>
+          </div>
+          
+      </div>
+  </footer>
 
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
