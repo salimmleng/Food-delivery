@@ -379,11 +379,6 @@ h2 {
 
 
 
-.card-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
 
 .card-text {
     font-size: 1rem;
@@ -779,6 +774,7 @@ textarea.conn-input {
 .con-btn:hover {
     background-color: rgb(191, 22, 191);
 }
+
 
 /* contact ends */
 

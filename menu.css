@@ -130,5 +130,17 @@
     filter: invert(5);
     /* Invert colors to make it white */
 }
+.cart-font {
+    /* font-size: 40px; */
+    text-transform: capitalize;
+    color: white;
+    font-weight: bold;
 
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
 

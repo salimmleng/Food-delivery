@@ -16,6 +16,58 @@
 
    
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        .btn-add-to-cart {
+            background-color: #ff8a00;
+            color: white;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #e07a00;
+            transform: translateY(-2px);
+        }
+
+        .btn-add-to-cart:active {
+            background-color: #d06a00;
+            transform: translateY(1px);
+        }
+        .detail-img{
+            width: 70%;
+
+        }
+        .review-body {
+        border: none;
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        padding: 20px; /* Inner padding */
+        background-color: #fff; /* White background for contrast */
+        transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition effects */
+        }
+        .review-body:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+        }
+
+        
+        .review-body h2 {
+            font-size: 24px; 
+            margin-bottom: 10px; 
+        }
+
+        .review-body p {
+            font-size: 16px; 
+            color: #555; 
+        }
+
+
+    </style>
    
 </head>
 
@@ -64,10 +116,12 @@
             </div>
         </div>
     </nav>
-    
-      <!-- Cart Sidebar -->
 
-      <div id="cartSidebar" class="cart-sidebar">
+
+    <!-- Cart Sidebar -->
+
+
+    <div id="cartSidebar" class="cart-sidebar">
         <div class="cart-header d-flex justify-content-between">
             <h4 class="text-white">My Cart</h4>
             <button type="button" class="btn-close" aria-label="Close" onclick="toggleCartSidebar()"></button>
@@ -93,65 +147,59 @@
         </div>
     </div>
     
+    
+    <!-- menu container -->
 
     <div class="container my-5">
-        <div class="row item shadow-lg rounded">
+        <div id="menu_detail-container" >
            
-            <div class="col-lg-6 text-center text-lg-start p-4">
-                <h2 class="first-text mb-5">Contact with us as<br>more details</h2>
-                <div class="mb-5">
-                    <div class="d-flex gap-3 mb-3">
-                        <i class="fa-regular fa-envelope" style="color: #ffffff;"></i>
-                        <small class="text-white icon-text">quickdrop@gmail.com</small>
+        </div>
+    
+    </div>
 
-                    </div>
-                    <div class="d-flex mb-3">
-                        <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
-                        <small class="text-white icon-text ms-3">712/27 Adabor 10, Mohammadpur, Dhaka, 1207,
-                            Bangladesh</small>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <i class="fa-solid fa-phone" style="color: #ffffff;"></i>
-                        <small class="text-white icon-text ms-3">+91 9751791203, +91 9159669599</small>
+    <!-- review form -->
+
+    <div class="container my-5">
+        <h2 class="text-info text-center my-3">Leave a Review for Your Order <span id="orderId"></span></h2>
+    
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm"> <!-- Card with shadow -->
+                    <div class="card-body review-body"> <!-- Card body to contain the form -->
+                        <form id="reviewForm" class="mt-4">
+                            <!-- Rating Section -->
+                            <div class="form-group mb-4">
+                                <label for="reviewRating" class="form-label">Rating</label>
+                                <div class="rating-input">
+                                    <select id="reviewRating" class="form-select form-select-lg" required>
+                                        <option value="" disabled selected>Select your rating</option>
+                                        <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+                                        <option value="4">⭐⭐⭐⭐ - Very Good</option>
+                                        <option value="3">⭐⭐⭐ - Good</option>
+                                        <option value="2">⭐⭐ - Fair</option>
+                                        <option value="1">⭐ - Poor</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <!-- Review Text Section -->
+                            <div class="form-group mb-4">
+                                <label for="reviewText" class="form-label">Your Review</label>
+                                <textarea id="reviewText" class="form-control form-control-lg" rows="4" placeholder="Write your thoughts about the service..." required></textarea>
+                                <small class="form-text text-muted">Please keep your review concise and respectful.</small>
+                            </div>
+    
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary px-4">Submit Review</button>
+                        </form>
                     </div>
                 </div>
-
-                <div class="social-links">
-                    <span class="second-text d-block mb-3">Connect with us:</span>
-                    <ul class="con-social-media list-inline">
-                        <li class="list-inline-item"><a target="_blank"
-                                href="https://www.facebook.com/salim.hossain.54922"><i class='bx bxl-facebook'></i></a>
-                        </li>
-                        <li class="list-inline-item"><a href="#"><i class='bx bxl-twitter'></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class='bx bxl-youtube'></i></a></li>
-                        <li class="list-inline-item"><a target="_blank"
-                                href="https://www.linkedin.com/in/salim-hossaian/"><i class='bx bxl-linkedin'></i></a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-           
-            <div class="col-lg-6 submit-form text-white p-4">
-                <h4 class="third-text">Contact us</h4>
-                <form class="contact-form" id="contact-form" onsubmit="addContact(event)">
-                    <div class="mb-4">
-                        <input class="form-control con-input" type="text" placeholder="Name" required>
-                    </div>
-                    <div class="mb-4">
-                        <input class="form-control con-input" type="email" placeholder="Email" required>
-                    </div>
-                    <div class="mb-4">
-                        <textarea class="form-control conn-input" id="message" rows="5" placeholder="Message"
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="con-btn">Send message</button>
-                </form>
-                <p id="con-message" class="mt-3"></p>
             </div>
         </div>
     </div>
+    
+    
+     
    
      <!-- Footer Section -->
      <footer class="footer py-4 bg-light mt-5">
@@ -224,9 +272,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="contact.js"></script>
+   
     <script src="navber.js"></script>
     <script src="food_item.js"></script>
+   
     
 </body>
 

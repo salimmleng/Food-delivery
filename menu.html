@@ -20,14 +20,6 @@
             text-transform: uppercase;
         }
 
-        .cart-font {
-            /* font-size: 40px; */
-            text-transform: capitalize;
-            color: white;
-            font-weight: bold;
-
-        }
-
         .food-menu-card {
             background-color: #ffffff;
             border-radius: 5px;
@@ -187,10 +179,34 @@
         </div>
     </nav>
     
+     <!-- Cart Sidebar -->
 
-    <!-- Cart Sidebar -->
-
-    <div id="cartSidebarContainer"></div>
+     <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header d-flex justify-content-between">
+            <h4 class="text-white">My Cart</h4>
+            <button type="button" class="btn-close" aria-label="Close" onclick="toggleCartSidebar()"></button>
+    
+        </div>
+    
+        <div id="cartItems" class="cart-items">
+    
+            <!-- Cart items will be dynamically added here -->
+        </div>
+    
+        <div class="cart-footer">
+            <hr class="text-white">
+            <div class="subtotal-container">
+                <span class="subtotal-label">Subtotal:</span>
+                <span class="subtotal-value">$0.00</span>
+            </div>
+            <hr class="text-white">
+    
+            <button class="btn btn-checkout text-white"><a class="text-white text-decoration-none"
+                    href="checkout.html">Checkout</a></button>
+        </div>
+    </div>
+    
+  
 
 
     <div class="bg-img">
@@ -218,11 +234,10 @@
         </div>
     </section>
 
-    <!-- modal -->
-
-
+    
     <!-- Modal Structure -->
-    <div class="modal fade" id="foodItemModal" tabindex="-1" aria-labelledby="foodItemModalLabel" aria-hidden="true">
+
+    <!-- <div class="modal fade" id="foodItemModal" tabindex="-1" aria-labelledby="foodItemModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg custom-modal">
             <div class="modal-content">
                 <div class="modal-header justify-content-center">
@@ -249,7 +264,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!-- Food Items for Each Category -->
