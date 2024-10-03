@@ -51,3 +51,66 @@ function getStarRating(rating) {
     }
     return stars;
 }
+
+
+
+
+
+// document.getElementById('reviewForm').addEventListener('submit', function(e) {
+//     e.preventDefault();
+    
+//     const orderId = getQueryParams("order_id");  // Assume the order_id is in the URL
+//     const reviewRating = document.getElementById('reviewRating').value;
+//     const reviewText = document.getElementById('reviewText').value;
+//     const token = localStorage.getItem("token");
+
+//     if (!token) {
+//         alert("You must be logged in to submit a review.");
+//         return;
+//     }
+
+//     // Fetch the order details to check the status
+//     fetch(`http://127.0.0.1:8000/food/checkout/${orderId}/`, {
+//         method: "GET",
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `Token ${token}`,
+//         },
+//     })
+//     .then(res => res.json())
+//     .then(order => {
+//         if (order.order_status !== 'delivered') {
+//             alert("You can only review an order once it has been delivered.");
+//         } else {
+//             // Submit the review
+//             fetch(`http://127.0.0.1:8000/food/review/`, {
+//                 method: "POST",
+//                 headers: {
+//                     'Content-Type': 'application/json',
+//                    'Authorization': `Token ${token}`,
+//                 },
+//                 body: JSON.stringify({
+//                     order_id: orderId,
+//                     rating: reviewRating,
+//                     text: reviewText,
+//                 }),
+//             })
+//             .then(response => response.json())
+//             .then(data => {
+//                 if (data.detail) {
+//                     alert(data.detail);
+//                 } else {
+//                     alert("Review submitted successfully!");
+//                     // Optionally, clear the form or redirect the user
+//                 }
+//             })
+//             .catch(error => {
+//                 console.error("Error submitting review:", error);
+//             });
+//         }
+//     })
+//     .catch(error => {
+//         console.error("Error checking order status:", error);
+//     });
+// });
+

@@ -12,6 +12,7 @@ function renderCartItems() {
     }
 
     cart.forEach(item => {
+        console.log(item.id)
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
         cartItem.innerHTML = `
@@ -63,6 +64,7 @@ function submitOrder() {
     })
 
     const orderItems = cart.map(item => ({
+        id: item.id,
         name: item.name,
         quantity: item.quantity,
         price: item.price
@@ -85,7 +87,10 @@ function submitOrder() {
             card_number: cardNumber,
             expiry_date: expiryDate,
             cvv: cvv,
-            order_items: orderItems,
+            order_items: [
+                { id: 9, name: "pizza", quantity: 1, price: "52.00" },
+                { id: 10, name: "pasta", quantity: 1, price: "90.00" },
+            ],
             total_price: tprice,
         })
     })  
@@ -103,6 +108,8 @@ function submitOrder() {
             if (data.success) {
                 alert('Order placed successfully!');
                 localStorage.setItem('order_id', data.order_id);
+                const orderItems = data.order_items;
+                localStorage.setItem("order_items", JSON.stringify(orderItems));
                 localStorage.removeItem('cart');
                 // Redirect to a success page
                 // window.location.href = 'checkout.html';

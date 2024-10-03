@@ -68,76 +68,6 @@ function viewDetails(itemId) {
 }
 
 
-// const getQueryParams = (param) => {
-//     const urlParams = new URLSearchParams(window.location.search);
-//     return urlParams.get(param);
-//   };
-
-//   const getMenuDetail = () => {
-//     const menuId = getQueryParams("id");
-//     const token = localStorage.getItem("token");
-//     console.log(menuId);
-
-//     fetch(`http://127.0.0.1:8000/food/food-item/${menuId}/`, {
-//         method: "GET",
-//     })
-//         .then((res) => res.json())
-//         .then((menu) => {
-//             console.log(menu);
-
-//             const menuDetailContainer = document.getElementById("menu_detail-container");
-//             const div = document.createElement("div");
-//             div.classList.add("row", "container", "whole-part", "d-flex", "align-items-center", "m-auto");
-
-//             let buttonHTML = "";
-//             if (token) {
-//                 buttonHTML = `
-//                     <button
-//                         type="button"
-//                         class=" btn btn-add-to-cart font-weight-bold px-4 py-2 mt-4"
-//                     >
-//                         Add to Cart
-//                     </button>
-//                 `;
-//             } else {
-//                 buttonHTML = `
-//                     <p class="mt-4">
-//                         <a class="text-decoration-none btn btn-add-to-cart" href="./register.html">Add to Cart</a>
-//                     </p>
-//                 `;
-//             }
-
-//             div.innerHTML = `
-//                 <div class="col-md-6 d-flex justify-content-center">
-//                     <img class="detail-img img-fluid image-hover" src="${menu.image}" alt="${menu.name} Image">
-//                 </div>
-//                 <div class="col-md-6">
-//                     <div class="detail-right p-4">
-//                         <h2 class="text-left font-weight-bold mb-4 text-primary">Menu Details</h2>
-//                         <ul class="list-unstyled">
-//                             <li class="mb-3 d-flex align-items-center">
-                                
-//                                 <h6 class="text-dark m-0"><strong>Food Name:</strong> ${menu.name}</h6>
-//                             </li>
-//                              <li class="mb-3 d-flex align-items-center">
-//                                 <h6 class="text-dark m-0"><strong>Description:</strong> ${menu.description}</h6>
-//                             </li>
-//                             <li class="mb-4 d-flex align-items-center">
-                               
-//                                 <h6 class="text-dark m-0"><strong>Price:</strong> $${menu.price}</h6>
-//                             </li>
-//                         </ul>
-//                         ${buttonHTML}
-//                     </div>
-//                 </div>
-//             `;
-
-//             menuDetailContainer.appendChild(div);
-//         });
-// };
-
-// getMenuDetail();
-
 
 
 
@@ -154,7 +84,8 @@ function updateCartQuantity() {
 
 // Function to add item to cart
 function addToCart(item) {
-    const existingItemIndex = cart.findIndex(cartItem => cartItem.name === item.name);
+    console.log(item)
+    const existingItemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
     
     if (existingItemIndex !== -1) {
         cart[existingItemIndex].quantity += 1;
@@ -176,6 +107,7 @@ function renderCartItems() {
     cart.forEach((item, index) => {
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
+         console.log(item)
         cartItem.innerHTML = `
             <div class="d-flex justify-content-between">
                 <span class="cart-font">${item.name}</span>
@@ -256,6 +188,9 @@ const getMenuDetail = () => {
     })
         .then((res) => res.json())
         .then((menu) => {
+            console.log(menu)
+            console.log(menu.id)
+
             const menuDetailContainer = document.getElementById("menu_detail-container");
             const div = document.createElement("div");
             div.classList.add("row", "container", "whole-part", "d-flex", "align-items-center", "m-auto");
@@ -301,18 +236,19 @@ const getMenuDetail = () => {
                     </div>
                 </div>
             `;
-
+  
             menuDetailContainer.appendChild(div);
 
             // Add event listener for "Add to Cart" button after the menu is displayed
             if (token) {
                 document.getElementById('addToCartButton').addEventListener('click', function() {
                     const item = {
+                        id: menu.id,
                         name: menu.name,
                         price: parseFloat(menu.price), // Get the price from the fetched data
                         image: menu.image
                     };
-
+                    console.log(item)
                     addToCart(item); // Add item to cart
                 });
             }
@@ -327,6 +263,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.querySelector('.icon-cart').addEventListener('click', toggleCartSidebar);
+
+
 
 
 
