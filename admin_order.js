@@ -59,7 +59,7 @@ const completeOrder = (orderId) => {
         if (data.order_status === "Delivered") {
           const row = document.getElementById(`order-row-${orderId}`);
           row.querySelector("td:nth-child(7)").innerText = "Delivered";
-          
+
         }
       })
       .catch((error) => {

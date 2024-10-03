@@ -67,6 +67,19 @@
         }
 
 
+        .review-item-form {
+            background-color: #f8f9fa; /* Light background for the form */
+            padding: 15px; /* Padding around the form */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #495057; /* Darker shade for better readability */
+        }
+
+
     </style>
    
 </head>
@@ -159,15 +172,15 @@
 
     <!-- review form -->
 
-    <div class="container my-5">
+    <!-- <div class="container my-5">
         <h2 class="text-info text-center my-3">Leave a Review for Your Order <span id="orderId"></span></h2>
     
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card shadow-sm"> <!-- Card with shadow -->
-                    <div class="card-body review-body"> <!-- Card body to contain the form -->
+                <div class="card shadow-sm"> 
+                    <div class="card-body review-body"> 
                         <form id="reviewForm" class="mt-4">
-                            <!-- Rating Section -->
+                           
                             <div class="form-group mb-4">
                                 <label for="reviewRating" class="form-label">Rating</label>
                                 <div class="rating-input">
@@ -182,14 +195,14 @@
                                 </div>
                             </div>
     
-                            <!-- Review Text Section -->
+                            
                             <div class="form-group mb-4">
                                 <label for="reviewText" class="form-label">Your Review</label>
                                 <textarea id="reviewText" class="form-control form-control-lg" rows="4" placeholder="Write your thoughts about the service..." required></textarea>
                                 <small class="form-text text-muted">Please keep your review concise and respectful.</small>
                             </div>
     
-                            <!-- Submit Button -->
+                            
                             <button type="submit" class="btn btn-primary px-4">Submit Review</button>
                         </form>
                     </div>
@@ -197,10 +210,19 @@
             </div>
         </div>
     </div>
-    
+     -->
     
      
+
+     <div id="reviewItemsContainer">
+        <h2>Leave a Review</h2>
+        <p>Write a review for your delivered items below:</p>
+        <!-- Review forms will be inserted here by JavaScript -->
+    </div>
    
+
+
+
      <!-- Footer Section -->
      <footer class="footer py-4 bg-light mt-5">
         <div class="container">
