@@ -32,8 +32,14 @@ function updateSubtotal() {
     document.querySelector('.checkoutSubtotal-value').textContent = `${subtotal.toFixed(2)}`;
 }
 
+renderCartItems();
+updateSubtotal();
 
 // Function to update the subtotal value
+
+
+
+
 function submitOrder() {
     const fullName = document.getElementById('fullName').value;
     const email = document.getElementById('email').value;
@@ -49,6 +55,17 @@ function submitOrder() {
         alert("Your cart is empty. Add items to proceed.");
         return;
     }
+   
+
+    const orderItems = cart.map(item => ({
+        food_item: item.id,
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price
+    }));
+    console.log(orderItems)
+    console.log(cart)
+
     console.log({
         full_name: fullName,
         email: email,
@@ -57,20 +74,11 @@ function submitOrder() {
         card_number: cardNumber,
         expiry_date: expiryDate,
         cvv: cvv,
-        order_items: cart,
+        order_items: orderItems,
         total_price: tprice,
 
 
     })
-
-    const orderItems = cart.map(item => ({
-        id: item.id,
-        name: item.name,
-        quantity: item.quantity,
-        price: item.price
-    }));
-    console.log(orderItems)
-    console.log(cart)
 
     // Send order data to the backend
     fetch('http://127.0.0.1:8000/food/checkout/', {
@@ -87,10 +95,7 @@ function submitOrder() {
             card_number: cardNumber,
             expiry_date: expiryDate,
             cvv: cvv,
-            order_items: [
-                { id: 9, name: "pizza", quantity: 1, price: "52.00" },
-                { id: 10, name: "pasta", quantity: 1, price: "90.00" },
-            ],
+            order_items: orderItems,
             total_price: tprice,
         })
     })  
@@ -108,8 +113,6 @@ function submitOrder() {
             if (data.success) {
                 alert('Order placed successfully!');
                 localStorage.setItem('order_id', data.order_id);
-                const orderItems = data.order_items;
-                localStorage.setItem("order_items", JSON.stringify(orderItems));
                 localStorage.removeItem('cart');
                 // Redirect to a success page
                 // window.location.href = 'checkout.html';
@@ -124,5 +127,3 @@ function submitOrder() {
         });
 }
 // Initial rendering of the cart items and subtotal
-renderCartItems();
-updateSubtotal();

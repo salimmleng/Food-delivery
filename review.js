@@ -166,7 +166,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const itemId = urlParams.get('id'); // Assuming the URL is something like '/item.html?id=1'
+    const itemId = parseInt(urlParams.get('id'), 10); // Convert itemId to integer
+    console.log('Item ID:', itemId); // Log itemId
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("user_id");
 
@@ -178,14 +179,29 @@ document.addEventListener('DOMContentLoaded', () => {
             'Authorization': `Token ${token}`
         },
     })
-    .then((res) => res.json())
-    .then((ordersData) => {
-        // Check if the item has been delivered
-        const deliveredItems = ordersData
-            .filter(order => order.order_status === "Delivered")
-            .flatMap(order => order.order_items.map(item => item.id));
-
-        if (deliveredItems.includes(Number(itemId))) {
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return res.json();
+    })
+    .then(ordersData => {
+        console.log('Orders Data:', ordersData); // Log orders data structure
+    
+        const isDelivered = ordersData.some(order => {
+            console.log('Order Status:', order.order_status);
+            console.log('Order Items:', order.order_items);
+            
+            return order.order_status === "Delivered" &&
+                   order.order_items.some(item => {
+                       console.log('Comparing Item ID:', item.food_item, 'with Item ID:', itemId);
+                       return item.food_item === itemId; // Ensure correct comparison
+                   });
+        });
+    
+        console.log('Is Delivered:', isDelivered); // Log if the item is delivered
+    
+        if (isDelivered) {
             // Fetch specific item details only if it's delivered
             fetch(`http://127.0.0.1:8000/food/food-item/${itemId}/`, {
                 method: 'GET',
@@ -194,8 +210,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Authorization': `Token ${token}`
                 },
             })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
             .then(itemData => {
+                console.log(itemData);
                 displayReviewItem(itemData); // Pass the item data for review display
             })
             .catch(error => console.error('Error fetching item details:', error));
@@ -205,8 +227,10 @@ document.addEventListener('DOMContentLoaded', () => {
             reviewItemsContainer.innerHTML = `<p class="text-muted text-center">You can only leave a review for delivered items.</p>`;
         }
     })
+    
     .catch(error => console.error('Error fetching orders:', error));
 });
+
 
 function displayReviewItem(item) {
     const reviewItemsContainer = document.getElementById('reviewItemsContainer');
@@ -261,35 +285,36 @@ function attachReviewFormListeners(items) {
 }
 
 
-
-
 function submitReview(orderItemId) {
+    console.log(orderItemId);
     const form = document.getElementById(`reviewForm-${orderItemId}`);
     const formData = new FormData(form);
     const token = localStorage.getItem("token");
 
+    // Collecting the data from the form
     const reviewData = {
-        order_item: formData.get('order_item'),
+        order: orderItemId,
         rating: formData.get('rating'),
         review_text: formData.get('review_text')
     };
 
-    fetch('http://127.0.0.1:8000/food/reviews/create/', {  // Replace with your actual API endpoint
+    console.log(reviewData); // Debugging purpose
+
+    fetch("http://127.0.0.1:8000/food/reviews/create/", {  // Adjust this to your actual API endpoint
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Token ${token}` 
         },
-        body: JSON.stringify(reviewData)
+        body: JSON.stringify(reviewData)  // Ensure we send JSON stringified data
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {
-            alert('Review submitted successfully!');
-            form.reset();
-        } else {
-            alert('Error submitting review: ' + data.error);
-        }
+        console.log(data); // Debugging response from server
+       
+        // alert('Review submitted successfully!');
+        form.reset();  // Reset form after successful submission
+       
     })
     .catch(error => {
         console.error('Error submitting review:', error);

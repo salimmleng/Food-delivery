@@ -38,7 +38,7 @@ const loaditem = () => {
                     
                 `;
                 parent.appendChild(tr);
-                // localStorage.removeItem('order_id');
+                localStorage.removeItem('order_id');
             });
               
         });
