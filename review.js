@@ -54,116 +54,6 @@
 
 
 
-// old
-
-// document.addEventListener('DOMContentLoaded', () => {
-    
-//     const orderItems = JSON.parse(localStorage.getItem('orderItems')) || []; // Get order items from local storage
-
-//     // Fetch user orders to check their status
-//     const token = localStorage.getItem("token");
-//     const userId = localStorage.getItem("user_id");
-    
-//     fetch(`http://127.0.0.1:8000/food/checkout/user/${userId}/`, {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': `Token ${token}`
-//         },
-//     })
-//     .then((res) => res.json())
-//     .then((data) => {
-//         console.log(data)
-//         const orderItems = []; // Initialize an array to store all order items
-//         const deliveredItems = []; 
-        
-//         data.forEach((order) => {
-
-//             // Check if the order is delivered
-//             if (order.order_status === "Delivered") {
-//                 order.order_items.forEach((item) => {
-//                     console.log(item)
-//                     orderItems.push(item)
-//                     // Add item id to the deliveredItems array
-//                     deliveredItems.push(item.id);
-//                 });
-//             }
-//         });
-
-//         // Filter order items to only show those that are delivered
-//         displayReviewItems(orderItems.filter(item => deliveredItems.includes(item.id)), "delivered");
-//     })
-//     .catch((error) => console.error('Error fetching order:', error));
-// });
-
-// function displayReviewItems(items, orderStatus) {
-//     console.log(items);
-//     console.log(orderStatus);
-//     const reviewItemsContainer = document.getElementById('reviewItemsContainer');
-//     reviewItemsContainer.innerHTML = ''; // Clear previous content
-
-//     if (orderStatus === 'delivered') {
-//         // Only show review items if the order status is delivered
-//         items.forEach(item => {
-//             const reviewItemHTML = `
-//                 <div class="card mx-auto mb-4" style="max-width: 500px;">
-//                     <div class="card-body">
-//                         <h5 class="card-title text-center">${item.name}</h5>
-//                         <p class="card-text text-center item-price">Price: $${item.price}</p>
-//                         <div class="review-item-form">
-//                             <h6 class="text-center">Leave a Review</h6>
-//                             <form id="reviewForm-${item.id}" class="review-form">
-//                                 <input type="hidden" name="order_item" value="${item.id}">
-//                                 <div class="mb-3">
-//                                     <label for="rating-${item.id}" class="form-label">Rating</label>
-//                                     <select name="rating" id="rating-${item.id}" class="form-select" required>
-//                                         <option value="" disabled selected>Select your rating</option>
-//                                         <option value="5">⭐⭐⭐⭐⭐</option>
-//                                         <option value="4">⭐⭐⭐⭐</option>
-//                                         <option value="3">⭐⭐⭐</option>
-//                                         <option value="2">⭐⭐</option>
-//                                         <option value="1">⭐</option>
-//                                     </select>
-//                                 </div>
-//                                 <div class="mb-3">
-//                                     <label for="review_text-${item.id}" class="form-label">Your Review</label>
-//                                     <textarea name="review_text" id="review_text-${item.id}" class="form-control" rows="3" required></textarea>
-//                                 </div>
-//                                 <button type="submit" class="btn btn-primary w-100">Submit Review</button>
-//                             </form>
-//                         </div>
-//                     </div>
-//                 </div>
-//             `;
-//             reviewItemsContainer.innerHTML += reviewItemHTML;
-//         });
-//     } else {
-//         // If order status is not delivered, show a message
-//         reviewItemsContainer.innerHTML = `<p class="text-muted text-center">Reviews are only available for delivered items.</p>`;
-//     }
-
-//     // Attach event listeners to review forms only if items were displayed
-//     if (orderStatus === 'delivered') {
-//         attachReviewFormListeners(items);
-//     }
-// }
-
-
-
-// function attachReviewFormListeners(items) {
-//     items.forEach(item => {
-//         const form = document.getElementById(`reviewForm-${item.id}`);
-//         if (form) {
-//             form.addEventListener('submit', function (event) {
-//                 event.preventDefault();
-//                 submitReview(item.id);
-//             });
-//         }
-//     });
-// }
-
-// new
-
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const itemId = parseInt(urlParams.get('id'), 10); // Convert itemId to integer
@@ -219,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(itemData => {
                 console.log(itemData);
                 displayReviewItem(itemData); // Pass the item data for review display
+                fetchAndDisplayReviews(itemId)
             })
             .catch(error => console.error('Error fetching item details:', error));
         } else {
@@ -233,18 +124,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function displayReviewItem(item) {
+    console.log(item);
     const reviewItemsContainer = document.getElementById('reviewItemsContainer');
     reviewItemsContainer.innerHTML = ''; // Clear previous content
 
-    // Assuming item object has a structure similar to: { id, name, price }
     const reviewItemHTML = `
         <div class="card mx-auto mb-4" style="max-width: 500px;">
             <div class="card-body">
-                
                 <div class="review-item-form">
                     <h6 class="text-center">Leave a Review</h6>
                     <form id="reviewForm-${item.id}" class="review-form">
-                        <input type="hidden" name="order_item" value="${item.id}">
+                        <input type="hidden" name="food_item" value="${item.id}">  <!-- Change from order to food_item -->
                         <div class="mb-3">
                             <label for="rating-${item.id}" class="form-label">Rating</label>
                             <select name="rating" id="rating-${item.id}" class="form-select" required>
@@ -270,54 +160,99 @@ function displayReviewItem(item) {
     reviewItemsContainer.innerHTML = reviewItemHTML;
     
     // Attach the review form listener
-    attachReviewFormListeners([item]);
+    attachReviewFormListeners(item);
 }
 
-function attachReviewFormListeners(items) {
-    const item = items[0]; // Assuming only one item is passed
+function attachReviewFormListeners(item) {
     const form = document.getElementById(`reviewForm-${item.id}`);
     if (form) {
         form.addEventListener('submit', function (event) {
             event.preventDefault();
-            submitReview(item.id);
+            submitReview(item.id);  // Pass food item ID instead of order item ID
         });
     }
 }
 
-
-function submitReview(orderItemId) {
-    console.log(orderItemId);
-    const form = document.getElementById(`reviewForm-${orderItemId}`);
+function submitReview(foodItemId) {  // Change parameter name to foodItemId
+    const form = document.getElementById(`reviewForm-${foodItemId}`);
     const formData = new FormData(form);
     const token = localStorage.getItem("token");
 
     // Collecting the data from the form
     const reviewData = {
-        order: orderItemId,
+        food_item: foodItemId,  // Change from order to food_item
         rating: formData.get('rating'),
         review_text: formData.get('review_text')
     };
-
-    console.log(reviewData); // Debugging purpose
-
-    fetch("http://127.0.0.1:8000/food/reviews/create/", {  // Adjust this to your actual API endpoint
+    console.log(reviewData);
+    fetch("http://127.0.0.1:8000/food/reviews/create/", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Token ${token}` 
+            'Authorization': `Token ${token}`
         },
-        body: JSON.stringify(reviewData)  // Ensure we send JSON stringified data
+        body: JSON.stringify(reviewData)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(data => {
+                throw new Error(data.error || 'An error occurred');
+            });
+        }
+        return response.json();
+    })
     .then(data => {
-        console.log(data); // Debugging response from server
-       
-        // alert('Review submitted successfully!');
-        form.reset();  // Reset form after successful submission
-       
+        alert('Review submitted successfully!');  // Optional: You can uncomment this to alert the user
+        form.reset();
     })
     .catch(error => {
         console.error('Error submitting review:', error);
+        alert(error.message || 'Failed to submit the review. Please try again.');
     });
 }
 
+
+
+function fetchAndDisplayReviews(foodItemId) {
+    const token = localStorage.getItem("token");
+    
+    fetch(`http://127.0.0.1:8000/food/reviews/?food_item_id=${foodItemId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}`
+        },
+    })
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return res.json();
+    })
+    .then(reviewsData => {
+        displayReviews(reviewsData); // Pass the reviews data for rendering
+    })
+    .catch(error => console.error('Error fetching reviews:', error));
+}
+
+
+// Function to display the reviews
+function displayReviews(reviews) {
+    const reviewlistContainer = document.getElementById('reviewlistContainer');
+
+    // Check if there are reviews to display
+    if (reviews.length === 0) {
+        reviewlistContainer.innerHTML += `<p class="text-muted text-center">No reviews yet for this item.</p>`;
+        return;
+    }
+
+    const reviewsHTML = reviews.map(review => `
+        <div class="review-item my-3">
+            <h6>${review.user.username} (${review.rating}⭐)</h6>
+            <p>${review.review_text}</p>
+            <small class="text-muted">${new Date(review.created_at).toLocaleString()}</small>
+        </div>
+    `).join('');
+
+    reviewlistContainer.innerHTML += reviewsHTML; // Append reviews to the container
+}
