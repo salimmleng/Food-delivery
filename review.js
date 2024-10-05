@@ -194,11 +194,6 @@ function displayReviews(reviews) {
     const reviewsHTML = reviews.map(review => {
         const stars = getStarRating(review.rating);
         return `
-        <h4 class="text-center" style="font-size: 26px; font-weight: 600; color: #333; letter-spacing: 1px; padding: 10px; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px;">
-        Customer Reviews on Our Food
-             </h4>
-
-
             <div class="col-md-4">
                 <div class="review-box shadow-sm border rounded bg-light p-3">
                     <div class="stars text-warning mb-2">${stars}</div>
