@@ -176,6 +176,16 @@ function displayReviews(reviews) {
     console.log(reviews)
     const reviewlistContainer = document.getElementById('reviewlistContainer');
 
+     // Check if the header already exists or not
+     if (!document.getElementById('reviews-header')) {
+        const headerHTML = `
+            <h4 id="reviews-header" class="text-center" style="font-size: 26px; font-weight: 600; color: #333; letter-spacing: 1px; padding: 10px; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px;">
+                Customer Reviews on Our Food
+            </h4>
+        `;
+        reviewlistContainer.innerHTML += headerHTML;
+    }
+
     if (reviews.length === 0) {
         reviewlistContainer.innerHTML += `<p class="text-muted text-center">No reviews yet for this item.</p>`;
         return;
