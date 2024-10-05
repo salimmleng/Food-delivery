@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const token = localStorage.getItem('token');
   function fetchProfileData() {
 
-    fetch(`http://127.0.0.1:8000/account/profile/${userId}/`, {
+    fetch(`https://fooddelivery-lyart.vercel.app/account/profile/${userId}/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -28,12 +28,7 @@ const loaditem = () => {
                     ${
                         order.order_status == "Pending"
                         ? `<td class="text-center"><a class="text-danger text-decoration-none" style="cursor: pointer;" onclick="deleteOrder(${order.id})">Cancel</a></td>`
-                        : ``
-                    }
-                    ${
-                        order.order_status == "Delivered"
-                        ? `<td><button class=" btn-review" onclick="openReviewModal(${order.id})">Leave a Review</button></td>`
-                        : ``
+                        : `<td>Completed</td>`
                     }
                     
                 `;
@@ -51,101 +46,10 @@ loaditem();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let currentOrderId;
-// let currentUser = localStorage.getItem("username");
-
-// function openReviewModal(orderId) {
-//     currentOrderId = orderId;
-//     document.getElementById("modalOrderId").innerText = orderId;
-//     // document.getElementById("modalUserName").innerText = currentUser;
-
-//     const modal = new bootstrap.Modal(document.getElementById('reviewModal'));
-//     modal.show();
-// }
-
-// function submitReview() {
-//     const rating = document.getElementById("reviewRating").value;
-//     const reviewText = document.getElementById("reviewText").value;
-
-//     console.log(`Submitting review for order ${currentOrderId} with rating ${rating} and review: ${reviewText}`);
-    
-    
-//     const token = localStorage.getItem("token");
-//     fetch('http://127.0.0.1:8000/food/reviews/create/', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': `Token ${token}`,
-//         },
-//         body: JSON.stringify({
-//             order: currentOrderId,
-//             rating: rating,
-//             review_text: reviewText
-//         })
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log('Review submitted:', data);
-        
-//     })
-//     .catch((error) => console.error('Error submitting review:', error));
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const deleteOrder = (orderId) => {
     const token = localStorage.getItem("token");
 
-    fetch(`http://127.0.0.1:8000/food/checkout/order/${orderId}/`, {
+    fetch(`https://fooddelivery-lyart.vercel.app/food/checkout/order/${orderId}/`, {
         method: "DELETE",
         headers: {
             Authorization: `Token ${token}`,

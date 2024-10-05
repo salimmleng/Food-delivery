@@ -12,7 +12,7 @@ function addContact(event) {
         message: message
     };
 
-    fetch('https://foodapi-flame.vercel.app/contact/', {
+    fetch('https://fooddelivery-lyart.vercel.app/contact/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

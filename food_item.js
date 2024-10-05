@@ -37,7 +37,7 @@ function showCategory(categoryName) {
                             <img src="${item.image}" class="card-img-top" alt="Pizza">
                             <div class="icons-wrapper">
                                 <div class="icon-container">
-                                    <i class="fa-solid fa-cart-shopping" onclick="openModal(${item.id})"></i>
+                                    <i class="fa-solid fa-cart-shopping" onclick="viewDetails(${item.id})"></i>
                                     <span class="icon-text">Add to Cart</span>
                                 </div>
                                 <div class="icon-container">
@@ -166,7 +166,7 @@ function loadCartFromLocalStorage() {
     if (storedCart) {
         cart = JSON.parse(storedCart);
         updateCartQuantity();
-        renderCartItems();
+        
        
     }
 }
@@ -220,7 +220,7 @@ const getMenuDetail = () => {
                 </div>
                 <div class="col-md-6">
                     <div class="detail-right p-4">
-                        <h2 class="text-left font-weight-bold mb-4 text-primary">Menu Details</h2>
+                        
                         <ul class="list-unstyled">
                             <li class="mb-3 d-flex align-items-center">
                                 <h6 class="text-dark card-title m-0">${menu.name}</h6>
@@ -268,53 +268,7 @@ document.querySelector('.icon-cart').addEventListener('click', toggleCartSidebar
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function toggleLove(icon) {
     icon.classList.toggle('red-heart');
 }
-
-// modal task
-
-
-// function openModal(itemId) {
-//     fetch(`http://127.0.0.1:8000/food/food-item/${itemId}/`)
-//         .then(response => response.json())
-//         .then(data => {
-//             document.getElementById('modalFoodImage').src = `${data.image}`;
-//             document.getElementById('modalFoodName').textContent = data.name;
-//             document.getElementById('modalFoodDescription').textContent = data.description;
-//             document.getElementById('modalFoodPrice').textContent = `$${data.price}`;
-            
-//             // Show the modal
-//             const foodItemModal = new bootstrap.Modal(document.getElementById('foodItemModal'));
-//             foodItemModal.show();
-//         })
-//         .catch(error => console.error('Error fetching item data:', error));
-// }
-
-
-
-
-
-
 

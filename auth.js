@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(data)
         if (data.username) {
           // Assuming there's a Bootstrap modal with this ID to display alerts
-         
           const alertModal = new bootstrap.Modal(document.getElementById("customAlertModal"));
           alertModal.show();
         } else {

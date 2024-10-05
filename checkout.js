@@ -50,7 +50,7 @@ function submitOrder() {
     const cvv = document.getElementById('cvv').value;
     const tprice = parseInt(document.getElementById('tprice').innerText);
 
-    // Validate cart before proceeding
+    // Validate cart 
     if (cart.length === 0) {
         alert("Your cart is empty. Add items to proceed.");
         return;
@@ -101,7 +101,7 @@ function submitOrder() {
     })  
 
         .then(response => {
-            // Check if the response is JSON
+            // Check the response is JSON
             const contentType = response.headers.get("content-type");
             if (contentType && contentType.includes("application/json")) {
                 return response.json(); // Parse JSON if response is JSON
@@ -114,16 +114,15 @@ function submitOrder() {
                 alert('Order placed successfully!');
                 localStorage.setItem('order_id', data.order_id);
                 localStorage.removeItem('cart');
-                // Redirect to a success page
-                // window.location.href = 'checkout.html';
+                window.location.href = 'checkout.html';
             } else {
                 console.error('Error placing order:', data);
-                // alert('Error placing order: ' + JSON.stringify(data));
+                
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            // alert('Error: ' + error.message);  // Display the error message
+            
         });
 }
-// Initial rendering of the cart items and subtotal
+
