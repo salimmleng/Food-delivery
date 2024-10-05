@@ -81,7 +81,7 @@ function submitOrder() {
     })
 
     // Send order data to the backend
-    fetch('http://127.0.0.1:8000/food/checkout/', {
+    fetch('https://fooddelivery-lyart.vercel.app/food/checkout/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

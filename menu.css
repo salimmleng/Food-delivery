@@ -132,9 +132,12 @@
 }
 .cart-font {
     /* font-size: 40px; */
-    text-transform: capitalize;
+   
     color: white;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /
 
 }
 

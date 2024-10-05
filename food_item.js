@@ -15,7 +15,7 @@ function showCategory(categoryName) {
     }
 
     // Fetch and display food items for the selected category
-    fetch(`http://127.0.0.1:8000/food/food-items/${categoryName}/`)
+    fetch(`https://fooddelivery-lyart.vercel.app/food/food-items/${categoryName}/`)
         .then(response => response.json())
         .then(data => {
             const container = document.getElementById(`${categoryName}-items-container`);
@@ -166,6 +166,7 @@ function loadCartFromLocalStorage() {
     if (storedCart) {
         cart = JSON.parse(storedCart);
         updateCartQuantity();
+        renderCartItems();    // to retain cart in the cart items
         
        
     }
@@ -183,7 +184,7 @@ const getMenuDetail = () => {
     const menuId = getQueryParams("id");
     const token = localStorage.getItem("token");
 
-    fetch(`http://127.0.0.1:8000/food/food-item/${menuId}/`, {
+    fetch(`https://fooddelivery-lyart.vercel.app/food/food-item/${menuId}/`, {
         method: "GET",
     })
         .then((res) => res.json())
@@ -226,7 +227,7 @@ const getMenuDetail = () => {
                                 <h6 class="text-dark card-title m-0">${menu.name}</h6>
                             </li>
                             <li class="mb-3 d-flex align-items-center">
-                                <h6 class="text-dark m-0"><strong>Description:</strong> ${menu.description}</h6>
+                                <h6 class="m-0">${menu.description}</h6>
                             </li>
                             <li class="mb-4 d-flex align-items-center">
                                 <h6 class="text-dark m-0"><strong>Price:</strong> $${menu.price}</h6>

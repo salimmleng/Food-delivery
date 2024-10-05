@@ -29,7 +29,7 @@ const addMenu = (event) => {
     
   
       // Now send the image URL to backend
-      fetch(`http://127.0.0.1:8000/food/food-items/${categoryName}/`, {
+      fetch(`https://fooddelivery-lyart.vercel.app/food/food-items/${categoryName}/`, {
         method: "POST",
         headers: {
           Authorization: `Token ${token}`,

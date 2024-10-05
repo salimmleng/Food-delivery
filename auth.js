@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const email = document.getElementById('signup-email').value;
       const password = document.getElementById('signup-password').value;
   
-      fetch('http://127.0.0.1:8000/account/register/', {
+      fetch('https://fooddelivery-lyart.vercel.app/account/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -30,13 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        if (data.username) {
-          // Assuming there's a Bootstrap modal with this ID to display alerts
-          const alertModal = new bootstrap.Modal(document.getElementById("customAlertModal"));
-          alertModal.show();
-        } else {
-          console.error('Registration failed:', data);
-        }
+        const alertModal = new bootstrap.Modal(document.getElementById("customAlertModal"));
+        alertModal.show();
       })
       .catch(error => console.error('Error during registration:', error));
     });
@@ -57,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
   
-      fetch('http://127.0.0.1:8000/account/login/', {
+      fetch('https://fooddelivery-lyart.vercel.app/account/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -98,7 +93,7 @@ const handleLogout = () => {
   const token = localStorage.getItem("token");
   console.log(token)
 
-  fetch("http://127.0.0.1:8000/account/logout/", {
+  fetch("https://fooddelivery-lyart.vercel.app/account/logout/", {
     method: "POST",
     headers: {
       Authorization: `Token ${token}`,

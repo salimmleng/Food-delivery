@@ -1,7 +1,7 @@
 const loaditem = () => {
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("user_id");
-    fetch(`http://127.0.0.1:8000/food/checkout/user/${userId}/`, {
+    fetch(`https://fooddelivery-lyart.vercel.app/food/checkout/user/${userId}/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

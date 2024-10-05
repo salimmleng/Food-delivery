@@ -1,6 +1,6 @@
 const loaditem = () => {
     const token = localStorage.getItem("token");
-    fetch(`http://127.0.0.1:8000/food/checkout/`, {
+    fetch(`https://fooddelivery-lyart.vercel.app/food/checkout/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ loaditem();
 const completeOrder = (orderId) => {
     const token = localStorage.getItem("token");
     console.log(orderId)
-    fetch(`http://127.0.0.1:8000/food/checkout/order/${orderId}/`, {
+    fetch(`https://fooddelivery-lyart.vercel.app/food/checkout/order/${orderId}/`, {
       method: "PATCH",
       headers: {
         Authorization: `Token ${token}`,
