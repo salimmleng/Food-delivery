@@ -111,7 +111,7 @@ function submitOrder() {
         })
         .then(data => {
             if (data.success) {
-                alert('Order placed successfully!');
+                alert('Order placed successfully! Wait for admin approval to receive food.');
                 localStorage.setItem('order_id', data.order_id);
                 localStorage.removeItem('cart');
                 window.location.href = 'checkout.html';
