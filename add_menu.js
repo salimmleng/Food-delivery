@@ -24,8 +24,8 @@ const addMenu = (event) => {
   
       const imageUrl = data.data.url;
       formData.delete('image');
-      formData.append("image", imageUrl);  // append image url
-      formData.append("category", categoryName);  //category name
+      formData.append("image", imageUrl);  
+      formData.append("category", categoryName);  
     
   
       // Now send the image URL to backend

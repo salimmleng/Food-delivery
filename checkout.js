@@ -3,7 +3,7 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 // Function to render cart items in the summary
 function renderCartItems() {
     const cartItemsContainer = document.getElementById('checkoutcartItems');
-    cartItemsContainer.innerHTML = ''; // Clear existing items
+    cartItemsContainer.innerHTML = ''; 
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p>No items in the cart.</p>';
@@ -27,16 +27,13 @@ function renderCartItems() {
 function updateSubtotal() {
     let subtotal = 0;
     cart.forEach(item => {
-        subtotal += parseFloat(item.price) * item.quantity; // Multiply by quantity
+        subtotal += parseFloat(item.price) * item.quantity;
     });
     document.querySelector('.checkoutSubtotal-value').textContent = `${subtotal.toFixed(2)}`;
 }
 
 renderCartItems();
 updateSubtotal();
-
-// Function to update the subtotal value
-
 
 
 
@@ -85,7 +82,7 @@ function submitOrder() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Token ${localStorage.getItem('token')}`, // Assuming token is stored in localStorage
+            'Authorization': `Token ${localStorage.getItem('token')}`,
         },
         body: JSON.stringify({
             full_name: fullName,

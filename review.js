@@ -58,8 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function displayReviewItem(item, isDelivered) {
     console.log(item);
+    const token = localStorage.getItem("token");
     const reviewItemsContainer = document.getElementById('reviewItemsContainer');
-    reviewItemsContainer.innerHTML = ''; // Clear previous content
+    reviewItemsContainer.innerHTML = '';
 
     // Create review form only if the item has been delivered
     const reviewItemHTML = `
@@ -67,7 +68,7 @@ function displayReviewItem(item, isDelivered) {
             <div class="card-body">
               <div class="review-item-form">
                 <h6 class="text-center">Leave a Review</h6>
-                ${isDelivered ? `
+                ${token && isDelivered ? `
                     <form id="reviewForm-${item.id}" class="review-form">
                         <input type="hidden" name="food_item" value="${item.id}">
                         <div class="mb-3">
@@ -98,7 +99,7 @@ function displayReviewItem(item, isDelivered) {
     reviewItemsContainer.innerHTML = reviewItemHTML;
 
     // If the item is delivered, attach the review form listener
-    if (isDelivered) {
+    if (token && isDelivered) {
         attachReviewFormListeners(item);
     }
 }
@@ -151,13 +152,11 @@ function submitReview(foodItemId) {
 }
 
 function fetchAndDisplayReviews(foodItemId) {
-    const token = localStorage.getItem("token");
-    
     fetch(`https://fooddelivery-lyart.vercel.app/food/reviews/?food_item_id=${foodItemId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Token ${token}`
+           
         },
     })
     .then(res => {

@@ -1,5 +1,4 @@
 
-/* style.css */
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f8f9fa; /* Light gray background */
@@ -24,8 +23,6 @@ h1 {
 }
 
 .quick{
-    /* font-weight: 700; */
-    /* font-size: 27px; */
     color: rgb(236, 65, 236);
 
 
@@ -34,10 +31,7 @@ h1 {
 }
 
 .nav-link {
-    /* font-size: 18px;
-    margin-right: 15px; */
-
-    
+   
     font-size: 1rem;
     padding: 0.5rem 1rem;
 }
@@ -46,14 +40,14 @@ h1 {
 
 .banner-btn {
   background-color: #ff8a00;
-  color: white; /* Ensure the text is readable against the background */
-  border: none; /* Remove any default border */
-  padding: 15px 30px; /* Add padding for better appearance */
-  border-radius: 10px; /* Slightly rounded corners */
-  text-decoration: none; /* Remove underline from the link */
-  font-weight: bold; /* Make the text bold */
+  color: white; 
+  border: none; 
+  padding: 15px 30px; 
+  border-radius: 10px; 
+  text-decoration: none; 
+  font-weight: bold; 
   margin-left: 25px;
-  transition: background-color 0.3s ease; /* Smooth transition effect */
+  transition: background-color 0.3s ease;
 }
 .door{
   color: #ff8a00;
@@ -68,8 +62,8 @@ h1 {
 
 .icon-style {
   color: #1a1919;
-  margin-left: -10px; /* Move the icons to the left */
-  /* font-size: 18px; */
+  margin-left: -10px; 
+  
 
 
   font-size: 1.2rem;
@@ -107,11 +101,11 @@ h1 {
 /* Media Queries */
 @media (max-width: 992px) {
   .quick {
-      font-size: 1.25rem; /* Reduce font size for smaller screens */
+      font-size: 1.25rem;
   }
   
   .nav-link {
-      font-size: 0.9rem; /* Adjust link font size */
+      font-size: 0.9rem; 
       padding: 0.4rem 0.8rem;
   }
 
@@ -120,7 +114,7 @@ h1 {
   }
 
   .cart-img {
-      width: 25px; /* Adjust cart image size */
+      width: 25px; /* cart image size */
   }
 
   .totalQuantity {
@@ -134,7 +128,7 @@ h1 {
 
 @media (max-width: 768px) {
   .navbar-custom {
-      padding: 0.5rem; /* Reduce padding */
+      padding: 0.5rem; 
   }
 
   .quick {
@@ -151,7 +145,7 @@ h1 {
   }
 
   .cart-img {
-      width: 22px; /* Further reduce cart image size */
+      width: 22px; 
   }
 
   .totalQuantity {
@@ -165,7 +159,7 @@ h1 {
 
 @media (max-width: 576px) {
   .quick {
-      font-size: 1rem; /* Reduce brand text size for mobile */
+      font-size: 1rem;
   }
 
   .nav-link {
@@ -191,8 +185,8 @@ h1 {
 
   /* Ensure dropdowns align properly */
   .dropdown-menu {
-      min-width: 100px; /* Adjust dropdown width */
-      font-size: 0.75rem; /* Adjust font size inside dropdown */
+      min-width: 100px; 
+      font-size: 0.75rem; 
   }
 
   /* Align elements in a column for mobile screens */
@@ -222,12 +216,8 @@ h1 {
 
 
 
-
-
-
-
 .banner-btn:hover {
-  background-color: #e07b00; /* Slightly darker shade for hover effect */
+  background-color: #e07b00;
 }
 
 
@@ -285,24 +275,24 @@ h2 {
 /* Categories Section */
 
 .btn-category {
-    background-color: #ff8a00; /* Adjust the button color as needed */
+    background-color: #ff8a00; 
     color: white;
-    border-radius: 20px; /* Rounded corners */
-    padding: 10px; /* Padding */
-    font-size: 1.25rem; /* Font size */
+    border-radius: 20px; 
+    padding: 10px; 
+    font-size: 1.25rem; 
     border: none;
-    width: 150px; /* Fixed width for all buttons */
-    text-align: center; /* Center the text */
+    width: 150px; 
+    text-align: center; 
     transition: background-color 0.3s ease;
 }
 
 .btn-category:hover {
-    background-color: #c26e0e; /* Darker shade on hover */
+    background-color: #c26e0e;
 }
 
 @media (max-width: 992px) {
     .d-flex {
-        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        flex-wrap: wrap; 
     }
 }
 
@@ -389,25 +379,25 @@ h2 {
 .price {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #ff5722; /* Matches the button color */
+    color: #ff5722; 
 }
 
 .btn-primary {
     background-color: #ff5722;
     border: none;
-    border-radius: 50px; /* Rounded button */
+    border-radius: 50px; 
     padding: 10px 20px;
     transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #e64a19; /* Darker shade on hover */
+    background-color: #e64a19; 
 }
 
 @media (max-width: 768px) {
     .card-img-top {
-        height: 150px; /* Adjust height for smaller screens */
-        width: 150px; /* Adjust width for smaller screens */
+        height: 150px; 
+        width: 150px; 
     }
 }
 
@@ -421,20 +411,20 @@ h2 {
 }
 
 .dish-card {
-    border: none; /* Removes default card border */
-    border-radius: 10px; /* Slightly rounded corners for a modern look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    border: none;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     transition: transform 0.2s ease-in-out;
 }
 
 .dish-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px); 
 }
 
 .card-img-top {
-    height: 200px; /* Fixed height for images */
-    object-fit: cover; /* Ensures the image covers the space */
-    /* padding: 10px; */
+    height: 200px; 
+    object-fit: cover; 
+   
    
 }
 
@@ -454,11 +444,11 @@ h2 {
 .price {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #ff5722; /* Pricing color to match the overall theme */
+    color: #ff5722; 
 }
 
 .ratings span {
-    color: #ffcc00; /* Star color */
+    color: #ffcc00; 
     font-size: 1rem;
 }
 
@@ -470,18 +460,18 @@ h2 {
 }
 
 .delicous-card {
-    border: 1px solid gray; /* Removes default card border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    border: 1px solid gray; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     transition: transform 0.2s ease-in-out;
 }
 
 .delicous-card:hover {
-    transform: translateY(-4px); /* Lift effect on hover */
+    transform: translateY(-4px);
 }
 
 .card-img-top2 {
-    height: 300px; /* Fixed height for images */
-    object-fit: cover; /* Ensures the image covers the space */
+    height: 300px; 
+    object-fit: cover; 
     padding: 10px;
    
 }
@@ -502,11 +492,11 @@ h2 {
 .price {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #ff5722; /* Pricing color to match the overall theme */
+    color: #ff5722; 
 }
 
 .ratings span {
-    color: #ffcc00; /* Star color */
+    color: #ffcc00; 
     font-size: 1rem;
 }
 
@@ -524,7 +514,7 @@ h2 {
 
 
 .special-offers {
-    background-color: #f2f2f2; /* Light background to make the section stand out */
+    background-color: #f2f2f2; 
     padding: 50px 0;
 }
 
@@ -532,24 +522,24 @@ h2 {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a professional look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     transition: transform 0.2s ease-in-out;
 }
 
 .offer-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px); 
 }
 
 .offer-img {
     width: 100%;
     height: 250px;
-    object-fit: cover; /* Ensures the image covers the space */
+    object-fit: cover; 
 }
 
 .offer-details {
     position: absolute;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    background: rgba(0, 0, 0, 0.6); 
     color: #fff;
     padding: 20px;
     width: 100%;
@@ -567,25 +557,25 @@ h2 {
 }
 
 .btn-primary {
-    background-color: #ff5722; /* Button color matching the overall theme */
+    background-color: #ff5722; 
     border: none;
     padding: 10px 20px;
-    border-radius: 50px; /* Rounded button */
+    border-radius: 50px; 
     transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #e64a19; /* Darker shade on hover */
+    background-color: #e64a19; 
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .offer-img {
-        height: 200px; /* Adjust image height for smaller screens */
+        height: 200px; 
     }
 
     .offer-details h4 {
-        font-size: 1.25rem; /* Adjust font size for smaller screens */
+        font-size: 1.25rem; /*  font size for smaller screens */
     }
 }
 
@@ -596,7 +586,7 @@ h2 {
 /* Styling for the search bar */
 .search-bar {
     display: flex;
-    gap: 10px; /* Space between the input and the button */
+    gap: 10px; 
     width: 100%;
     max-width: 500px; /* Adjust the maximum width */
     padding-left: 25px;
@@ -607,7 +597,7 @@ h2 {
 }
 
 .search-bar .btn {
-    padding: 10px 20px; /* Add padding to the button for better appearance */
+    padding: 10px 20px; 
 }
 
 
@@ -618,18 +608,16 @@ h2 {
     position: fixed;
     top: 0;
     width: 100%;
-    /* font-weight: 600; */
     z-index: 1000;
     background-color: #fff;
     padding: 10px 24px;
-    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  */
-    font-family: 'Open Sans', sans-serif; /* Apply your preferred font */
-    font-size: 21px; /* Consistent font size */
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 21px; 
 }
 
 .nav-link {
-    font-size: 21px; /* Consistent size across pages */
-    color: #333; /* Consistent color */
+    font-size: 21px; 
+    color: #333; 
     text-transform: capitalize;
     transition: color 0.3s ease;
 }
@@ -659,25 +647,13 @@ h2 {
 
 
 
-
-
-
-
-
-
-/* register sec */
-
-
-
-
-
 /* contact section */
 
 .con-social-media {
   padding-left: 0; 
-  list-style: none; /* Remove default list styling */
-  display: flex; /* Use flexbox to align items in a row */
-  justify-content: flex-start; /* Align items to the start (left) */
+  list-style: none; 
+  display: flex; 
+  justify-content: flex-start; 
 }
 .con-social-media i {
     background: #fff;
@@ -760,7 +736,7 @@ textarea.conn-input {
 .con-btn {
   background-color: rgb(236, 65, 236);
   color: #fff;
-  width: 100%; /* Make the button cover the entire width */
+  width: 100%; 
   height: 45px;
   font-weight: 500;
   margin-top: 10px;
@@ -852,6 +828,7 @@ textarea.conn-input {
 }
 
 /* Media Queries for Responsive Design */
+
 @media (max-width: 768px) {
   /* Adjust icon size for smaller screens */
   .icon-style {
@@ -877,7 +854,7 @@ textarea.conn-input {
 }
 
 @media (max-width: 576px) {
-  /* Even smaller adjustments for very small screens (e.g., mobile devices) */
+  /* Even smaller adjustments for very small screens */
   .icon-style {
       font-size: 18px;
   }
@@ -897,23 +874,23 @@ textarea.conn-input {
 
 
 .testimonial-box {
-    background-color: #f9f9f9; /* Light background for better readability */
-    border-radius: 10px; /* Rounded corners */
-    padding: 20px; /* Padding inside the box */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .testimonial-box .stars {
-    font-size: 20px; /* Larger stars for visibility */
-    color: #ffc107; /* Gold color for stars */
+    font-size: 20px; 
+    color: #ffc107; 
 }
 
 .testimonial-box .review-text {
-    font-style: italic; /* Italic text for the review */
-    color: #6c757d; /* Muted text color */
+    font-style: italic; 
+    color: #6c757d; 
 }
 
 .testimonial-box .username {
-    font-weight: bold; /* Bold for the username */
-    color: #333; /* Darker color for better contrast */
+    font-weight: bold; 
+    color: #333; 
 }
