@@ -114,6 +114,7 @@
             background-color: #d06a00;
             transform: translateY(1px);
         }
+        
 
     </style>
 </head>
@@ -156,11 +157,19 @@
                         <img class="cart-img" src="food image/icon.png">
                         <div class="totalQuantity">0</div>
                     </div>
-                    <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
+                    <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5" id="searchIcon" style="cursor: pointer;"></i>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!-- Search Input and Results Section (Initially Hidden) -->
+<div id="searchSection" class="container-fluid search-section" style="display:none; padding: 20px 0;">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search for food items..." style="max-width: 400px; margin-bottom: 20px;">
+    <div id="searchResults" class="row">
+        <!-- Food items will be dynamically displayed here -->
+    </div>
+</div>
     
      <!-- Cart Sidebar -->
 
@@ -335,6 +344,7 @@
     <script src="cart.js"></script>
     <script src="food_item.js"></script>
     <script src="navber.js"></script>
+    
     
 </body>
 </html>

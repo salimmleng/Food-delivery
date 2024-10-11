@@ -178,15 +178,15 @@ function displayReviews(reviews) {
      // Check if the header already exists or not
      if (!document.getElementById('reviews-header')) {
         const headerHTML = `
-            <h4 id="reviews-header" class="text-center" style="font-size: 26px; font-weight: 600; color: #333; letter-spacing: 1px; padding: 10px; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px;">
-                Customer Reviews on Our Food
+            <h4 id="reviews-header" class="text-center" style="font-size: 28px; font-weight: 600; color: #333; letter-spacing: 1px; padding: 10px; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px;">
+                Customer Reviews on our food
             </h4>
         `;
         reviewlistContainer.innerHTML += headerHTML;
     }
 
     if (reviews.length === 0) {
-        reviewlistContainer.innerHTML += `<p class="text-muted text-center">No reviews yet for this item.</p>`;
+        reviewlistContainer.innerHTML += `<img src="food image/nodata1.jpg" alt="No reviews yet" class="img-fluid d-block mx-auto" style ="width: 250px">`;
         return;
     }
 
