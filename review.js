@@ -1,13 +1,39 @@
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const itemId = parseInt(urlParams.get('id'), 10);
     console.log('Item ID:', itemId); 
+
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("user_id");
 
-    // Fetch user orders to check their status
+    // any user can view this
+    fetch(`https://fooddelivery-lyart.vercel.app/food/food-item/${itemId}/`, {
+        method: 'GET',
+    })
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return res.json();
+    })
+    .then(itemData => {
+        console.log(itemData);
+
+        // Check if user is authenticated and has received the item before displaying review form
+        
+        if (token && userId) {
+            fetchUserOrdersAndCheckStatus(userId, token, itemId, itemData);
+        } else {
+            displayReviewForm(itemData, false);    
+        }
+        fetchAndDisplayReviews(itemId);
+       
+    })
+    .catch(error => console.error('Error fetching item details:', error));
+});
+
+function fetchUserOrdersAndCheckStatus(userId, token, itemId, itemData) {
     fetch(`https://fooddelivery-lyart.vercel.app/food/checkout/user/${userId}/`, {
         method: 'GET',
         headers: {
@@ -31,38 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         console.log('Is Delivered:', isDelivered); 
-
-        // Fetch specific item details
-        fetch(`https://fooddelivery-lyart.vercel.app/food/food-item/${itemId}/`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Token ${token}`
-            },
-        })
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return res.json();
-        })
-        .then(itemData => {
-            console.log(itemData);
-            displayReviewItem(itemData, isDelivered); // Pass the item data and delivery status for review display
-            fetchAndDisplayReviews(itemId);
-        })
-        .catch(error => console.error('Error fetching item details:', error));
+        displayReviewForm(itemData, isDelivered);
     })
     .catch(error => console.error('Error fetching orders:', error));
-});
+}
 
-function displayReviewItem(item, isDelivered) {
-    console.log(item);
+function displayReviewForm(item, isDelivered) {
     const token = localStorage.getItem("token");
     const reviewItemsContainer = document.getElementById('reviewItemsContainer');
     reviewItemsContainer.innerHTML = '';
 
-    // Create review form only if the item has been delivered
     const reviewItemHTML = `
         <div class="card mx-auto mb-4" style="max-width: 510px;">
             <div class="card-body">
@@ -91,14 +95,13 @@ function displayReviewItem(item, isDelivered) {
                 ` : `
                     <p class="text-muted text-center">You can only leave a review after receiving items.</p>
                 `}
-                </div>
+              </div>
             </div>
         </div>
     `;
 
     reviewItemsContainer.innerHTML = reviewItemHTML;
 
-    // If the item is delivered, attach the review form listener
     if (token && isDelivered) {
         attachReviewFormListeners(item);
     }
@@ -154,10 +157,6 @@ function submitReview(foodItemId) {
 function fetchAndDisplayReviews(foodItemId) {
     fetch(`https://fooddelivery-lyart.vercel.app/food/reviews/?food_item_id=${foodItemId}`, {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-           
-        },
     })
     .then(res => {
         if (!res.ok) {
@@ -172,11 +171,9 @@ function fetchAndDisplayReviews(foodItemId) {
 }
 
 function displayReviews(reviews) {
-    console.log(reviews)
     const reviewlistContainer = document.getElementById('reviewlistContainer');
 
-     // Check if the header already exists or not
-     if (!document.getElementById('reviews-header')) {
+    if (!document.getElementById('reviews-header')) {
         const headerHTML = `
             <h4 id="reviews-header" class="text-center" style="font-size: 28px; font-weight: 600; color: #333; letter-spacing: 1px; padding: 10px; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px;">
                 Customer Reviews on our food
@@ -186,7 +183,7 @@ function displayReviews(reviews) {
     }
 
     if (reviews.length === 0) {
-        reviewlistContainer.innerHTML += `<img src="food image/nodata1.jpg" alt="No reviews yet" class="img-fluid d-block mx-auto" style ="width: 250px">`;
+        reviewlistContainer.innerHTML += `<p class="text-muted text-center">No reviews yet for this item.</p>`;
         return;
     }
 
@@ -213,7 +210,6 @@ function displayReviews(reviews) {
     
     reviewlistContainer.innerHTML += reviewsHTML; 
 }
-
 
 
 
