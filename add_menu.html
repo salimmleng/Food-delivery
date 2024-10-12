@@ -236,6 +236,29 @@
     </div>
   </div>
 
+   <!-- add menu alert -->
+
+  <div class="modal fade" id="menuAlertModal" tabindex="-1" aria-labelledby="customAlertLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color: white;">
+        <div class="modal-body text-center">
+          <img src="food image/check.png" alt="Alert Image" class="img-fluid mb-3" style="max-width: 100px;">
+          <p class="modal-text">Menu item added successfuly</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="redirectToMenu()">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <script>
+      function redirectToMenu() {
+      window.location.href = "menu.html";
+    }
+  
+    </script>
+
  
 
     <!-- Footer Section -->

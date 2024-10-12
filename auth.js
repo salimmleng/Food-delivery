@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(data => {
         if (data.token) {
-          alert('Login successful! Token: ' + data.token);
           localStorage.setItem('token', data.token);
           localStorage.setItem('user_id', data.user_id);
           localStorage.setItem('user_role', data.user_role);

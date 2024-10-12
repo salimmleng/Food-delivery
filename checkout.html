@@ -139,7 +139,6 @@
 
 
 
-
     <div class="checkout-container container my-5">
         <div class="row">
             <!-- Checkout Form -->
@@ -213,8 +212,34 @@
     </div>
 
 
-      <!-- Footer Section -->
-      <footer class="footer py-4 bg-light mt-5">
+    <!-- order alert -->
+
+  <div class="modal fade" id="orderAlertModal" tabindex="-1" aria-labelledby="customAlertLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color: white;">
+        <div class="modal-body text-center">
+          <img src="food image/check.png" alt="Alert Image" class="img-fluid mb-3" style="max-width: 100px;">
+          <p class="modal-text">Order placed successfully! Wait for admin approval to receive food.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="redirectToHome()">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <script>
+      function redirectToHome() {
+      window.location.href = "index.html";
+    }
+  
+    </script>
+
+
+
+
+    <!-- Footer Section -->
+    <footer class="footer py-4 bg-light mt-5">
         <div class="container">
             <div class="row">
                 <!-- Company Description -->

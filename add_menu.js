@@ -39,7 +39,8 @@ const addMenu = (event) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          alert("Menu item added successfully!");
+          const alertModal = new bootstrap.Modal(document.getElementById("menuAlertModal"));
+          alertModal.show();
           
           form.reset();
         })
