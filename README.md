@@ -7,7 +7,7 @@ QuickDrop is a fast and smarter food delivery system that simplifies the entire 
 - Integration with backend API for real-time data
 
 ### Technologies Used 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 ### Project live link
@@ -23,7 +23,8 @@ https://salimmleng.github.io/Food-delivery
        open index.html
    ### That’s it! Your project should now be running locally.
        
-
+### Usage:
+ Once you open index.html in your browser, the frontend will load and connect to the backend API to display vaccine details, allow booking, and submit reviews.
 
 
 ### Contacts:
