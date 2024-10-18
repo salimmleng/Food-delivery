@@ -26,7 +26,7 @@ https://salimmleng.github.io/Food-delivery
  ### That’s it! Your project should now be running locally.
        
 ### Usage:
- Once you open index.html in your browser, the frontend will load and connect to the backend API to display vaccine details, allow booking, and submit reviews.
+ Once you open index.html in your browser, the frontend will load and connect to the backend API to display food details, allow making order, and submit reviews.
 
 
 ### Contacts:
