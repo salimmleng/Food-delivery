@@ -1,4 +1,4 @@
-### Food Delivery App
+### Project Name: QuickDrop
 QuickDrop is a fast and smarter food delivery system that simplifies the entire delivery process.
 
 ### Features
