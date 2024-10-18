@@ -21,7 +21,7 @@ https://salimmleng.github.io/Food-delivery
        cd project-name
 3. ### Open index.html in your browser:
        open index.html
-   ### That’s it! Your project should now be running locally.
+ ### That’s it! Your project should now be running locally.
        
 ### Usage:
  Once you open index.html in your browser, the frontend will load and connect to the backend API to display vaccine details, allow booking, and submit reviews.
