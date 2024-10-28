@@ -51,7 +51,7 @@ function getCSRFToken() {
 
 
 function submitOrder(event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
     const fullName = document.getElementById('fullName').value;
     const email = document.getElementById('email').value;
@@ -67,7 +67,8 @@ function submitOrder(event) {
         price: item.price
     }));
 
-    fetch('https://fooddelivery-lyart.vercel.app/food/checkout/', {
+    // Step 1:  order first
+    fetch('http://127.0.0.1:8000/food/checkout/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -84,11 +85,10 @@ function submitOrder(event) {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.GatewayPageURL) {
-            window.location.href = data.GatewayPageURL;
-        } else if (data.success) {
-           
-            fetch('https://fooddelivery-lyart.vercel.app/food/payment/', {
+        // Check if the order was placed successfully
+        if (data.success) {
+            // Step 2: payment create
+            fetch('http://127.0.0.1:8000/food/payment/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -96,17 +96,19 @@ function submitOrder(event) {
                     'X-CSRFToken': getCSRFToken(),
                 },
                 body: JSON.stringify({
-                    order_id: data.order_id,
+                    order_id: data.order_id, 
                     total_price: totalAmount,
                     full_name: fullName,
                     email: email,
-                    phone: data.phone || "01700000000",  // Adjust as needed
+                    phone: data.phone || "01700000000",  
                     address: address,
                     city: city
                 })
             })
-            .then(response => response.json())
+            .then(paymentResponse => paymentResponse.json())
             .then(paymentData => {
+               
+                console.log(paymentData)
                 if (paymentData.GatewayPageURL) {
                     // Redirect to the payment gateway
                     window.location.href = paymentData.GatewayPageURL;
@@ -117,14 +119,108 @@ function submitOrder(event) {
             })
             .catch(error => {
                 console.error('Error during payment session creation:', error);
+                alert("An error occurred during the payment process.");
             });
         } else {
-            alert('Order placed successfully, but payment session could not be created.');
+            alert('Order could not be placed. Please try again.');
         }
     })
-    
     .catch(error => {
-        console.error('Error:', error);
-        // alert("An error occurred during payment.");
+        console.error('Error placing the order:', error);
+        alert("An error occurred while placing your order.");
     });
 }
+
+
+
+
+
+
+
+// function submitOrder(event) {
+//     event.preventDefault();
+
+//     const fullName = document.getElementById('fullName').value;
+//     const email = document.getElementById('email').value;
+//     const address = document.getElementById('address').value;
+//     const city = document.getElementById('city').value;
+//     const totalAmount = parseFloat(document.querySelector('.checkoutSubtotal-value').textContent);
+
+//     // Map cart items to backend-friendly format
+//     const orderItems = cart.map(item => ({
+//         food_item: item.id,
+//         name: item.name,
+//         quantity: item.quantity,
+//         price: item.price
+//     }));
+
+//     // Step 1: Create payment session
+//     fetch('http://127.0.0.1:8000/food/payment/', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `Token ${localStorage.getItem('token')}`,
+//             'X-CSRFToken': getCSRFToken(),
+//         },
+//         body: JSON.stringify({
+//             total_price: totalAmount,
+//             full_name: fullName,
+//             email: email,
+//             phone: "01700000000",  // Adjust as needed
+//             address: address,
+//             city: city
+//         })
+//     })
+//     .then(response => response.json())
+//     .then(paymentData => {
+//         if (paymentData.GatewayPageURL) {
+//             // Redirect to the payment gateway
+//             window.location.href = paymentData.GatewayPageURL;
+//             // Assume payment is successful and then create the order
+//             createOrderAfterPayment(fullName, email, address, city, orderItems, totalAmount);
+//         } else {
+//             alert(`Payment session creation failed: ${paymentData.error}`);
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error during payment session creation:', error);
+//         alert("An error occurred during the payment process.");
+//     });
+// }
+
+
+
+
+// function createOrderAfterPayment(fullName, email, address, city, orderItems, totalAmount) {
+//     fetch('http://127.0.0.1:8000/food/checkout/', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `Token ${localStorage.getItem('token')}`,
+//         },
+//         body: JSON.stringify({
+//             full_name: fullName,
+//             email: email,
+//             address: address,
+//             city: city,
+//             order_items: orderItems,
+//             total_price: totalAmount,
+//             payment_status: 'paid',   // Example status, adjust based on actual status
+//             payment_method: 'gateway' // Example method, adjust based on actual method
+//         })
+//     })
+//     .then(response => response.json())
+//     .then(orderData => {
+//         if (orderData.success) {
+//             alert('Order successfully placed!');
+//             localStorage.removeItem("cart");
+//         } else {
+//             alert('Order placement failed. Please try again.');
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error placing the order:', error);
+//         alert("An error occurred while placing your order.");
+//     });
+// }
+
