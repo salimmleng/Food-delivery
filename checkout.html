@@ -173,25 +173,6 @@
                     </div>
                 </div>
     
-                <!-- Payment Information -->
-                <h4 class="checkout-title mt-2 mb-3">Payment Information</h4>
-                <div class="mb-4">
-                    <label for="cardNumber" class="form-label">Card Number</label>
-                    <input type="text" class="form-control" id="cardNumber" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="19" required>
-                </div>
-    
-                <div class="row">
-                    <!-- Expiry Date -->
-                    <div class="col-md-6 mb-4">
-                        <label for="expiryDate" class="form-label">Expiry Date</label>
-                        <input type="date" class="form-control" id="expiryDate" required>
-                    </div>
-                    <!-- CVV -->
-                    <div class="col-md-6 mb-4">
-                        <label for="cvv" class="form-label">CVV</label>
-                        <input type="text" class="form-control" id="cvv" placeholder="123" maxlength="4" required>
-                    </div>
-                </div>
             </form>
     
             <!-- Right side: Cart Summary -->
@@ -206,11 +187,14 @@
                         <strong>Total to pay</strong>
                         <span>$<span id="tprice" class="checkoutSubtotal-value">0.00</span></span>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 mt-4" onclick="submitOrder(event)">Confirm Order</button>
+                    <button type="submit" class="btn btn-primary w-100 mt-4" onclick="submitOrder(event)">Pay Now</button>
+
+                    
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <!-- order alert -->

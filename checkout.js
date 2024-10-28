@@ -37,47 +37,36 @@ updateSubtotal();
 
 
 
-function submitOrder() {
+function getCSRFToken() {
+    const name = 'csrftoken';
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const c = cookie.trim();
+        if (c.startsWith(name + '=')) {
+            return c.substring(name.length + 1);
+        }
+    }
+    return null;
+}
+
+
+function submitOrder(event) {
+    event.preventDefault(); // Prevent default form submission
+
     const fullName = document.getElementById('fullName').value;
     const email = document.getElementById('email').value;
     const address = document.getElementById('address').value;
     const city = document.getElementById('city').value;
-    const cardNumber = document.getElementById('cardNumber').value;
-    const expiryDate = document.getElementById('expiryDate').value;
-    const cvv = document.getElementById('cvv').value;
-    const tprice = parseInt(document.getElementById('tprice').innerText);
+    const totalAmount = parseFloat(document.querySelector('.checkoutSubtotal-value').textContent);
 
-    // Validate cart 
-    if (cart.length === 0) {
-        alert("Your cart is empty. Add items to proceed.");
-        return;
-    }
-   
-
+    // Map cart items to backend-friendly format
     const orderItems = cart.map(item => ({
         food_item: item.id,
         name: item.name,
         quantity: item.quantity,
         price: item.price
     }));
-    console.log(orderItems)
-    console.log(cart)
 
-    console.log({
-        full_name: fullName,
-        email: email,
-        address: address,
-        city: city,
-        card_number: cardNumber,
-        expiry_date: expiryDate,
-        cvv: cvv,
-        order_items: orderItems,
-        total_price: tprice,
-
-
-    })
-
-    // Send order data to the backend
     fetch('https://fooddelivery-lyart.vercel.app/food/checkout/', {
         method: 'POST',
         headers: {
@@ -89,37 +78,53 @@ function submitOrder() {
             email: email,
             address: address,
             city: city,
-            card_number: cardNumber,
-            expiry_date: expiryDate,
-            cvv: cvv,
             order_items: orderItems,
-            total_price: tprice,
+            total_price: totalAmount,
         })
-    })  
-
-        .then(response => {
-            // Check the response is JSON
-            const contentType = response.headers.get("content-type");
-            if (contentType && contentType.includes("application/json")) {
-                return response.json(); // Parse JSON if response is JSON
-            } else {
-                throw new Error("Response is not JSON. HTML might have been returned.");
-            }
-        })
-        .then(data => {
-            if (data.success) {
-                const alertModal = new bootstrap.Modal(document.getElementById("orderAlertModal"));
-                alertModal.show();
-                localStorage.setItem('order_id', data.order_id);
-                localStorage.removeItem('cart');
-            } else {
-                console.error('Error placing order:', data);
-                
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            
-        });
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.GatewayPageURL) {
+            window.location.href = data.GatewayPageURL;
+        } else if (data.success) {
+           
+            fetch('https://fooddelivery-lyart.vercel.app/food/payment/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${localStorage.getItem('token')}`,
+                    'X-CSRFToken': getCSRFToken(),
+                },
+                body: JSON.stringify({
+                    order_id: data.order_id,
+                    total_price: totalAmount,
+                    full_name: fullName,
+                    email: email,
+                    phone: data.phone || "01700000000",  // Adjust as needed
+                    address: address,
+                    city: city
+                })
+            })
+            .then(response => response.json())
+            .then(paymentData => {
+                if (paymentData.GatewayPageURL) {
+                    // Redirect to the payment gateway
+                    window.location.href = paymentData.GatewayPageURL;
+                    localStorage.removeItem("cart");
+                } else {
+                    alert(`Payment session creation failed: ${paymentData.error}`);
+                }
+            })
+            .catch(error => {
+                console.error('Error during payment session creation:', error);
+            });
+        } else {
+            alert('Order placed successfully, but payment session could not be created.');
+        }
+    })
+    
+    .catch(error => {
+        console.error('Error:', error);
+        // alert("An error occurred during payment.");
+    });
 }
-
