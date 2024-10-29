@@ -16,6 +16,112 @@
 
    
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        .contact {
+            position: relative;
+            width: 100%;
+            padding: 45px 0 15px 0;
+        }
+
+        .contact .contact-information {
+            min-height: 150px;
+            margin: 0 0 30px 0;
+            padding: 30px 15px 0 15px;
+            background: rgba(0, 0, 0, .04);
+        }
+
+        .contact .contact-info {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .contact .contact-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fbaf32;
+            border-radius: 50px;
+        }
+
+        .contact .contact-icon i {
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .contact .contact-text {
+            position: relative;
+            width: calc(100% - 50px);
+            display: flex;
+            flex-direction: column;
+            padding-left: 15px;
+        }
+
+        .contact .contact-text h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #719a0a;
+        }
+
+        .contact .contact-text p {
+            margin: 0;
+            font-size: 16px;
+            color: #454545;
+        }
+
+        .contact .contact-social a {
+            margin-right: 10px;
+            font-size: 18px;
+            color: #fbaf32;
+        }
+
+        .contact .contact-social a:hover {
+            color: #719a0a;
+        }
+
+        .contact .contact-form iframe {
+            width: 100%;
+            height: 380px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact .contact-form input {
+            padding: 15px;
+            background: none;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .contact .contact-form textarea {
+            height: 150px;
+            padding: 8px 15px;
+            background: none;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .contact .help-block ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .custom-btn{
+            background-color: #fbaf32;
+            color: #fff;
+            font-weight: bold;
+        
+        }
+        .custom-btn:hover{
+            background-color: #fbaf32;
+            color: #fff;
+        
+        }
+    </style>
    
 </head>
 
@@ -23,7 +129,7 @@
 
     <!--nabver  -->
 
-    <nav class="navbar navbar-expand-lg navbar-custom">
+    <nav class="navbar navbar-expand-lg bg-light navbar-custom">
         <div class="container-fluid">
             <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -94,67 +200,95 @@
     </div>
     
 
-    <div class="container my-5">
-        <div class="row item shadow-lg rounded">
-           
-            <div class="col-lg-6 text-center text-lg-start p-4">
-                <h2 class="first-text mb-5">Contact with us as<br>more details</h2>
-                <div class="mb-5">
-                    <div class="d-flex gap-3 mb-3">
-                        <i class="fa-regular fa-envelope" style="color: #ffffff;"></i>
-                        <small class="text-white icon-text">quickdrop@gmail.com</small>
-
-                    </div>
-                    <div class="d-flex mb-3">
-                        <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
-                        <small class="text-white icon-text ms-3">712/27 Adabor 10, Mohammadpur, Dhaka, 1207,
-                            Bangladesh</small>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <i class="fa-solid fa-phone" style="color: #ffffff;"></i>
-                        <small class="text-white icon-text ms-3">+91 9751791203, +91 9159669599</small>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <span class="second-text d-block mb-3">Connect with us:</span>
-                    <ul class="con-social-media list-inline">
-                        <li class="list-inline-item"><a target="_blank"
-                                href="https://www.facebook.com/salim.hossain.54922"><i class='bx bxl-facebook'></i></a>
-                        </li>
-                        <li class="list-inline-item"><a href="#"><i class='bx bxl-twitter'></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class='bx bxl-youtube'></i></a></li>
-                        <li class="list-inline-item"><a target="_blank"
-                                href="https://www.linkedin.com/in/salim-hossaian/"><i class='bx bxl-linkedin'></i></a>
-                        </li>
-                    </ul>
-                </div>
-
+  
+      <!-- Contact Start -->
+      <div class="contact">
+        <div class="container">
+            <div class="section-header text-center">
+                <p>Contact Us</p>
+                <h2 class="">Contact For Any Query</h2>
             </div>
+            <div class="row align-items-center contact-information">
+                <div class="col-md-6 col-lg-3">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Address</h3>
+                            <p>Mohammadpur, Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Call Us</h3>
+                            <p>+880157-1234790</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Us</h3>
+                            <p>quickdrop@hotmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-share"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Follow Us</h3>
+                            <div class="contact-social">
+                                <a href="https://github.com/salimmleng" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://www.facebook.com/salim.hossain.54922/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.linkedin.com/in/salim-hossaian/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row contact-form">
+                <div class="col-md-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14606.067940179168!2d90.3494702883601!3d23.764597896969146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c09f9ba3d447%3A0x1babce9f1c6c95a3!2sMohammadpur%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1730222567003!5m2!1sen!2sbd" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+                <div class="col-md-6">
+                    <div id="success"></div>
+                    <form name="sentMessage" id="contactForm" onsubmit="addContact(event)">
+                        <div class="control-group">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" data-validation-required-message="Please enter your name" required />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email"  data-validation-required-message="Please enter your email" required />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                       
+                        <div class="control-group">
+                            <textarea class="form-control" id="message" placeholder="Message" data-validation-required-message="Please enter your message" required ></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div>
+                            <button class="btn custom-btn" type="submit" id="sendMessageButton">Submit</button>
 
-           
-            <div class="col-lg-6 submit-form text-white p-4">
-                <h4 class="third-text">Contact us</h4>
-                <form class="contact-form" id="contact-form" onsubmit="addContact(event)">
-                    <div class="mb-4">
-                        <input class="form-control con-input" type="text" placeholder="Name" required>
-                    </div>
-                    <div class="mb-4">
-                        <input class="form-control con-input" type="email" placeholder="Email" required>
-                    </div>
-                    <div class="mb-4">
-                        <textarea class="form-control conn-input" id="message" rows="5" placeholder="Message"
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="con-btn">Send message</button>
-                </form>
-                <p id="con-message" class="mt-3"></p>
+                        </div>
+                    </form>
+                    <p id="con-message" class="mt-3"></p>
+                </div>
             </div>
         </div>
     </div>
-   
-
-
+    <!-- Contact End -->
     
      <!-- Footer Section -->
      <footer class="footer py-4 bg-light mt-5">
