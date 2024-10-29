@@ -68,7 +68,7 @@ function submitOrder(event) {
     }));
 
     // Step 1:  order first
-    fetch('http://127.0.0.1:8000/food/checkout/', {
+    fetch('https://fooddelivery-lyart.vercel.app/food/checkout/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ function submitOrder(event) {
         // Check if the order was placed successfully
         if (data.success) {
             // Step 2: payment create
-            fetch('http://127.0.0.1:8000/food/payment/', {
+            fetch('https://fooddelivery-lyart.vercel.app/food/payment/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
