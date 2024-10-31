@@ -11,11 +11,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        .checkout-container {
+        /* .checkout-container {
             max-width: 1200px;
             margin: 50px auto;
-            /* padding: 20px; */
-            /* background-color: antiquewhite; */
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
@@ -53,21 +51,91 @@
         }
 
         .cart-item {
-            /* border-bottom: 1px solid #ddd; */
+           
             padding: 10px 0;
         }
 
         .title-font {
             font-size: 15px;
             text-transform: capitalize;
-        }
+        } */
+
+        .checkout-container {
+    font-family: Arial, sans-serif;
+}
+
+.checkout-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.card {
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #555;
+}
+
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.order-part .cart-summary {
+   
+    border-radius: 8px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    font-weight: 600;
+    padding: 12px 0;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-outline-primary {
+    border: 2px solid #ff8a00;
+    color: #ff8a00;
+    font-weight: 600;
+    padding: 12px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #ff8a00;
+    border: 2px solid #ff8a00;
+   
+}
+
+.subtotal {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+
+
 
        
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-custom">
+    <nav class="navbar navbar-expand-lg bg-light navbar-custom">
         <div class="container-fluid">
             <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -111,7 +179,7 @@
 
       <!-- Cart Sidebar -->
 
-      <div id="cartSidebar" class="cart-sidebar">
+    <div id="cartSidebar" class="cart-sidebar">
         <div class="cart-header d-flex justify-content-between">
             <h4 class="text-white">My Cart</h4>
             <button type="button" class="btn-close" aria-label="Close" onclick="toggleCartSidebar()"></button>
@@ -139,29 +207,28 @@
     
 
 
-
+    <!-- 
     <div class="checkout-container container my-5">
         <div class="row">
-            <!-- Checkout Form -->
+            
             <form id="checkoutForm" class="col-md-8">
-                <!-- Left side: Shipping & Payment Information -->
+               
                 <h3 class="checkout-title my-3">Shipping & Payment</h3>
     
                 <div class="row">
-                    <!-- Full Name -->
+                   
                     <div class="col-md-6 mb-4">
                         <label for="fullName" class="form-label">Full Name</label>
                         <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
                     </div>
     
-                    <!-- Email Address -->
                     <div class="col-md-6 mb-4">
                         <label for="email" class="form-label">Email Address</label>
                         <input type="email" class="form-control" id="email" placeholder="example@example.com" required>
                     </div>
                 </div>
     
-                <!-- City and Shipping Address -->
+               
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <label for="address" class="form-label">Shipping Address</label>
@@ -175,12 +242,12 @@
     
             </form>
     
-            <!-- Right side: Cart Summary -->
+            
             <div class="col-md-4 order-part">
                 <h3 class="checkout-title my-3">My Order</h3>
                 <div class="cart-summary p-3 rounded">
                     <div id="checkoutcartItems">
-                        <!-- Cart items will be dynamically generated here -->
+                       
                     </div>
                     <hr>
                     <div class="subtotal d-flex justify-content-between">
@@ -194,7 +261,63 @@
                 </div>
             </div>
         </div>
+    </div> -->
+     
+    <!-- chouckout form -->
+    <div class="checkout-container container my-5">
+        <div class="row">
+            <!-- Checkout Form -->
+            <form id="checkoutForm" class="col-md-8">
+                <div class="card shadow-sm p-4">
+                    <h3 class="checkout-title my-3">Shipping & Payment</h3>
+                    <div class="row">
+                        <!-- Full Name -->
+                        <div class="col-md-6 mb-4">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
+                        </div>
+                        <!-- Email Address -->
+                        <div class="col-md-6 mb-4">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="example@example.com" required>
+                        </div>
+                    </div>
+                    <!-- Address and City -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label for="address" class="form-label">Shipping Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="123 Main St" required>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city" placeholder="New York" required>
+                        </div>
+                    </div>
+                </div>
+            </form>
+    
+            <!-- Cart Summary -->
+            <div class="col-md-4 order-part">
+                <div class="card shadow-sm p-4">
+                    <h3 class="checkout-title">My Order</h3>
+                    <div class="cart-summary">
+                        <div id="checkoutcartItems">
+                            <!-- Cart items will be dynamically generated here -->
+                        </div>
+                        <hr>
+                        <div class="subtotal d-flex justify-content-between align-items-center py-2">
+                            <strong>Total to pay</strong>
+                            <span class="text-primary fs-5">$<span id="tprice" class="checkoutSubtotal-value">0.00</span></span>
+                        </div>
+                        <button type="button" class="btn btn-success w-100 mt-4" onclick="submitOrder(event)">Pay Now</button>
+                        <button type="button" class="btn btn-outline-primary w-100 mt-3" onclick="confirmOrderAfterPayment(event)">Confirm Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    
+
 
 
 
@@ -220,8 +343,6 @@
     }
   
     </script>
-
-
 
 
     <!-- Footer Section -->

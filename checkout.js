@@ -153,7 +153,7 @@ function submitOrder(event) {
     }));
 
     // Step 1: Initiate payment session
-    fetch('http://127.0.0.1:8000/food/payment/', {
+    fetch('https://fooddelivery-lyart.vercel.app/food/payment/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -209,7 +209,7 @@ function confirmOrderAfterPayment(event) {
     }
 
     // Check if the payment was successful (this would typically be a backend verification)
-    fetch('http://127.0.0.1:8000/food/payment/success/', {
+    fetch('https://fooddelivery-lyart.vercel.app/food/payment/success/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -223,7 +223,7 @@ function confirmOrderAfterPayment(event) {
     .then(successData => {
         if (successData.success) {
             // Step 3: Place the order after successful payment verification
-            fetch('http://127.0.0.1:8000/food/checkout/', {
+            fetch('https://fooddelivery-lyart.vercel.app/food/checkout/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
