@@ -17,7 +17,7 @@
    
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <style>
-        .btn-add-to-cart {
+        /* .btn-add-to-cart {
             background-color: #ff8a00;
             color: white;
             font-weight: bold;
@@ -44,6 +44,58 @@
             object-fit: cover;
 
         }
+        */
+
+        /* Image hover effect */
+.detail-img {
+    transition: transform 0.3s ease;
+}
+
+.image-hover:hover {
+    transform: scale(1.05);  /* Subtle zoom */
+}
+
+/* Detail section styling */
+.detail-right {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.detail-right h2 {
+    font-size: 1.75rem;
+    color: #333;
+}
+
+.detail-right p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.price-section h5 {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+button.btn-add-to-cart {
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff8a00, #ff3d00);
+    color: #fff;
+    transition: background 0.3s;
+}
+
+button.btn-add-to-cart:hover {
+    background: linear-gradient(135deg, #ff3d00, #ff8a00);
+}
+
+
+
+
+
+
         .review-item-form {
             background-color: #f8f9fa; 
             padding: 15px; 

@@ -187,73 +187,69 @@ const getMenuDetail = () => {
     fetch(`https://fooddelivery-lyart.vercel.app/food/food-item/${menuId}/`, {
         method: "GET",
     })
-        .then((res) => res.json())
-        .then((menu) => {
-            console.log(menu)
-            console.log(menu.id)
+    .then((res) => res.json())
+    .then((menu) => {
+        console.log(menu);
 
-            const menuDetailContainer = document.getElementById("menu_detail-container");
-            const div = document.createElement("div");
-            div.classList.add("row", "container", "whole-part", "d-flex", "align-items-center", "m-auto");
+        const menuDetailContainer = document.getElementById("menu_detail-container");
+        const div = document.createElement("div");
+        div.classList.add("row", "container", "whole-part", "d-flex", "align-items-center", "m-auto", "py-5");
 
-            let buttonHTML = "";
-            if (token) {
-                buttonHTML = `
-                    <button
-                        type="button"
-                        id="addToCartButton"
-                        class="btn btn-add-to-cart font-weight-bold px-4 py-2 mt-4"
-                    >
-                        Add to Cart
-                    </button>
-                `;
-            } else {
-                buttonHTML = `
-                    <p class="mt-4">
-                        <a class="text-decoration-none btn btn-add-to-cart" href="./register.html">Add to Cart</a>
-                    </p>
-                `;
-            }
+        let buttonHTML = "";
+        if (token) {
+            buttonHTML = `
+                <button
+                    type="button"
+                    id="addToCartButton"
+                    class="btn btn-add-to-cart font-weight-bold px-4 py-2 mt-4"
+                >
+                    Add to Cart
+                </button>
+            `;
+        } else {
+            buttonHTML = `
+                <p class="mt-4">
+                    <a class="text-decoration-none btn btn-add-to-cart font-weight-bold px-4 py-2" href="./register.html">Sign Up to Add to Cart</a>
+                </p>
+            `;
+        }
 
-            div.innerHTML = `
-                <div class="col-md-6 d-flex justify-content-center">
-                    <img class="detail-img img-fluid image-hover" src="${menu.image}" alt="${menu.name} Image">
-                </div>
-                <div class="col-md-6">
-                    <div class="detail-right p-4">
-                        
-                        <ul class="list-unstyled">
-                            <li class="mb-3 d-flex align-items-center">
-                                <h6 class="text-dark card-title m-0">${menu.name}</h6>
-                            </li>
-                            <li class="mb-3 d-flex align-items-center">
-                                <h6 class="m-0">${menu.description}</h6>
-                            </li>
-                            <li class="mb-4 d-flex align-items-center">
-                                <h6 class="text-dark m-0"><strong>Price:</strong> $${menu.price}</h6>
-                            </li>
-                        </ul>
+        div.innerHTML = `
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <img class="detail-img img-fluid image-hover rounded shadow-lg" src="${menu.image}" alt="${menu.name} Image" style="max-width: 90%; border-radius: 15px;">
+            </div>
+            <div class="col-md-6">
+                <div class="detail-right p-5" style="background-color: #f9f9f9; border-radius: 15px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    <h2 class="text-dark fw-bold mb-3">${menu.name}</h2>
+                    <p class="text-muted mb-4" style="font-size: 1rem;">${menu.description}</p>
+                    <div class="d-flex align-items-center mb-4">
+                        <h5 class="text-primary fw-bold me-2">Price:</h5>
+                        <h5 class="text-dark">$${menu.price}</h5>
+                    </div>
+                    <hr class="my-4">
+                    <div class="d-flex justify-content-start align-items-center">
                         ${buttonHTML}
                     </div>
                 </div>
-            `;
-  
-            menuDetailContainer.appendChild(div);
+            </div>
+        `;
 
-            // Add event listener for "Add to Cart" button after the menu is displayed
-            if (token) {
-                document.getElementById('addToCartButton').addEventListener('click', function() {
-                    const item = {
-                        id: menu.id,
-                        name: menu.name,
-                        price: parseFloat(menu.price), // Get the price from the fetched data
-                        image: menu.image
-                    };
-                    console.log(item)
-                    addToCart(item); // Add item to cart
-                });
-            }
-        });
+        menuDetailContainer.appendChild(div);
+
+        // Add event listener for "Add to Cart" button
+        if (token) {
+            document.getElementById('addToCartButton').addEventListener('click', function() {
+                const item = {
+                    id: menu.id,
+                    name: menu.name,
+                    price: parseFloat(menu.price),
+                    image: menu.image
+                };
+                console.log(item);
+                addToCart(item);
+            });
+        }
+    });
 };
 
 // Initial setup on page load

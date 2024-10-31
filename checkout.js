@@ -50,93 +50,6 @@ function getCSRFToken() {
 }
 
 
-function submitOrder(event) {
-    event.preventDefault();
-
-    const fullName = document.getElementById('fullName').value;
-    const email = document.getElementById('email').value;
-    const address = document.getElementById('address').value;
-    const city = document.getElementById('city').value;
-    const totalAmount = parseFloat(document.querySelector('.checkoutSubtotal-value').textContent);
-
-    // Map cart items to backend-friendly format
-    const orderItems = cart.map(item => ({
-        food_item: item.id,
-        name: item.name,
-        quantity: item.quantity,
-        price: item.price
-    }));
-
-    // Step 1:  order first
-    fetch('https://fooddelivery-lyart.vercel.app/food/checkout/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Token ${localStorage.getItem('token')}`,
-        },
-        body: JSON.stringify({
-            full_name: fullName,
-            email: email,
-            address: address,
-            city: city,
-            order_items: orderItems,
-            total_price: totalAmount,
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Check if the order was placed successfully
-        if (data.success) {
-            // Step 2: payment create
-            fetch('https://fooddelivery-lyart.vercel.app/food/payment/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Token ${localStorage.getItem('token')}`,
-                    'X-CSRFToken': getCSRFToken(),
-                },
-                body: JSON.stringify({
-                    order_id: data.order_id, 
-                    total_price: totalAmount,
-                    full_name: fullName,
-                    email: email,
-                    phone: data.phone || "01700000000",  
-                    address: address,
-                    city: city
-                })
-            })
-            .then(paymentResponse => paymentResponse.json())
-            .then(paymentData => {
-               
-                console.log(paymentData)
-                if (paymentData.GatewayPageURL) {
-                    // Redirect to the payment gateway
-                    window.location.href = paymentData.GatewayPageURL;
-                    localStorage.removeItem("cart");
-                } else {
-                    alert(`Payment session creation failed: ${paymentData.error}`);
-                }
-            })
-            .catch(error => {
-                console.error('Error during payment session creation:', error);
-                alert("An error occurred during the payment process.");
-            });
-        } else {
-            alert('Order could not be placed. Please try again.');
-        }
-    })
-    .catch(error => {
-        console.error('Error placing the order:', error);
-        alert("An error occurred while placing your order.");
-    });
-}
-
-
-
-
-
-
-
 // function submitOrder(event) {
 //     event.preventDefault();
 
@@ -154,45 +67,8 @@ function submitOrder(event) {
 //         price: item.price
 //     }));
 
-//     // Step 1: Create payment session
-//     fetch('http://127.0.0.1:8000/food/payment/', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': `Token ${localStorage.getItem('token')}`,
-//             'X-CSRFToken': getCSRFToken(),
-//         },
-//         body: JSON.stringify({
-//             total_price: totalAmount,
-//             full_name: fullName,
-//             email: email,
-//             phone: "01700000000",  // Adjust as needed
-//             address: address,
-//             city: city
-//         })
-//     })
-//     .then(response => response.json())
-//     .then(paymentData => {
-//         if (paymentData.GatewayPageURL) {
-//             // Redirect to the payment gateway
-//             window.location.href = paymentData.GatewayPageURL;
-//             // Assume payment is successful and then create the order
-//             createOrderAfterPayment(fullName, email, address, city, orderItems, totalAmount);
-//         } else {
-//             alert(`Payment session creation failed: ${paymentData.error}`);
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error during payment session creation:', error);
-//         alert("An error occurred during the payment process.");
-//     });
-// }
-
-
-
-
-// function createOrderAfterPayment(fullName, email, address, city, orderItems, totalAmount) {
-//     fetch('http://127.0.0.1:8000/food/checkout/', {
+//     // Step 1:  order first
+//     fetch('https://fooddelivery-lyart.vercel.app/food/checkout/', {
 //         method: 'POST',
 //         headers: {
 //             'Content-Type': 'application/json',
@@ -205,17 +81,48 @@ function submitOrder(event) {
 //             city: city,
 //             order_items: orderItems,
 //             total_price: totalAmount,
-//             payment_status: 'paid',   // Example status, adjust based on actual status
-//             payment_method: 'gateway' // Example method, adjust based on actual method
 //         })
 //     })
 //     .then(response => response.json())
-//     .then(orderData => {
-//         if (orderData.success) {
-//             alert('Order successfully placed!');
-//             localStorage.removeItem("cart");
+//     .then(data => {
+//         // Check if the order was placed successfully
+//         if (data.success) {
+//             // Step 2: payment create
+//             fetch('https://fooddelivery-lyart.vercel.app/food/payment/', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type': 'application/json',
+//                     'Authorization': `Token ${localStorage.getItem('token')}`,
+//                     'X-CSRFToken': getCSRFToken(),
+//                 },
+//                 body: JSON.stringify({
+//                     order_id: data.order_id, 
+//                     total_price: totalAmount,
+//                     full_name: fullName,
+//                     email: email,
+//                     phone: data.phone || "01700000000",  
+//                     address: address,
+//                     city: city
+//                 })
+//             })
+//             .then(paymentResponse => paymentResponse.json())
+//             .then(paymentData => {
+               
+//                 console.log(paymentData)
+//                 if (paymentData.GatewayPageURL) {
+//                     // Redirect to the payment gateway
+//                     window.location.href = paymentData.GatewayPageURL;
+//                     // localStorage.removeItem("cart");
+//                 } else {
+//                     alert(`Payment session creation failed: ${paymentData.error}`);
+//                 }
+//             })
+//             .catch(error => {
+//                 console.error('Error during payment session creation:', error);
+//                 alert("An error occurred during the payment process.");
+//             });
 //         } else {
-//             alert('Order placement failed. Please try again.');
+//             alert('Order could not be placed. Please try again.');
 //         }
 //     })
 //     .catch(error => {
@@ -223,4 +130,128 @@ function submitOrder(event) {
 //         alert("An error occurred while placing your order.");
 //     });
 // }
+
+
+
+
+
+// Function to submit the order and initiate payment
+function submitOrder(event) {
+    event.preventDefault();
+    const userId = localStorage.getItem('user_id');
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
+    const totalAmount = parseFloat(document.querySelector('.checkoutSubtotal-value').textContent);
+
+    const orderItems = cart.map(item => ({
+        food_item: item.id,
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price
+    }));
+
+    // Step 1: Initiate payment session
+    fetch('http://127.0.0.1:8000/food/payment/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`,
+            // 'X-CSRFToken': getCSRFToken(),
+        },
+        body: JSON.stringify({
+            user_id: userId,
+            total_price: totalAmount,
+            full_name: fullName,
+            email: email,
+            address: address,
+            city: city,
+            order_items: orderItems
+        })
+    })
+    .then(paymentResponse => paymentResponse.json())
+    .then(paymentData => {
+        console.log(paymentData.order_data.transaction_id)
+        if (paymentData.GatewayPageURL) {
+            // Save order data in local storage for later confirmation
+            localStorage.setItem("paymentData", JSON.stringify({
+                full_name: fullName,
+                email: email,
+                address: address,
+                city: city,
+                order_items: orderItems,
+                total_price: totalAmount,
+                transaction_id: paymentData.order_data.transaction_id,
+            }));
+            window.location.href = paymentData.GatewayPageURL;
+        } else {
+            alert(`Payment session creation failed: ${paymentData.error}`);
+        }
+    })
+    .catch(error => {
+        console.error('Error during payment session creation:', error);
+        alert("An error occurred during the payment process.");
+    });
+}
+
+
+
+
+// Function to confirm the order after successful payment
+function confirmOrderAfterPayment(event) {
+    event.preventDefault();
+    const paymentData = JSON.parse(localStorage.getItem("paymentData"));
+
+    if (!paymentData) {
+        console.error("Payment data not found. Please try again.");
+        return;
+    }
+
+    // Check if the payment was successful (this would typically be a backend verification)
+    fetch('http://127.0.0.1:8000/food/payment/success/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify({
+            transaction_id: paymentData.transaction_id
+        })
+    })
+    .then(successResponse => successResponse.json())
+    .then(successData => {
+        if (successData.success) {
+            // Step 3: Place the order after successful payment verification
+            fetch('http://127.0.0.1:8000/food/checkout/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${localStorage.getItem('token')}`,
+                },
+                body: JSON.stringify(paymentData)
+            })
+            .then(response => response.json())
+            .then(orderData => {
+                if (orderData.success) {
+                    alert("Order successfully placed!");
+                    localStorage.removeItem("paymentData");
+                    localStorage.removeItem("cart");
+                } else {
+                    alert("Order could not be placed. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error placing the order:', error);
+                alert("An error occurred while placing your order.");
+            });
+        } else {
+            alert("Payment confirmation failed. Please try again.");
+        }
+    })
+    .catch(error => {
+        console.error('Error confirming payment:', error);
+        alert("An error occurred during payment confirmation.");
+    });
+}
 
