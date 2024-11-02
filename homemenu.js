@@ -28,7 +28,7 @@ function showCategory(categoryName) {
             if (data.length === 0) {
                 container.innerHTML = '<p>No items found.</p>';
             } else {
-                data.forEach(item => {
+                data.slice(0,6).forEach(item => {
                     console.log(); 
                     const foodCard = `
                          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
@@ -66,10 +66,6 @@ function showCategory(categoryName) {
 function viewDetails(itemId) {
     window.location.href = `menu_detail.html?id=${itemId}`;
 }
-
-
-
-
 
 
 let cart = [];
@@ -282,4 +278,3 @@ document.querySelector('.icon-cart').addEventListener('click', toggleCartSidebar
 function toggleLove(icon) {
     icon.classList.toggle('red-heart');
 }
-

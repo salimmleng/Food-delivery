@@ -93,6 +93,19 @@
               </p>
             </div>
           </form>
+
+          <div class="demo-credentials mt-4 p-3 bg-white rounded shadow-sm border">
+            <h4 class="text-center mb-2" style="font-weight: 600; color: #2c3e50;">Demo Access</h4>
+            <p class="text-center text-muted mb-3" style="font-size: 14px;">Select a role to login with demo credentials.</p>
+            <div class="d-flex justify-content-center gap-2">
+                <button class="btn btn-demo btn-doctor px-4 py-2" onclick="fillDemoCredentials('admin')">
+                    Admin 
+                </button>
+                <button class="btn btn-demo btn-patient px-4 py-2" onclick="fillDemoCredentials('customer')">
+                    Customer
+                </button>
+            </div>
+        </div>
         </div>
       </div>
     </div>
@@ -162,6 +175,28 @@
           
       </div>
   </footer>
+
+
+  <script>
+    // Demo credentials for auto-filling the form
+    const demoCredentials = {
+        admin: {
+            username: "sayed",
+            password: "salim106"
+        },
+        customer: {
+            username: "moslema",
+            password: "salim106"
+        }
+    };
+
+    // Function to fill in the demo credentials
+    function fillDemoCredentials(role) {
+        const { username, password } = demoCredentials[role];
+        document.getElementById('signin-username').value = username;
+        document.getElementById('signin-password').value = password;
+    }
+</script>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="auth.js"></script>
