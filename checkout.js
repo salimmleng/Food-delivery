@@ -50,92 +50,7 @@ function getCSRFToken() {
 }
 
 
-// function submitOrder(event) {
-//     event.preventDefault();
 
-//     const fullName = document.getElementById('fullName').value;
-//     const email = document.getElementById('email').value;
-//     const address = document.getElementById('address').value;
-//     const city = document.getElementById('city').value;
-//     const totalAmount = parseFloat(document.querySelector('.checkoutSubtotal-value').textContent);
-
-//     // Map cart items to backend-friendly format
-//     const orderItems = cart.map(item => ({
-//         food_item: item.id,
-//         name: item.name,
-//         quantity: item.quantity,
-//         price: item.price
-//     }));
-
-//     // Step 1:  order first
-//     fetch('https://fooddelivery-lyart.vercel.app/food/checkout/', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': `Token ${localStorage.getItem('token')}`,
-//         },
-//         body: JSON.stringify({
-//             full_name: fullName,
-//             email: email,
-//             address: address,
-//             city: city,
-//             order_items: orderItems,
-//             total_price: totalAmount,
-//         })
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         // Check if the order was placed successfully
-//         if (data.success) {
-//             // Step 2: payment create
-//             fetch('https://fooddelivery-lyart.vercel.app/food/payment/', {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                     'Authorization': `Token ${localStorage.getItem('token')}`,
-//                     'X-CSRFToken': getCSRFToken(),
-//                 },
-//                 body: JSON.stringify({
-//                     order_id: data.order_id, 
-//                     total_price: totalAmount,
-//                     full_name: fullName,
-//                     email: email,
-//                     phone: data.phone || "01700000000",  
-//                     address: address,
-//                     city: city
-//                 })
-//             })
-//             .then(paymentResponse => paymentResponse.json())
-//             .then(paymentData => {
-               
-//                 console.log(paymentData)
-//                 if (paymentData.GatewayPageURL) {
-//                     // Redirect to the payment gateway
-//                     window.location.href = paymentData.GatewayPageURL;
-//                     // localStorage.removeItem("cart");
-//                 } else {
-//                     alert(`Payment session creation failed: ${paymentData.error}`);
-//                 }
-//             })
-//             .catch(error => {
-//                 console.error('Error during payment session creation:', error);
-//                 alert("An error occurred during the payment process.");
-//             });
-//         } else {
-//             alert('Order could not be placed. Please try again.');
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error placing the order:', error);
-//         alert("An error occurred while placing your order.");
-//     });
-// }
-
-
-
-
-
-// Function to submit the order and initiate payment
 function submitOrder(event) {
     event.preventDefault();
     const userId = localStorage.getItem('user_id');
@@ -158,7 +73,7 @@ function submitOrder(event) {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Token ${localStorage.getItem('token')}`,
-            // 'X-CSRFToken': getCSRFToken(),
+            
         },
         body: JSON.stringify({
             user_id: userId,
@@ -172,9 +87,8 @@ function submitOrder(event) {
     })
     .then(paymentResponse => paymentResponse.json())
     .then(paymentData => {
-        console.log(paymentData.order_data.transaction_id)
+        console.log(paymentData.GatewayPageURL)
         if (paymentData.GatewayPageURL) {
-            // Save order data in local storage for later confirmation
             localStorage.setItem("paymentData", JSON.stringify({
                 full_name: fullName,
                 email: email,
@@ -182,7 +96,7 @@ function submitOrder(event) {
                 city: city,
                 order_items: orderItems,
                 total_price: totalAmount,
-                transaction_id: paymentData.order_data.transaction_id,
+                transaction_id: paymentData.transaction_id,
             }));
             window.location.href = paymentData.GatewayPageURL;
         } else {
@@ -196,9 +110,6 @@ function submitOrder(event) {
 }
 
 
-
-
-// Function to confirm the order after successful payment
 function confirmOrderAfterPayment(event) {
     event.preventDefault();
     const paymentData = JSON.parse(localStorage.getItem("paymentData"));
@@ -207,8 +118,7 @@ function confirmOrderAfterPayment(event) {
         console.error("Payment data not found. Please try again.");
         return;
     }
-
-    // Check if the payment was successful (this would typically be a backend verification)
+    // Check if the payment was successful
     fetch('https://fooddelivery-lyart.vercel.app/food/payment/success/', {
         method: 'POST',
         headers: {
@@ -221,8 +131,10 @@ function confirmOrderAfterPayment(event) {
     })
     .then(successResponse => successResponse.json())
     .then(successData => {
+        console.log(successData)
         if (successData.success) {
-            // Step 3: Place the order after successful payment verification
+
+            // Step 3: Place the order after successful payment
             fetch('https://fooddelivery-lyart.vercel.app/food/checkout/', {
                 method: 'POST',
                 headers: {

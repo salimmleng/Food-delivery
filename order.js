@@ -19,7 +19,7 @@ const loaditem = () => {
                 tr.innerHTML = `
                     <td >${order.id}</td>
                     <td>${order.email}</td>
-                    <td>${order.address}</td>
+                   
                     <td>${item.name}</td>
                     <td>${item.price}</td>
                     <td>${item.quantity}</td>

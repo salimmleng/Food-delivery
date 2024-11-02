@@ -1,400 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Page</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="menu.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    .profile-sidebar {
-      background: linear-gradient(180deg, #e6b276, #dc693f);
-      border-radius: 10px;
-      color: white;
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+   
+
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+
+  
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+
+        canvas {
+            max-height: 400px; 
+        }
+
+        /* dashboard */
+
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    ::after,
+    ::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 
-    .profile-sidebar img {
-      width: 80px;
-      height: 80px;
+    a {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;  
+        text-decoration: none; 
+        color: inherit; 
     }
 
-    .profile-sidebar h4 {
-      font-size: 18px;
-      font-weight: bold;
+    body {
+        font-family: 'Poppins', sans-serif;
     }
 
-    .profile-sidebar p {
-      font-size: 14px;
+    .wrapper {
+        display: flex;
     }
 
-    .list-group-item {
-      background: transparent;
-      font-size: 16px;
-      padding: 10px 15px;
+    .main {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        transition: all 0.35s ease-in-out;
+        background-color: #fff;
+        min-width: 0;
+       
     }
 
-    .list-group-item a {
-      color: #333;
-      text-decoration: none;
+    #sidebar {
+        width: 70px;
+        min-width: 70px;
+        z-index: 1000;
+        transition: all .25s ease-in-out;
+        background-color: #20145e;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
     }
 
-    .list-group-item a:hover {
-      color: #ff8a00;
+    #sidebar.expand {
+        width: 260px;
+        min-width: 260px;
     }
 
-    .profile-main {
-
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      background-color: #f9f9f9;
+    .toggle-btn {
+        background-color: transparent;
+        cursor: pointer;
+        border: 0;
+        padding: 1rem 1.5rem;
     }
 
-    h4 {
-      font-size: 24px;
-      font-family: 'Open Sans', sans-serif;
+    .toggle-btn i {
+        font-size: 1.5rem;
+        color: #FFF;
     }
 
-    label {
-      font-size: 16px;
+    .sidebar-logo {
+        margin: auto 0;
     }
 
-    input[type="text"],
-    input[type="email"] {
-      border: 1px solid #ced4da;
-      border-radius: 4px;
+    .sidebar-logo a {
+        color: #FFF;
+        font-size: 1.15rem;
+        font-weight: 600;
     }
 
-    .btn {
-      border-radius: 30px;
-      font-size: 16px;
-      font-weight: 500;
+    #sidebar:not(.expand) .sidebar-logo,
+    #sidebar:not(.expand) a.sidebar-link span {
+        display: none;
     }
 
-    #edit-profile {
-      transition: background-color 0.3s ease, color 0.3s ease;
+    #sidebar.expand .sidebar-logo,
+    #sidebar.expand a.sidebar-link span {
+        animation: fadeIn .25s ease;
     }
 
-    #edit-profile:hover {
-      background-color: #007bff;
-      color: white;
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
     }
 
-    #save-profile,
-    #cancel-edit {
-      transition: background-color 0.3s ease, transform 0.3s ease;
+    .sidebar-nav {
+        padding: 2rem 0;
+        flex: 1 1 auto;
     }
 
-    #save-profile:hover {
-      background-color: #28a745;
-      transform: scale(1.05);
+    a.sidebar-link {
+        padding: .625rem 1.625rem;
+        color: #FFF;
+        display: block;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        border-left: 3px solid transparent;
     }
 
-    #cancel-edit:hover {
-      background-color: #6c757d;
-      transform: scale(1.05);
+    .sidebar-link i,
+    .dropdown-item i {
+        font-size: 1.1rem;
+        margin-right: .75rem;
     }
-  </style>
+
+    a.sidebar-link:hover {
+        background-color: rgba(255, 255, 255, .075);
+        border-left: 3px solid #3b7ddd;
+    }
+
+    .sidebar-item {
+        position: relative;
+    }
+
+    #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+        position: absolute;
+        top: 0;
+        left: 70px;
+        background-color: #0e2238;
+        padding: 0;
+        min-width: 15rem;
+        display: none;
+    }
+
+    #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+        display: block;
+        max-height: 15em;
+        width: 100%;
+        opacity: 1;
+    }
+
+    #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+        border: solid;
+        border-width: 0 .075rem .075rem 0;
+        content: "";
+        display: inline-block;
+        padding: 2px;
+        position: absolute;
+        right: 1.5rem;
+        top: 1.4rem;
+        transform: rotate(-135deg);
+        transition: all .2s ease-out;
+    }
+
+    #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+        transform: rotate(45deg);
+        transition: all .2s ease-out;
+    }
+
+    .navbar {
+        background-color: #f5f5f5;
+        box-shadow: 0 0 2rem 0 rgba(33, 37, 41, .1);
+    }
+
+    .navbar-expand .navbar-collapse {
+        min-width: 200px;
+    }
+    </style>
 </head>
 <body>
 
-  <!-- navber -->
 
-  <nav class="navbar navbar-expand-lg navbar-custom">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-light navbar-custom">
     <div class="container-fluid">
-      <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="menu.html">Menu</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact us</a>
-          </li>
-        </ul>
-        <div class="d-flex gap-3 align-items-center">
-          <div class="dropdown me-3">
-            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-regular fa-user icon-style"></i>
-            </a>
-            <ul id="userDropdownMenu" class="dropdown-menu">
-              <!-- Dynamic dropdown items will be inserted here -->
+        <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact us</a>
+                </li>
             </ul>
-          </div>
-          <div class="icon-cart">
-            <img class="cart-img" src="food image/icon.png">
-            <div class="totalQuantity">0</div>
-          </div>
-          <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
+            <div class="d-flex gap-3 align-items-center">
+                <div class="dropdown me-3">
+                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-regular fa-user icon-style"></i>
+                    </a>
+                    <ul id="userDropdownMenu" class="dropdown-menu">
+                        <!-- Dynamic dropdown items will be inserted here -->
+                    </ul>
+                </div>
+                <div class="icon-cart">
+                    <img class="cart-img" src="food image/icon.png">
+                    <div class="totalQuantity">0</div>
+                </div>
+                <i class="fa-solid fa-magnifying-glass icon-style mx-2 me-5"></i>
+            </div>
         </div>
-      </div>
     </div>
-  </nav>
+</nav>
 
-
-
-   <!-- Cart Sidebar -->
-
-   <div id="cartSidebar" class="cart-sidebar">
-    <div class="cart-header d-flex justify-content-between">
-        <h4 class="text-white">My Cart</h4>
-        <button type="button" class="btn-close" aria-label="Close" onclick="toggleCartSidebar()"></button>
-
-    </div>
-
-
-    <div id="cartItems" class="cart-items">
-
-        <!-- Cart items will be dynamically added here -->
-    </div>
-
-    <div class="cart-footer">
-        <hr class="text-white">
-        <div class="subtotal-container">
-            <span class="subtotal-label">Subtotal:</span>
-            <span class="subtotal-value">$0.00</span>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <div class="d-flex">
+            <button class="toggle-btn" type="button">
+                <i class="lni lni-grid-alt"></i>
+            </button>
+            <div class="sidebar-logo">
+                <a href="#">ImmunoHub</a>
+            </div>
         </div>
-        <hr class="text-white">
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a href="profile.html" class="sidebar-link">
+                    <i class="lni lni-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="order.html" class="sidebar-link">
+                  <i class="fas fa-receipt" style="color: white;"></i>
+                  <span>My Order</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="menu.html" class="sidebar-link">
+                <i class="fas fa-utensils" style="color: white;"></i>
+                  <span>Menu</span>
+              </a>
+            </li>
+           
+            <li class="sidebar-item">
+              <a href="#" onclick="handleLogout()" class="sidebar-link">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+            
+        </ul>
+    </aside>
 
-        <button class="btn btn-checkout text-white"><a class="text-white text-decoration-none"
-                href="checkout.html">Checkout</a></button>
-    </div>
+    <!-- Main Content -->
+    <main class="content container-fluid">
+        <div class="mb-3">
+            <div class="col-md-9">
+              <div class="profile-main bg-light shadow-sm p-4 rounded">
+                <h4 class="mb-4 font-weight-bold text-primary">Profile Information</h4>
+      
+                <!-- Static View of Profile Details -->
+                <div id="profile-view">
+      
+                  <!-- Username Section -->
+                  <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
+                    <div class="col-md-1 text-center text-primary">
+                      <i class="bi bi-person" style="font-size: 24px;"></i>
+                    </div>
+                    <label class="col-md-3 font-weight-bold">Username:</label>
+                    <div class="col-md-8 text-dark" id="profile-username">Loading...</div>
+                  </div>
+      
+                  <!-- Name Section -->
+                  <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
+                    <div class="col-md-1 text-center text-primary">
+                      <i class="bi bi-person-circle" style="font-size: 24px;"></i>
+                    </div>
+                    <label class="col-md-3 font-weight-bold">Full Name:</label>
+                    <div class="col-md-8 text-dark" id="profile-name">Loading...</div>
+                  </div>
+      
+                  <!-- Email Section -->
+                  <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
+                    <div class="col-md-1 text-center text-primary">
+                      <i class="bi bi-envelope-fill" style="font-size: 24px;"></i>
+                    </div>
+                    <label class="col-md-3 font-weight-bold">Email:</label>
+                    <div class="col-md-8 text-dark" id="profile-email">Loading...</div>
+                  </div>
+      
+                  <!-- Edit Button -->
+                  <div class="row">
+                    <div class="col-md-12 text-left">
+                      <button id="edit-profile" class="btn btn-outline-primary px-4 py-2">Edit Profile</button>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Edit Mode (Hidden Initially) -->
+                <div id="edit-mode" style="display:none;">
+      
+                  <!-- Editable Username -->
+                  <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
+                    <div class="col-md-1 text-center text-primary">
+                      <i class="bi bi-person" style="font-size: 24px;"></i>
+                    </div>
+                    <label class="col-md-3 font-weight-bold">Username:</label>
+                    <div class="col-md-8">
+                      <input type="text" id="edit-username" class="form-control" placeholder="Enter username" />
+                    </div>
+                  </div>
+      
+                  <!-- Editable Full Name -->
+                  <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
+                    <div class="col-md-1 text-center text-primary">
+                      <i class="bi bi-person-circle" style="font-size: 24px;"></i>
+                    </div>
+                    <label class="col-md-3 font-weight-bold">Full Name:</label>
+                    <div class="col-md-8">
+                      <input type="text" id="edit-fullname" class="form-control" placeholder="Enter full name" />
+                    </div>
+                  </div>
+      
+                  <!-- Editable Email -->
+                  <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
+                    <div class="col-md-1 text-center text-primary">
+                      <i class="bi bi-envelope-fill" style="font-size: 24px;"></i>
+                    </div>
+                    <label class="col-md-3 font-weight-bold">Email:</label>
+                    <div class="col-md-8">
+                      <input type="email" id="edit-email" class="form-control" placeholder="Enter email" />
+                    </div>
+                  </div>
+      
+                  <!-- Save and Cancel Buttons -->
+                  <div class="row">
+                    <div class="col-md-12 text-left">
+                      <button id="save-profile" class="btn btn-success px-4 py-2 mr-2">Save Changes</button>
+                      <button id="cancel-edit" class="btn btn-secondary px-4 py-2">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+       
+    </main>
 </div>
 
 
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lTgkkzLMTL03bci3+M7Q8OwPSPa6KbEFLgFw2wiCIOwAkV2NMS0U" crossorigin="anonymous"></script>
 
 
+<script>
+    
+const hamBurger = document.querySelector(".toggle-btn");
 
-  <div class="container mt-5">
-    <div class="row">
-      <!-- Sidebar -->
-      <div class="col-12 col-md-3 bg-light mb-4 mb-md-0">
-        <div class="profile-sidebar text-center p-3">
-          <img src="food image/no image.png" alt="User Image" class="img-fluid rounded-circle mb-3">
-          <h4 id="nm"></h4>
-          <p id="em"></p>
-        </div>
+hamBurger.addEventListener("click", function () {
+  document.querySelector("#sidebar").classList.toggle("expand");
+});
+   
+</script>
 
-        <ul class="list-group mt-4 bg-light">
-          <li class="list-group-item border-0 bg-transparent">
-            <a href="#" class="text-dark d-block">
-              <i class="bi bi-person-circle me-2"></i> Change Profile
-            </a>
-          </li>
-          <li class="list-group-item border-0 bg-transparent">
-            <a href="order.html" class="text-dark d-block">
-              <i class="bi bi-list-check me-2"></i> My Order
-            </a>
-          </li>
-          <li class="list-group-item border-0 bg-transparent">
-            <a href="#" class="text-dark d-block">
-              <i class="bi bi-question-circle me-2"></i> Help
-            </a>
-          </li>
-          <li class="list-group-item border-0 bg-transparent">
-            <a href="#" class="text-dark d-block">
-              <i class="bi bi-gear-fill me-2"></i> Settings
-            </a>
-          </li>
-          <li class="list-group-item border-0 bg-transparent">
-            <a href="#" onclick="handleLogout()" class="text-dark d-block">
-              <i class="bi bi-box-arrow-right me-2"></i> Logout
-            </a>
-          </li>
-
-        </ul>
-      </div>
-
-
-      <!-- Profile Information -->
-
-      <div class="col-12 col-md-9">
-        <div class="profile-main bg-light shadow-sm p-4 rounded">
-          <h4 class="mb-4 font-weight-bold text-primary">Profile Information</h4>
-
-          <!-- Static View of Profile Details -->
-          <div id="profile-view">
-
-            <!-- Username Section -->
-            <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
-              <div class="col-2 col-md-1 text-center text-primary">
-                <i class="bi bi-person" style="font-size: 24px;"></i>
-              </div>
-              <label class="col-4 col-md-3 font-weight-bold">Username:</label>
-              <div class="col-6 col-md-8 text-dark" id="profile-username">Loading...</div>
-            </div>
-
-            <!-- Name Section -->
-            <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
-              <div class="col-2 col-md-1 text-center text-primary">
-                <i class="bi bi-person-circle" style="font-size: 24px;"></i>
-              </div>
-              <label class="col-4 col-md-3 font-weight-bold">Full Name:</label>
-              <div class="col-6 col-md-8 text-dark" id="profile-name">Loading...</div>
-            </div>
-
-            <!-- Email Section -->
-           <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
-            <div class="col-2 col-md-1 text-center text-primary">
-              <i class="bi bi-envelope-fill" style="font-size: 24px;"></i>
-            </div>
-            <label class="col-4 col-md-3 font-weight-bold">Email:</label>
-            <div class="col-6 col-md-8 text-dark" id="profile-email">Loading...</div>
-           </div>
-
-            <!-- Edit Button -->
-            <div class="row">
-              <div class="col-md-12 text-left">
-                <button id="edit-profile" class="btn btn-outline-primary px-4 py-2">Edit Profile</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Edit Mode (Hidden Initially) -->
-          <div id="edit-mode" style="display:none;">
-
-            <!-- Editable Username -->
-            <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
-              <div class="col-2 col-md-1 text-center text-primary">
-                <i class="bi bi-person" style="font-size: 24px;"></i>
-              </div>
-              <label class="col-4 col-md-3 font-weight-bold">Username:</label>
-              <div class="col-6 col-md-8">
-                <input type="text" id="edit-username" class="form-control" placeholder="Enter username" />
-              </div>
-            </div>
-
-            <!-- Editable Full Name -->
-            <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
-              <div class="col-2 col-md-1 text-center text-primary">
-                <i class="bi bi-person-circle" style="font-size: 24px;"></i>
-              </div>
-              <label class="col-4 col-md-3 font-weight-bold">Full Name:</label>
-              <div class="col-6 col-md-8">
-                <input type="text" id="edit-fullname" class="form-control" placeholder="Enter full name" />
-              </div>
-            </div>
-
-            <!-- Editable Email -->
-            <div class="row align-items-center mb-3 bg-white p-3 rounded shadow-sm">
-              <div class="col-2 col-md-1 text-center text-primary">
-                <i class="bi bi-envelope-fill" style="font-size: 24px;"></i>
-              </div>
-              <label class="col-4 col-md-3 font-weight-bold">Email:</label>
-              <div class="col-6 col-md-8">
-                <input type="email" id="edit-email" class="form-control" placeholder="Enter email" />
-              </div>
-            </div>
-
-            <!-- Save and Cancel Buttons -->
-            <div class="row">
-              <div class="col-md-12 text-left">
-                <button id="save-profile" class="btn btn-success px-4 py-2 mr-2">Save Changes</button>
-                <button id="cancel-edit" class="btn btn-secondary px-4 py-2">Cancel</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-    </div>
-  </div>
-
-
-
-
-
-  <!-- Footer Section -->
-  <footer class="footer py-4 bg-light mt-5">
-    <div class="container">
-
-      <div class="row">
-        <!-- Company Description -->
-        <div class="col-md-3 mb-3">
-          <h5 class="fw-bold text-uppercase">QuickDrop</h5>
-          <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
-          <p class="text-muted" style="line-height: 1.8; font-size: 14px;">
-            QuickDrop is your trusted solution for fast, reliable food delivery. Whether you're craving a favorite meal
-            or something new, we deliver dishes from local kitchens to your door. Enjoy convenience, speed, and quality
-            with every order.
-          </p>
-        </div>
-
-        <!-- Useful Links -->
-        <div class="col-md-3 mb-3">
-          <h5 class="fw-bold text-uppercase">Useful Links</h5>
-          <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
-          <ul class="footer-links list-unstyled mt-2">
-            <li><a href="index.html" class="text-dark">Home</a></li>
-            <li><a href="menu.html" class="text-dark">Menu</a></li>
-            <li><a href="about.html" class="text-dark">About Us</a></li>
-            <li><a href="contact.html" class="text-dark">Contact Us</a></li>
-            <li><a href="https://salimmleng.github.io/Food-delivery/about.html#faq" class="text-dark">FAQ</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact Details -->
-        <div class="col-md-3 mb-3">
-          <h5 class="fw-bold text-uppercase">Contact Details</h5>
-          <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
-          <p class="text-muted mt-2" style="font-size: 14px;">
-            <strong>Address:</strong> 123 Delicious St, Flavor Town,<br> FT 45678
-          </p>
-          <p class="text-muted" style="font-size: 14px;">
-            <strong>Phone:</strong> (123) 456-7890
-          </p>
-          <p class="text-muted" style="font-size: 14px;">
-            <strong>Email:</strong> contact@quickdrop.com
-          </p>
-        </div>
-        <!-- Social Media Icons -->
-        <div class="col-md-3 mb-3">
-          <h5 class="fw-bold text-uppercase">Stay Connected</h5>
-          <hr class="my-2" style="width: 50%; border: 1px solid #ff8a00;">
-          <div class="social-icons mt-2">
-              <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="btn-social mx-2 text-muted" style="font-size: 18px;"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-      </div>
-      </div>
-
-      <div class="row mt-4">
-        <div class="col-12 text-center">
-          <p class="mb-0 text-muted" style="font-size: 14px;">
-            &copy; 2024 <strong>QuickDrop</strong>. All rights reserved.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="profie.js"></script>
-  <script src="auth.js"></script>
-  <script src="food_item.js"></script>
-  <script src="navber.js"></script>
-
+    <script src="profie.js"></script>
+    <script src="auth.js"></script>
+    <script src="navber.js"></script>
+   
 
 </body>
 </html>

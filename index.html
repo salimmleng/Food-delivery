@@ -17,13 +17,57 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <style>
+       
+    .category-item {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
+    .category-item:hover {
+        transform: scale(1.00);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .category-text {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+    }
+    .chef-icons {
+       margin-top: 10px;
+    }
+
+    .chef-icons a {
+        margin: 0 5px;
+        font-size: 20px; 
+        text-decoration: none;
+        color: #ff5722; 
+    }
+
+    .chef-icons a:hover {
+        color: #ff5722 
+    }
+
+</style>
+  
+     
 </head>
-<body>
+<body class="bg-light">
+
+
     <!-- navber -->
-
-
-    <nav class="navbar navbar-expand-lg bg-light navbar-custom ">
+    <nav class="navbar navbar-expand-lg light navbar-custom ">
         <div class="container-fluid">
             <a class="quick px-3 text-decoration-none" href="index.html">QuickDrop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -161,99 +205,100 @@
         </div>
     </section>
 
-
-
-
-    <!-- food items -->
-
-    <section class="food-menu py-3">
+  
+    <section class="categories py-3">
         <div class="container">
-            <h6 class="text-center text-danger mt-3">Our item's</h6>
-            <h2 class="mb-4 text-center">Popular Food</h2>
+            <h6 class="text-center text-danger mt-3 mb-3">Our items</h6>
+            <h2 class="text-center mb-4">Popular Foods</h2>
             <div class="row">
-                <div class="col-md-4 col-lg-4 col-sm-6 mb-4">
-                    <div class="card food-card mb-4">
-                        <div class="img-wrapper">
-                            <img src="food image/Margherita-Pizza-5-1200.jpg" class="card-img-top" alt="Pizza">
-                            <div class="icons-wrapper">
-                                <div class="icon-container">
-                                    <a href="menu.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    <span class="icon-text">Add to Cart</span>
-                                </div>
-                                <div class="icon-container">
-                                    <a href="menu.html"><i class="fa-solid fa-eye"></i></a>
-                                    <span class="icon-text">Quick View</span>
-                                </div>
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-heart"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Margherita Pizza</h5>
-                            <p class="card-text">A classic Italian pizza topped with fresh mozzarella, tangy tomato sauce...</p>
-                            <span class="price">$17.70</span><br>
-                        </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="category-item d-flex align-items-center" onclick="showCategory('all')">
+                        <img src="food image/all.jpg" alt="All" class="category-image">
+                        <span class="category-text">All</span>
                     </div>
                 </div>
-
-
-                <div class="col-md-4 col-lg-4 col-sm-6 mb-4">
-                    <div class="card food-card mb-4">
-                        <div class="img-wrapper">
-                            <img src="food image/classic-cheeseburger-1200.jpg" class="card-img-top" alt="Pizza">
-                            <div class="icons-wrapper">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    <span class="icon-text">Add to Cart</span>
-                                </div>
-                                <div class="icon-container">
-                                    <a href="menu.html"><i class="fa-solid fa-eye"></i></a>
-                                    <span class="icon-text">Quick View</span>
-                                </div>
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-heart"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Classic Cheeseburger</h5>
-                            <p class="card-text">A juicy beef patty with melted cheddar cheese, lettuce, tomato...</p>
-                            <span class="price">$11.00</span><br>
-                        </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="category-item d-flex align-items-center" onclick="showCategory('pizza')">
+                        <img src="food image/pizzaa.jpg" alt="Pizza" class="category-image">
+                        <span class="category-text">Pizza</span>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 col-sm-6 mb-4">
-                    <div class="card food-card mb-4">
-                        <div class="img-wrapper">
-                            <img src="food image/California-Roll-7066-I-1.jpg" class="card-img-top" alt="Pizza">
-                            <div class="icons-wrapper">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    <span class="icon-text">Add to Cart</span>
-                                </div>
-                                <div class="icon-container">
-                                    <a href="menu.html"><i class="fa-solid fa-eye"></i></a>
-                                    <span class="icon-text">Quick View</span>
-                                </div>
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-heart"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">California Roll</h5>
-                            <p class="card-text">Crab, avocado, and cucumber wrapped in seaweed and rice, topped with sesame seeds..</p>
-                            <span class="price">$12.99</span><br>
-                        </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="category-item d-flex align-items-center" onclick="showCategory('burgers')">
+                        <img src="food image/Caramelized-onion-mushroom-swiss-burger.jpg" alt="Burgers" class="category-image">
+                        <span class="category-text">Burgers</span>
                     </div>
                 </div>
-
-                
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="category-item d-flex align-items-center" onclick="showCategory('sushi')">
+                        <img src="food image/sushi.jfif" alt="Sushi" class="category-image">
+                        <span class="category-text">Sushi</span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="category-item d-flex align-items-center" onclick="showCategory('pasta')">
+                        <img src="food image/pasta1.jpg" alt="Pasta" class="category-image">
+                        <span class="category-text">Pasta</span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="category-item d-flex align-items-center" onclick="showCategory('salads')">
+                        <img src="food image/salad1.jpg" alt="Salads" class="category-image">
+                        <span class="category-text">Salads</span>
+                    </div>
+                </div>
             </div>
-
         </div>
     </section>
+    
+
+
+    <!-- Food Items for Each Category -->
+    <section class="food-menu py-3">
+        <div class="container">
+            <div id="all" class="category-section">
+                <h3 class="mb-3">All Items</h3>
+                <div class="row" id="all-items-container">
+                    <!-- Items will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Placeholder for other categories -->
+            <div id="pizza" class="category-section" style="display:none;">
+                <h3 class="mb-3">Pizza</h3>
+                <div class="row" id="pizza-items-container">
+                    <!-- Items will be dynamically inserted here -->
+                </div>
+            </div>
+            <div id="burgers" class="category-section" style="display:none;">
+                <h3 class="mb-3">Burgers</h3>
+                <div class="row" id="burgers-items-container">
+                    <!-- Items will be dynamically inserted here -->
+                </div>
+            </div>
+            <div id="sushi" class="category-section" style="display:none;">
+                <h3 class="mb-3">Sushi</h3>
+                <div class="row" id="sushi-items-container">
+                    <!-- Items will be dynamically inserted here -->
+                </div>
+            </div>
+            <div id="pasta" class="category-section" style="display:none;">
+                <h3 class="mb-3">Pasta</h3>
+                <div class="row" id="pasta-items-container">
+                    <!-- Items will be dynamically inserted here -->
+                </div>
+            </div>
+            <div id="salads" class="category-section" style="display:none;">
+                <h3 class="mb-3">Salads</h3>
+                <div class="row" id="salads-items-container">
+                    <!-- Items will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
 
     <!-- special features section -->
 
@@ -392,49 +437,70 @@
 
 
     <!-- chef section -->
+  
     <section class="chef py-5">
         <div class="container">
             <div class="row text-center">
                 <div class="col-12">
                     <h6 class="text-danger">Master's chef</h6>
-                    <h2 class="mb-4">Meet our best chef</h2>
+                    <h2 class="mb-4">Meet our best chefs</h2>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                     <div class="chef-box">
-                        <img src="food image/team5.png" style="height: 200px; object-fit: cover; border-radius: 30px;"
-                            alt="">
+                        <img src="food image/team5.png" style="height: 200px; object-fit: cover; border-radius: 30px;" alt="">
                     </div>
                     <h3>Jhon Doe</h3>
-                    <h6>Head of chef</h6>
+                    <h6>Head of Chef</h6>
+                    <div class="chef-icons">
+                        <a href="#" class="text-danger"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                     <div class="chef-box">
-                        <img src="food image/team1.png" style="height: 200px; object-fit: cover; border-radius: 30px;"
-                            alt="">
+                        <img src="food image/team1.png" style="height: 200px; object-fit: cover; border-radius: 30px;" alt="">
                     </div>
                     <h3>Mishu Korish</h3>
-                    <h6>Master chef</h6>
+                    <h6>Master Chef</h6>
+                    <div class="chef-icons">
+                        <a href="#" class="text-danger"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                     <div class="chef-box">
-                        <img src="food image/team3.png" style="height: 200px; object-fit: cover; border-radius: 30px;"
-                            alt="">
+                        <img src="food image/team3.png" style="height: 200px; object-fit: cover; border-radius: 30px;" alt="">
                     </div>
                     <h3>Herry Rich</h3>
-                    <h6>Master chef</h6>
+                    <h6>Master Chef</h6>
+                    <div class="chef-icons">
+                        <a href="#" class="text-danger"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                     <div class="chef-box">
-                        <img src="food image/team6.png" style="height: 200px; object-fit: cover; border-radius: 30px;"
-                            alt="">
+                        <img src="food image/team6.png" style="height: 200px; object-fit: cover; border-radius: 30px;" alt="">
                     </div>
                     <h3>Jony Done</h3>
-                    <h6>Head of chef</h6>
+                    <h6>Head of Chef</h6>
+                    <div class="chef-icons">
+                        <a href="#" class="text-danger"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-danger"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
 
 
 

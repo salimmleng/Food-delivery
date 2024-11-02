@@ -256,29 +256,35 @@
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a href="profile.html" class="sidebar-link">
+                <a href="admin_dashboard.html" class="sidebar-link">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="admin_profile.html" class="sidebar-link">
                     <i class="lni lni-user"></i>
                     <span>Profile</span>
                 </a>
             </li>
             <li class="sidebar-item">
-              <a href="order.html" class="sidebar-link">
-                  <i class="fas fa-receipt" style="color: white;"></i>
-                  <span>My Order</span>
-              </a>
+                <a href="add_menu.html" class="sidebar-link">
+                    <i class="bi bi-plus-square me-2"></i>
+                    <span>Add menu</span>
+                </a>
             </li>
             <li class="sidebar-item">
-              <a href="menu.html" class="sidebar-link">
-                <i class="fas fa-utensils" style="color: white;"></i>
-                  <span>Menu</span>
-              </a>
+                <a href="add_category.html" class="sidebar-link">
+                    <i class="bi bi-folder-plus me-2"></i>
+                    <span>Add Category</span>
+                </a>
             </li>
-           
+        
             <li class="sidebar-item">
-              <a href="#" onclick="handleLogout()" class="sidebar-link">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Logout</span>
-              </a>
+                <a href="#" onclick="handleLogout()" class="sidebar-link">
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Logout</span>
+                </a>
             </li>
             
         </ul>
@@ -287,35 +293,43 @@
     <!-- Main Content -->
     <main class="content container-fluid">
         <div class="mb-3">
-          <div class="col-md-9">
-            <h3 class="text center my-2">Order details</h3>
-            <div class="table-responsive">
-              <table class="table table-bordered  table-striped">
-                <thead>
-                  <tr>
-                    <th class="text-center" scope="col">Id</th>
-                    <th class="text-center" scope="col">Email</th>
-                    <th class="text-center" scope="col">Item</th>
-                    <th class="text-center" scope="col">Price</th>
-                    <th class="text-center" scope="col">Quantity</th>
-                    <th class="text-center" scope="col">Total price</th>
-                    <th class="text-center" scope="col">Order Status</th>
-                    <th class="text-center" scope="col">Action</th>
+            <div class="col-md-9">
+                <div class="container mt-2">
+                    <div class="mx-auto">
+                        <div class="card shadow-lg border-0 bg-light">
+                            
+                           <!-- Card Header -->
+                            <div class="card-header text-white text-center py-3" style="background: linear-gradient(135deg, #ff8a00, #e52e71);">
+                                <h2 class="card-title mb-0" style="font-size: 24px; font-weight: 700;">Add Category</h2>
+                            </div>
+            
+                            <!-- Card Body -->
+                            <div class="card-body p-5">
+                                
+                                <!-- Form Starts -->
+                                <form id="add-category" onsubmit="addCategory(event)" method="post">
+                                    
+                                    <!-- Name and Price Row -->
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <label for="name" class="form-label font-weight-bold">Name</label>
+                                            <input type="text" class="form-control shadow-sm border-light" id="name" name="name" placeholder="Enter category name" required />
+                                        </div>
+                                       
+                                    </div>
     
-                  </tr>
-                </thead>
-                <tbody id="table-body">
-    
-    
-                </tbody>
-              </table>
+                                    <!-- Submit Button Row -->
+                                    <div class="d-flex mt-4">
+                                        <button type="submit" class="btn btn-primary shadow-lg px-5 py-2">Submit</button>
+                                    </div>
+                                </form>
+                                <!-- Form Ends -->
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-    
-          </div>
-
-          
-        
-        
         </div>
 
        
@@ -323,7 +337,38 @@
 </div>
 
 
+<!-- add category -->
+<script>
+   const addCategory = (event) => {
+    event.preventDefault();
 
+    const form = document.getElementById("add-category");
+    const formData = new FormData(form);
+    const token = localStorage.getItem("token");
+
+    fetch("http://127.0.0.1:8000/food/categories/", {
+        method: "POST",
+        headers: {
+            Authorization: `Token ${token}`,
+        },
+        body: formData,
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+        alert("Category added successfully!");
+        form.reset();
+    })
+    .catch((error) => {
+        console.error("Error adding category:", error);
+        alert("Error adding category");
+    });
+};
+
+
+</script>
+
+ 
 <!-- JavaScript -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -342,7 +387,7 @@ hamBurger.addEventListener("click", function () {
     <script src="profie.js"></script>
     <script src="auth.js"></script>
     <script src="navber.js"></script>
-    <script src="order.js"></script>
+    <script src="add_menu.js"></script>
    
 
 </body>

@@ -208,9 +208,24 @@ const getMenuDetail = () => {
             `;
         } else {
             buttonHTML = `
-                <p class="mt-4">
-                    <a class="text-decoration-none btn btn-add-to-cart font-weight-bold px-4 py-2" href="./register.html">Sign Up to Add to Cart</a>
-                </p>
+                <p class="mt-4 text-center">
+            <a
+                href="./register.html"
+                class="btn btn-signup-to-cart font-weight-bold px-4 py-2 text-decoration-none"
+                style="
+                    background-color: #4a90e2;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 1.1rem;
+                    transition: background-color 0.3s ease;
+                "
+                onmouseover="this.style.backgroundColor='#357ABD';"
+                onmouseout="this.style.backgroundColor='#4a90e2';"
+            >
+             Add to Cart
+            </a>
+        </p>
             `;
         }
 

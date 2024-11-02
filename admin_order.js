@@ -19,8 +19,6 @@ const loaditem = () => {
                     <td >${order.id}</td>
                     <td>${order.address}</td>
                     <td>${item.name}</td>
-                    <td>${item.price}</td>
-                    <td>${item.quantity}</td>
                     <td>${order.total_price}</td>
                     <td>${order.order_status}</td>
                     ${
