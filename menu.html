@@ -11,140 +11,214 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            background-color: #fff;
-        }
+    body {
+        background-color: #fff;
+    }
 
-        .modal-font {
-            font-size: 40px;
-            text-transform: uppercase;
-        }
+    .modal-font {
+        font-size: 40px;
+        text-transform: uppercase;
+    }
 
-        .food-menu-card {
-            background-color: #ffffff;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
+    .food-menu-card {
+        background-color: #ffffff;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
 
-        .food-img {
-            height: 200px;
-            object-fit: cover;
+    .food-img {
+        height: 200px;
+        object-fit: cover;
 
-        }
+    }
 
-        .category-list {
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    .category-list {
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .category-items {
-            list-style: none;
-            padding-left: 0;
-        }
+    .category-items {
+        list-style: none;
+        padding-left: 0;
+    }
 
-        .category-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+    .category-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
 
-        .category-image {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
+    .category-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
 
-        .category-item a {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            text-decoration: none;
-        }
+    .category-item a {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+    }
 
-        .category-item a:hover {
-            color: #ff8a00;
-        }
+    .category-item a:hover {
+        color: #ff8a00;
+    }
 
-        .banner {
+    .banner {
 
-            color: white;
-            text-align: center;
-            padding: 50px 0;
-            font-size: 20px;
-            font-weight: bold;
-            height: 48vh;
-        }
+        color: white;
+        text-align: center;
+        padding: 50px 0;
+        font-size: 20px;
+        font-weight: bold;
+        height: 48vh;
+    }
 
-        .bg-img {
-            background-image: url('food image/bg2.jpg');
-            background-size: cover;
-            /* Try contain or auto if cover makes it blurry */
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 53vh;
-            margin-top: 10px;
-        }
+    .bg-img {
+        background-image: url('food image/bg2.jpg');
+        background-size: cover;
+        /* Try contain or auto if cover makes it blurry */
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 53vh;
+        margin-top: 10px;
+    }
 
-        .font-menu {
-            font-size: 50px;
-        }
+    .font-menu {
+        font-size: 50px;
+    }
 
-        .btn-add-to-cart {
-            background-color: #ff8a00;
-            color: white;
-            font-weight: bold;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+    .btn-add-to-cart {
+        background-color: #ff8a00;
+        color: white;
+        font-weight: bold;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
 
-        .btn-add-to-cart:hover {
-            background-color: #e07a00;
-            transform: translateY(-2px);
-        }
+    .btn-add-to-cart:hover {
+        background-color: #e07a00;
+        transform: translateY(-2px);
+    }
 
-        .btn-add-to-cart:active {
-            background-color: #d06a00;
-            transform: translateY(1px);
-        }
+    .btn-add-to-cart:active {
+        background-color: #d06a00;
+        transform: translateY(1px);
+    }
         /*** Product ***/
-.nav-pills .nav-item .btn {
-    color: var(--dark);
-}
+    .nav-pills .nav-item .btn {
+        color: var(--dark);
+    }
 
-.nav-pills .nav-item .btn:hover,
-.nav-pills .nav-item .btn.active {
-    color: #FFFFFF;
-}
+    .nav-pills .nav-item .btn:hover,
+    .nav-pills .nav-item .btn.active {
+        color: #FFFFFF;
+    }
 
-.product-item {
-    box-shadow: 0 0 45px rgba(0, 0, 0, .07);
-}
+    .product-item {
+        box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+    }
 
-.product-item img {
-    transition: .5s;
-}
+    .product-item img {
+        transition: .5s;
+    }
 
-.product-item:hover img {
-    transform: scale(1.1);
-}
+    .product-item:hover img {
+        transform: scale(1.1);
+    }
 
-.product-item small a:hover {
-    color: var(--primary) !important;
-}
-
-
+    .product-item small a:hover {
+        color: var(--primary) !important;
+    }
 
 
-        
+     /* Overlay styling */
+     .search-overlay {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7); /* Dim background */
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .search-container {
+        position: relative;
+        text-align: center;
+        width: 90%;
+        max-width: 800px; 
+    }
+
+    .search-input {
+        width: 100%; 
+        padding: 15px;
+        font-size: 20px;
+        border: 1px solid gray;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        outline: none;
+        transition: all 0.3s ease;
+        background-color: rgb(234, 233, 233);
+        color: #333;
+        text-align: center;
+    }
+    /* Close button styling */
+    .close-btn {
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        font-size: 30px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    /* Close button hover effect */
+    .close-btn:hover {
+        color: #ff8a00; 
+    }
+
+    /* When the overlay is active, disable scrolling */
+    body.overlay-active {
+        overflow: hidden;
+    }
+    /* responsive */
+    @media (max-width: 768px) {
+        .search-container {
+            max-width: 90%;
+        }
+
+        .search-input {
+            font-size: 18px; 
+            padding: 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .search-container {
+            max-width: 100%;
+        }
+
+        .search-input {
+            font-size: 16px; 
+            padding: 14px; 
+        }
+    }
     </style>
 </head>
 
@@ -191,6 +265,14 @@
             </div>
         </div>
     </nav>
+
+     <!-- Search Overlay -->
+     <div id="searchOverlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search food here..." class="search-input" />
+            <button class="close-btn" onclick="toggleSearch()">✕</button>
+        </div>
+    </div>
 
     <!-- Search Input and Results Section (Initially Hidden) -->
 <div id="searchSection" class="container-fluid search-section" style="display:none; padding: 20px 0;">
@@ -369,6 +451,21 @@
         
     </div>
 </footer>
+
+
+
+ <!-- search -->
+ <script>
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchIcon = document.getElementById('searchIcon');
+
+    function toggleSearch() {
+        searchOverlay.style.display = searchOverlay.style.display === 'flex' ? 'none' : 'flex';
+        document.body.classList.toggle('overlay-active'); // Disable scrolling when overlay is active
+    }
+
+    searchIcon.addEventListener('click', toggleSearch);
+</script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
