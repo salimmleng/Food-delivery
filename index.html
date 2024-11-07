@@ -17,6 +17,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
        
     .category-item {
@@ -58,7 +60,78 @@
     .chef-icons a:hover {
         color: #ff5722 
     }
+     /* swipper */
 
+    .slide-img{
+        width: 100%;
+        max-height: 540px;
+        object-fit: cover;
+    }
+    .mySwiper {
+        max-width: 100%;
+       
+    }
+    .swiper-slide {
+        position: relative;
+    }
+    .slide-text {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        max-width: 80%;
+        text-align: left;  
+    }
+    .ba-title{
+        font-size: 50px;
+        font-weight: bold;
+        color: #fff;
+    }
+
+     /* Responsive */
+     @media (max-width: 1200px) {
+        .ba-title {
+            font-size: 40px;
+        }
+        .slide-text h5 {
+            font-size: 1em;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .ba-title {
+            font-size: 30px;
+        }
+        .slide-text {
+            left: 10px;
+            max-width: 90%;
+        }
+        .slide-text h5 {
+            font-size: 0.9em;
+        }
+        .banner-btn {
+            font-size: 0.9em;
+            padding: 8px 15px;
+            width: 150px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .ba-title {
+            font-size: 24px;
+        }
+        .slide-text h5 {
+            font-size: 0.8em;
+        }
+        .banner-btn {
+            font-size: 0.8em;
+            padding: 6px 12px;
+        }
+    }
+   
 </style>
   
      
@@ -138,33 +211,60 @@
     </div>
 
 
-    
 
-    <!-- banner section -->
-
-    <div class="bg">
-        <div class="row">
-            <div class="col-md-6 d-flex flex-column justify-content-center align-items-start text-white">
-                <div class="container">
-                    <h1 class="text-adjust text-dark mb-5">Delightful delivery at<br>your
-                        <span class="door">doorstep</span></h1>
-                    <a class="font-weight-bold banner-btn" href="menu.html">Order Now</a>
+    <!-- slider section -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="food image/slide1.png" class="img-fluid slide-img" alt="">
+                <div class="slide-text">
+                    <h1 class="ba-title">Fastest Food Delivery</h1>
+                    <h5>Order from your favorite restaurants and get your meal delivered hot and fresh,<br> right to your door in record time.</h5>
+                    <button style="position: relative;" class="banner-btn mt-2" onclick="location.href='menu.html';">Order Now</button>
                 </div>
-
             </div>
-            <div class="col-md-6 d-flex justify-content-start align-items-center">
-                <img src="food image/delivery-slider@3x-1-1-600x372.png" alt="Delivery Illustration"
-                    style="max-width: 100%; margin-left: -10px;">
+            
+            <div class="swiper-slide">
+                <img src="food image/slide2.png" class="img-fluid slide-img" alt="">
+                <div class="slide-text">
+                    <h1 class="ba-title">A Variety of Choices</h1>
+                    <h5>From local favorites to international cuisines, explore an endless selection of dishes<br> designed to satisfy any craving, anytime.</h5>
+                    <button style="position: relative;" class="banner-btn mt-2" onclick="location.href='menu.html';">Order Now</button>
+                </div>
+            </div>
+            
+            <div class="swiper-slide">
+                <img src="food image/slide3.png" class="img-fluid slide-img" alt="">
+                <div class="slide-text">
+                    <h1 class="ba-title">Freshness & Quality Guaranteed</h1>
+                    <h5>Every meal is prepared fresh and handled with care to deliver quality<br> that meets the highest standards, right to your plate.</h5>
+                    <button style="position: relative;" class="banner-btn mt-2" onclick="location.href='menu.html';">Order Now</button>
+                </div>
+            </div>
+            
+            <div class="swiper-slide">
+                <img src="food image/slide4.png" class="img-fluid slide-img" alt="">
+                <div class="slide-text">
+                    <h1 class="ba-title">Order Ahead, Eat on Time</h1>
+                    <h5>Customize your meal and schedule delivery at your convenience,<br> so your food arrives exactly when you want it.</h5>
+                    <button style="position: relative;" class="banner-btn mt-2" onclick="location.href='menu.html';">Order Now</button>
+                </div>
+            </div>
+            
+            <div class="swiper-slide">
+                <img src="food image/slidee7.png" class="img-fluid slide-img" alt="">
+                <div class="slide-text">
+                    <h1 class="ba-title">Bringing You Local Flavors</h1>
+                    <h5>Support your favorite local restaurants and enjoy authentic flavors<br> delivered from the best eateries in town.</h5>
+                    <button style="position: relative;" class="banner-btn mt-2" onclick="location.href='menu.html';">Order Now</button>
+                </div>
             </div>
         </div>
+        
+        <div class="swiper-pagination"></div>
     </div>
-
-
     
-
-
-
-
+    
     <!-- How It Works Section -->
     <section class="how-it-works py-5 bg-light">
         <div class="container">
@@ -381,12 +481,6 @@
                     </div>
                     <h3>Jhon Doe</h3>
                     <h6>Head of Chef</h6>
-                    <div class="chef-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                     <div class="chef-box">
@@ -394,12 +488,6 @@
                     </div>
                     <h3>Mishu Korish</h3>
                     <h6>Master Chef</h6>
-                    <div class="chef-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                     <div class="chef-box">
@@ -407,12 +495,6 @@
                     </div>
                     <h3>Herry Rich</h3>
                     <h6>Master Chef</h6>
-                    <div class="chef-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                     <div class="chef-box">
@@ -420,12 +502,6 @@
                     </div>
                     <h3>Jony Done</h3>
                     <h6>Head of Chef</h6>
-                    <div class="chef-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -540,6 +616,29 @@
             
         </div>
     </footer>
+
+
+    <!-- swippy slider -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          spaceBetween: 30,
+          centeredSlides: true,
+          autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+    </script>
 
 
     

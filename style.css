@@ -46,7 +46,6 @@ h1 {
   border-radius: 10px; 
   text-decoration: none; 
   font-weight: bold; 
-  margin-left: 25px;
   transition: background-color 0.3s ease;
 }
 .door{
