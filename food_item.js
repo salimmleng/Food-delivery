@@ -69,9 +69,6 @@ function viewDetails(itemId) {
 
 
 
-
-
-
 let cart = [];
 function toggleCartSidebar() {
     document.getElementById('cartSidebar').classList.toggle('active');
@@ -216,6 +213,7 @@ const getMenuDetail = () => {
 
         div.innerHTML = `
             <div class="col-md-6 d-flex justify-content-center align-items-center">
+                
                 <img class="detail-img img-fluid image-hover rounded shadow-lg" src="${menu.image}" alt="${menu.name} Image" style="max-width: 90%; border-radius: 15px;">
             </div>
             <div class="col-md-6">
