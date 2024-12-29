@@ -12,6 +12,23 @@
       body{
         background-image: url('food image/sign1.png');
       }
+    .btn-admin{
+        background-color: #3498db;
+        color: white;
+    }
+
+    .btn-admin:hover {
+        background-color: #2980b9;
+    }
+
+    .btn-customer {
+        background-color: #2ecc71;
+        color: white;
+    }
+
+    .btn-customer:hover {
+        background-color: #27ae60;
+    }
     </style>
 
 </head>
@@ -98,10 +115,10 @@
             <h4 class="text-center mb-2" style="font-weight: 600; color: #2c3e50;">Demo Access</h4>
             <p class="text-center text-muted mb-3" style="font-size: 14px;">Select a role to login with demo credentials.</p>
             <div class="d-flex justify-content-center gap-2">
-                <button class="btn btn-demo btn-doctor px-4 py-2" onclick="fillDemoCredentials('admin')">
+                <button class="btn btn-demo btn-admin px-4 py-2" onclick="fillDemoCredentials('admin')">
                     Admin 
                 </button>
-                <button class="btn btn-demo btn-patient px-4 py-2" onclick="fillDemoCredentials('customer')">
+                <button class="btn btn-demo btn-customer px-4 py-2" onclick="fillDemoCredentials('customer')">
                     Customer
                 </button>
             </div>
